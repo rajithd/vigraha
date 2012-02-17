@@ -1,0 +1,13 @@
+#Data Loader
+
+## Build Requirements
+    * JDK 1.6 or highrt
+    * Maven 2.2.1  or higher
+
+## Build Project
+    * mvn clean install
+
+## Deploy Project
+    * unzip target/data-loader.zip
+    * Configure log path in data-loader/conf/log4.xml
+    * Go to data-loader/bin and execute ./bin start
