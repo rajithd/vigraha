@@ -75,5 +75,12 @@
         </property>
     </bean>
 
+    <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="voiceCallUploadManagerServiceTrigger"/>
+            </list>
+        </property>
+    </bean>
 
 </beans>
