@@ -83,4 +83,54 @@
         </property>
     </bean>
 
+    <!-- Quartz -->
+    <bean id="voiceCallUploadManagerServiceTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="voiceCallTransactionManager"/>
+        <property name="cronExpression" value="${voice.call.upload.cron.expression}"/>
+    </bean>
+
+
+
+    <bean id="voiceCallTransactionManager"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="voiceCallUploadObjectTarget"/>
+        </property>
+        <property name="targetMethod">
+            <value>upload</value>
+        </property>
+    </bean>
+
+    <bean id="voiceCallUploadObjectTarget" class="vigraha.dataloader.service.impl.VoiceCallUploadManagerServiceImpl">
+        <constructor-arg index="0" type="int" value="4"/>
+        <property name="sourceDirectoryPath">
+            <value>${voice.call.upload.source.directory}</value>
+        </property>
+        <property name="archiveDirectoryPath">
+            <value>${voice.call.upload.archive.directory}</value>
+        </property>
+        <property name="columnSeparator">
+            <value>${voice.call.upload.column.separator}</value>
+        </property>
+        <property name="fileNamePattern">
+            <value>${voice.call.upload.file.pattern}</value>
+        </property>
+        <property name="poolSize">
+            <value>${voice.call.upload.thread.pool.size}</value>
+        </property>
+        <property name="rawBreaker">
+            <value>${voice.call.upload.row.breaker}</value>
+        </property>
+        <property name="transactionRepository" ref="voiceCallTransactionRepository" />
+
+    </bean>
+
+
+
+    <bean id="voiceCallTransactionRepository" class="vigraha.dataloader.repository.impl.VoiceCallTransactionRepositoryImpl">
+        <property name="jdbcTemplate">
+            <ref bean="jdbcTemplate"/>
+        </property>
+    </bean>
+
 </beans>
