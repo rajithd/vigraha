@@ -1,0 +1,18 @@
+1. sms log generator
+
+1.1. Requirements
+	* perl 5 (5.10.0)
+
+2. Generate data
+	* (in terminal) $perl sms_log_generator.pl
+
+	* Enter a numerical(integer) value for how many records to be generate
+
+	* Enter the full path (ie filepath and file name)
+		Example: C:\abc.log
+
+	* Enter a staring sequence for the data
+
+
+3. Configure the data
+	* By changing the variable "$separator" it will be able to change the separator

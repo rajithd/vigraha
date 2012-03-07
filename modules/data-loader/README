@@ -10,4 +10,4 @@
 ## Deploy Project
     * unzip target/data-loader.zip
     * Configure log path in data-loader/conf/log4.xml
-    * Go to data-loader/bin and execute ./bin start
+    * Go to data-loader/bin and execute ./data-loader start
