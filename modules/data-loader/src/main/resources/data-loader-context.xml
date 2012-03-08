@@ -79,6 +79,10 @@
         <property name="triggers">
             <list>
                 <ref bean="voiceCallUploadManagerServiceTrigger"/>
+                <ref bean="smsUploadManagerServiceTrigger"/>
+                <ref bean="gprsUploadManagerServiceTrigger"/>
+                <ref bean="lbsUploadManagerServiceTrigger"/>
+                <ref bean="ussdUploadManagerServiceTrigger"/>
             </list>
         </property>
     </bean>
@@ -89,12 +93,70 @@
         <property name="cronExpression" value="${voice.call.upload.cron.expression}"/>
     </bean>
 
+    <bean id="smsUploadManagerServiceTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="smsTransactionManager"/>
+        <property name="cronExpression" value="${voice.call.upload.cron.expression}"/>
+    </bean>
 
+    <bean id="gprsUploadManagerServiceTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="gprsTransactionManager"/>
+        <property name="cronExpression" value="${voice.call.upload.cron.expression}"/>
+    </bean>
+
+    <bean id="lbsUploadManagerServiceTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="lbsTransactionManager"/>
+        <property name="cronExpression" value="${voice.call.upload.cron.expression}"/>
+    </bean>
+
+    <bean id="ussdUploadManagerServiceTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="ussdTransactionManager"/>
+        <property name="cronExpression" value="${voice.call.upload.cron.expression}"/>
+    </bean>
 
     <bean id="voiceCallTransactionManager"
           class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
         <property name="targetObject">
             <ref bean="voiceCallUploadObjectTarget"/>
+        </property>
+        <property name="targetMethod">
+            <value>upload</value>
+        </property>
+    </bean>
+
+    <bean id="smsTransactionManager"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="smsUploadObjectTarget"/>
+        </property>
+        <property name="targetMethod">
+            <value>upload</value>
+        </property>
+    </bean>
+
+    <bean id="gprsTransactionManager"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="gprsUploadObjectTarget"/>
+        </property>
+        <property name="targetMethod">
+            <value>upload</value>
+        </property>
+    </bean>
+
+    <bean id="lbsTransactionManager"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="lbsUploadObjectTarget"/>
+        </property>
+        <property name="targetMethod">
+            <value>upload</value>
+        </property>
+    </bean>
+
+    <bean id="ussdTransactionManager"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="ussdUploadObjectTarget"/>
         </property>
         <property name="targetMethod">
             <value>upload</value>
@@ -125,9 +187,127 @@
 
     </bean>
 
+    <bean id="smsUploadObjectTarget" class="vigraha.dataloader.service.impl.SMSUploadManagerServiceImpl">
+        <constructor-arg index="0" type="int" value="4"/>
+        <property name="sourceDirectoryPath">
+            <value>${sms.upload.source.directory}</value>
+        </property>
+        <property name="archiveDirectoryPath">
+            <value>${sms.upload.archive.directory}</value>
+        </property>
+        <property name="columnSeparator">
+            <value>${voice.call.upload.column.separator}</value>
+        </property>
+        <property name="fileNamePattern">
+            <value>${sms.upload.file.pattern}</value>
+        </property>
+        <property name="poolSize">
+            <value>${voice.call.upload.thread.pool.size}</value>
+        </property>
+        <property name="rawBreaker">
+            <value>${voice.call.upload.row.breaker}</value>
+        </property>
+        <property name="transactionRepository" ref="smsTransactionRepository" />
 
+    </bean>
+
+    <bean id="gprsUploadObjectTarget" class="vigraha.dataloader.service.impl.GPRSUploadManagerServiceImpl">
+        <constructor-arg index="0" type="int" value="4"/>
+        <property name="sourceDirectoryPath">
+            <value>${gprs.upload.source.directory}</value>
+        </property>
+        <property name="archiveDirectoryPath">
+            <value>${gprs.upload.archive.directory}</value>
+        </property>
+        <property name="columnSeparator">
+            <value>${voice.call.upload.column.separator}</value>
+        </property>
+        <property name="fileNamePattern">
+            <value>${gprs.upload.file.pattern}</value>
+        </property>
+        <property name="poolSize">
+            <value>${voice.call.upload.thread.pool.size}</value>
+        </property>
+        <property name="rawBreaker">
+            <value>${voice.call.upload.row.breaker}</value>
+        </property>
+        <property name="transactionRepository" ref="gprsTransactionRepository" />
+
+    </bean>
+
+    <bean id="lbsUploadObjectTarget" class="vigraha.dataloader.service.impl.LBSUploadManagerServiceImpl">
+        <constructor-arg index="0" type="int" value="4"/>
+        <property name="sourceDirectoryPath">
+            <value>${lbs.upload.source.directory}</value>
+        </property>
+        <property name="archiveDirectoryPath">
+            <value>${lbs.upload.archive.directory}</value>
+        </property>
+        <property name="columnSeparator">
+            <value>${voice.call.upload.column.separator}</value>
+        </property>
+        <property name="fileNamePattern">
+            <value>${lbs.upload.file.pattern}</value>
+        </property>
+        <property name="poolSize">
+            <value>${voice.call.upload.thread.pool.size}</value>
+        </property>
+        <property name="rawBreaker">
+            <value>${voice.call.upload.row.breaker}</value>
+        </property>
+        <property name="transactionRepository" ref="lbsTransactionRepository" />
+
+    </bean>
+
+    <bean id="ussdUploadObjectTarget" class="vigraha.dataloader.service.impl.USSDUploadManagerServiceImpl">
+        <constructor-arg index="0" type="int" value="4"/>
+        <property name="sourceDirectoryPath">
+            <value>${ussd.upload.source.directory}</value>
+        </property>
+        <property name="archiveDirectoryPath">
+            <value>${ussd.upload.archive.directory}</value>
+        </property>
+        <property name="columnSeparator">
+            <value>${voice.call.upload.column.separator}</value>
+        </property>
+        <property name="fileNamePattern">
+            <value>${ussd.upload.file.pattern}</value>
+        </property>
+        <property name="poolSize">
+            <value>${voice.call.upload.thread.pool.size}</value>
+        </property>
+        <property name="rawBreaker">
+            <value>${voice.call.upload.row.breaker}</value>
+        </property>
+        <property name="transactionRepository" ref="ussdTransactionRepository" />
+
+    </bean>
 
     <bean id="voiceCallTransactionRepository" class="vigraha.dataloader.repository.impl.VoiceCallTransactionRepositoryImpl">
+        <property name="jdbcTemplate">
+            <ref bean="jdbcTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="smsTransactionRepository" class="vigraha.dataloader.repository.impl.SMSTransactionRepositoryImpl">
+        <property name="jdbcTemplate">
+            <ref bean="jdbcTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="gprsTransactionRepository" class="vigraha.dataloader.repository.impl.GPRSTransactionRepositoryImpl">
+        <property name="jdbcTemplate">
+            <ref bean="jdbcTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="lbsTransactionRepository" class="vigraha.dataloader.repository.impl.LBSTransactionRepositoryImpl">
+        <property name="jdbcTemplate">
+            <ref bean="jdbcTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="ussdTransactionRepository" class="vigraha.dataloader.repository.impl.USSDTransactionRepositoryImpl">
         <property name="jdbcTemplate">
             <ref bean="jdbcTemplate"/>
         </property>
