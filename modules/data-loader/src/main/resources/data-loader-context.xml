@@ -95,22 +95,22 @@
 
     <bean id="smsUploadManagerServiceTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
         <property name="jobDetail" ref="smsTransactionManager"/>
-        <property name="cronExpression" value="${voice.call.upload.cron.expression}"/>
+        <property name="cronExpression" value="${sms.upload.cron.expression}"/>
     </bean>
 
     <bean id="gprsUploadManagerServiceTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
         <property name="jobDetail" ref="gprsTransactionManager"/>
-        <property name="cronExpression" value="${voice.call.upload.cron.expression}"/>
+        <property name="cronExpression" value="${gprs.upload.cron.expression}"/>
     </bean>
 
     <bean id="lbsUploadManagerServiceTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
         <property name="jobDetail" ref="lbsTransactionManager"/>
-        <property name="cronExpression" value="${voice.call.upload.cron.expression}"/>
+        <property name="cronExpression" value="${lbs.upload.cron.expression}"/>
     </bean>
 
     <bean id="ussdUploadManagerServiceTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
         <property name="jobDetail" ref="ussdTransactionManager"/>
-        <property name="cronExpression" value="${voice.call.upload.cron.expression}"/>
+        <property name="cronExpression" value="${ussd.upload.cron.expression}"/>
     </bean>
 
     <bean id="voiceCallTransactionManager"
@@ -196,16 +196,16 @@
             <value>${sms.upload.archive.directory}</value>
         </property>
         <property name="columnSeparator">
-            <value>${voice.call.upload.column.separator}</value>
+            <value>${sms.upload.column.separator}</value>
         </property>
         <property name="fileNamePattern">
             <value>${sms.upload.file.pattern}</value>
         </property>
         <property name="poolSize">
-            <value>${voice.call.upload.thread.pool.size}</value>
+            <value>${sms.upload.thread.pool.size}</value>
         </property>
         <property name="rawBreaker">
-            <value>${voice.call.upload.row.breaker}</value>
+            <value>${sms.upload.row.breaker}</value>
         </property>
         <property name="transactionRepository" ref="smsTransactionRepository" />
 
@@ -220,16 +220,16 @@
             <value>${gprs.upload.archive.directory}</value>
         </property>
         <property name="columnSeparator">
-            <value>${voice.call.upload.column.separator}</value>
+            <value>${gprs.upload.column.separator}</value>
         </property>
         <property name="fileNamePattern">
             <value>${gprs.upload.file.pattern}</value>
         </property>
         <property name="poolSize">
-            <value>${voice.call.upload.thread.pool.size}</value>
+            <value>${gprs.upload.thread.pool.size}</value>
         </property>
         <property name="rawBreaker">
-            <value>${voice.call.upload.row.breaker}</value>
+            <value>${gprs.upload.row.breaker}</value>
         </property>
         <property name="transactionRepository" ref="gprsTransactionRepository" />
 
@@ -244,16 +244,16 @@
             <value>${lbs.upload.archive.directory}</value>
         </property>
         <property name="columnSeparator">
-            <value>${voice.call.upload.column.separator}</value>
+            <value>${lbs.upload.column.separator}</value>
         </property>
         <property name="fileNamePattern">
             <value>${lbs.upload.file.pattern}</value>
         </property>
         <property name="poolSize">
-            <value>${voice.call.upload.thread.pool.size}</value>
+            <value>${lbs.upload.thread.pool.size}</value>
         </property>
         <property name="rawBreaker">
-            <value>${voice.call.upload.row.breaker}</value>
+            <value>${lbs.upload.row.breaker}</value>
         </property>
         <property name="transactionRepository" ref="lbsTransactionRepository" />
 
@@ -268,16 +268,16 @@
             <value>${ussd.upload.archive.directory}</value>
         </property>
         <property name="columnSeparator">
-            <value>${voice.call.upload.column.separator}</value>
+            <value>${ussd.upload.column.separator}</value>
         </property>
         <property name="fileNamePattern">
             <value>${ussd.upload.file.pattern}</value>
         </property>
         <property name="poolSize">
-            <value>${voice.call.upload.thread.pool.size}</value>
+            <value>${ussd.upload.thread.pool.size}</value>
         </property>
         <property name="rawBreaker">
-            <value>${voice.call.upload.row.breaker}</value>
+            <value>${ussd.upload.row.breaker}</value>
         </property>
         <property name="transactionRepository" ref="ussdTransactionRepository" />
 
