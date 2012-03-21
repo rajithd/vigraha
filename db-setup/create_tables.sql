@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS `voice_call` (
 `call_type` VARCHAR (100) NOT NULL,
 PRIMARY KEY (record_id)
 )
+ENGINE= InnoDB;
 
 CREATE TABLE IF NOT EXISTS `sms` (
 `record_id` INT NOT NULL ,
@@ -23,6 +24,7 @@ CREATE TABLE IF NOT EXISTS `sms` (
 `call_type` VARCHAR (100) NOT NULL,
 PRIMARY KEY (record_id)
 )
+ENGINE= InnoDB;
 
 CREATE TABLE IF NOT EXISTS `gprs` (
 `record_id` INT NOT NULL ,
@@ -35,6 +37,7 @@ CREATE TABLE IF NOT EXISTS `gprs` (
 `call_type` VARCHAR (100) NOT NULL,
 PRIMARY KEY (record_id)
 )
+ENGINE= InnoDB;
 
 CREATE TABLE IF NOT EXISTS `lbs` (
 `record_id` INT NOT NULL ,
@@ -47,6 +50,7 @@ CREATE TABLE IF NOT EXISTS `lbs` (
 `call_type` VARCHAR (100) NOT NULL,
 PRIMARY KEY (record_id)
 )
+ENGINE= InnoDB;
 
 CREATE TABLE IF NOT EXISTS `ussd` (
 `record_id` INT NOT NULL ,
@@ -59,5 +63,4 @@ CREATE TABLE IF NOT EXISTS `ussd` (
 `call_type` VARCHAR (100) NOT NULL,
 PRIMARY KEY (record_id)
 )
-
 ENGINE= InnoDB;

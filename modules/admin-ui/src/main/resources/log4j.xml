@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration debug="false"
+                     xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+
+    <!--<appender name="console" class="org.apache.log4j.ConsoleAppender">-->
+    <!--<param name="Threshold" value="trace" />-->
+    <!--<layout class="org.apache.log4j.PatternLayout">-->
+    <!--<param name="ConversionPattern" value="%d %-5p %c{1} - [%t] [%x] %m%n" />-->
+    <!--</layout>-->
+    <!--</appender>-->
+
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{HH:mm:ss,SSS}- %m%n"/>
+        </layout>
+    </appender>
+
+    <!--
+         Read
+         http://logging.apache.org/log4j/docs/api/org/apache/log4j/DailyRollingFileAppender.html
+         for more information on DaliyRollingFileAppender configuration
+         options.
+     -->
+    <appender name="error" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="../logs/admin-ui-error.log" />
+        <param name="Threshold" value="error" />
+        <!-- uncomment this line for hourly logs-->
+        <!--<param name="DatePattern" value="'.'yyyy-MM-dd-HH"/>-->
+        <!-- uncomment this line for daily logs-->
+        <param name="DatePattern" value="'.'yyyy-MM-dd" />
+        <!-- uncomment this line for weekly logs-->
+        <!--<param name="DatePattern" value="'.'yyyy-ww"/>-->
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{DATE} %-5p %c{1} - %m%n" />
+        </layout>
+    </appender>
+
+    <appender name="trace" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="../logs/admin-ui-trace.log" />
+        <param name="Threshold" value="trace" />
+        <!-- uncomment this line for hourly logs-->
+        <!--<param name="DatePattern" value="'.'yyyy-MM-dd-HH"/>-->
+        <!-- uncomment this line for daily logs-->
+        <param name="DatePattern" value="'.'yyyy-MM-dd" />
+        <!-- uncomment this line for weekly logs-->
+        <!--<param name="DatePattern" value="'.'yyyy-ww"/>-->
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{DATE} %-5p %c{1} %x %X{ID}-[%t]- %m%n" />
+        </layout>
+    </appender>
+
+    <appender name="eventLog" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="../logs/admin-ui-trans.log" />
+        <param name="Threshold" value="info" />
+        <!-- uncomment this line for hourly logs-->
+        <!--<param name="DatePattern" value="'.'yyyy-MM-dd-HH"/>-->
+        <!-- uncomment this line for daily logs-->
+        <param name="DatePattern" value="'.'yyyy-MM-dd" />
+        <!-- uncomment this line for weekly logs-->
+        <!--<param name="DatePattern" value="'.'yyyy-ww"/>-->
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{DATE} %-5p %c{1} - %m%n" />
+        </layout>
+    </appender>
+
+
+    <root>
+        <priority value="debug" />
+        <appender-ref ref="console" />
+        <appender-ref ref="trace" />
+        <appender-ref ref="error" />
+    </root>
+</log4j:configuration>
