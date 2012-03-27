@@ -1,1 +1,5 @@
-DB_setup readme file
+#DB-Setup
+
+##executing sequence
+1.create_database.sql
+2.create_table.sql
