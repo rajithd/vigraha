@@ -20,3 +20,6 @@
 # Target folder #
 #################
 target/**/*
+/modules/reporting-ui/target/
+/modules/admin-ui/target/
+/modules/data-loader/target/
