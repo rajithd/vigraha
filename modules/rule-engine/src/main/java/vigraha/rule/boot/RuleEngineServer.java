@@ -19,5 +19,6 @@ public class RuleEngineServer {
                 "R::::::R     R:::::R u:::::::::::::::ul::::::l e::::::::eeeeeeee  \n" +
                 "R::::::R     R:::::R  uu::::::::uu:::ul::::::l  ee:::::::::::::e  \n" +
                 "RRRRRRRR     RRRRRRR    uuuuuuuu  uuuullllllll    eeeeeeeeeeeeee  ");
+        System.out.println("Started Successfully");
     }
 }
