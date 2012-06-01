@@ -28,7 +28,7 @@ public class HomeController {
     @RequestMapping(method = RequestMethod.POST)
     public void submitForm(@RequestParam("username") String username, @RequestParam("password") String password)
     {
-       jdbcTemplate.execute("select from ");
+       jdbcTemplate.execute("select `user_name` from `admin` where ");
 
     }
 
