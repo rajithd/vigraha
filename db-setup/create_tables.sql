@@ -59,3 +59,43 @@ CREATE TABLE IF NOT EXISTS `ussd` (
 PRIMARY KEY (record_id)
 )
 ENGINE= InnoDB;
+
+CREATE TABLE IF NOT EXISTS `admin` (
+`first_name` VARCHAR(15) NOT NULL ,
+`last_name` VARCHAR(20) NOT NULL ,
+`mobile_number` VARCHAR (11) NOT NULL ,
+`year_of_birth` VARCHAR (15) NOT NULL ,
+`profession` VARCHAR (15) NOT NULL ,
+`user_name` VARCHAR (20) NOT NULL ,
+`pass_word` VARCHAR (20) NOT NULL ,
+`confirm_pass_word` VARCHAR (20) NOT NULL ,
+`security_question` VARCHAR (100) NOT NULL,
+`id_number` VARCHAR (10) NOT NULL,
+`address` VARCHAR (100) NOT NULL,
+`country` VARCHAR (20) NOT NULL,
+`province` VARCHAR (20) NOT NULL,
+`city` VARCHAR (20) NOT NULL,
+`role` VARCHAR (20) NOT NULL,
+PRIMARY KEY (id_number)
+)
+ENGINE= InnoDB;
+
+CREATE TABLE IF NOT EXISTS `promotion` (
+`program_name` VARCHAR(30) NOT NULL ,
+`start_date` VARCHAR(20) NOT NULL ,
+`end_date` VARCHAR (20) NOT NULL ,
+---------------------------------------------
+`promotion_number` INT NOT NULL ,
+`execute_time` VARCHAR (15) NOT NULL ,
+---------------------------------------------
+`randomly_select` VARCHAR (20) NOT NULL ,
+`number_of_first_subscribers` INT NOT NULL ,
+`number_of_subscribers` INT NOT NULL ,
+`who_made` VARCHAR (20) NOT NULL,
+`calls` VARCHAR (15) NOT NULL,
+`sms_message` VARCHAR (200) NOT NULL,
+PRIMARY KEY (promotion_number)
+)
+ENGINE= InnoDB;
+
+

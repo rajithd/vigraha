@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <context:property-placeholder location="classpath:admin.properties"/>
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!--Driver name to connect to the database-->
+        <property name="driverClass">
+            <value>${vigraha.jdbc.driver}</value>
+        </property>
+        <!--DB URL-->
+        <property name="jdbcUrl">
+            <value>${vigraha.url}</value>
+        </property>
+        <!--DB User used to connect to the schema-->
+        <property name="user">
+            <value>${vigraha.username}</value>
+        </property>
+        <!--Password required to access for the above user-->
+        <property name="password">
+            <value>${vigraha.password}</value>
+        </property>
+        <!-- configuration pool via c3p0-->
+        <property name="acquireIncrement">
+            <value>${vigraha.c3p0.acquireIncrement}</value>
+        </property>
+        <property name="idleConnectionTestPeriod">
+            <value>${vigraha.c3p0.idleConnectionTestPeriod}</value>
+            <!-- seconds -->
+        </property>
+        <property name="maxPoolSize">
+            <value>${vigraha.c3p0.maxPoolSize}</value>
+        </property>
+        <property name="maxStatements">
+            <value>${vigraha.c3p0.maxStatements}</value>
+        </property>
+        <property name="minPoolSize">
+            <value>${vigraha.c3p0.minPoolSize}</value>
+        </property>
+        <property name="initialPoolSize">
+            <value>${vigraha.c3p0.initialPoolSize}</value>
+        </property>
+        <property name="maxIdleTime">
+            <value>${vigraha.c3p0.maxIdleTime}</value>
+        </property>
+        <property name="acquireRetryAttempts">
+            <value>${vigraha.c3p0.acquireRetryAttempts}</value>
+        </property>
+        <property name="acquireRetryDelay">
+            <value>${vigraha.c3p0.acquireRetryDelay}</value>
+        </property>
+        <property name="breakAfterAcquireFailure">
+            <value>${vigraha.c3p0.breakAfterAcquireFailure}</value>
+        </property>
+    </bean>
+
+    <bean id="jdbcTemplate"
+          class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+    </bean>
+
+    <!-- Spring Data Access Exception Translator Defintion -->
+    <bean id="jdbcExceptionTranslator" class="org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator">
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+    </bean>
+
+</beans>
