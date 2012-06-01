@@ -83,6 +83,7 @@
                 <ref bean="gprsUploadManagerServiceTrigger"/>
                 <ref bean="lbsUploadManagerServiceTrigger"/>
                 <ref bean="ussdUploadManagerServiceTrigger"/>
+                <ref bean="custUploadManagerServiceTrigger"/>
             </list>
         </property>
     </bean>
@@ -111,6 +112,11 @@
     <bean id="ussdUploadManagerServiceTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
         <property name="jobDetail" ref="ussdTransactionManager"/>
         <property name="cronExpression" value="${ussd.upload.cron.expression}"/>
+    </bean>
+
+    <bean id="custUploadManagerServiceTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="custTransactionManager"/>
+        <property name="cronExpression" value="${cust.upload.cron.expression}"/>
     </bean>
 
     <bean id="voiceCallTransactionManager"
@@ -157,6 +163,16 @@
           class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
         <property name="targetObject">
             <ref bean="ussdUploadObjectTarget"/>
+        </property>
+        <property name="targetMethod">
+            <value>upload</value>
+        </property>
+    </bean>
+
+    <bean id="custTransactionManager"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="custUploadObjectTarget"/>
         </property>
         <property name="targetMethod">
             <value>upload</value>
@@ -283,6 +299,17 @@
 
     </bean>
 
+    <bean id="custUploadObjectTarget" class="vigraha.dataloader.service.impl.CustUploadManagerServiceImpl">
+        <property name="sourceDirectoryPath">
+            <value>${cust.upload.source.directory}</value>
+        </property>
+        <property name="fileNamePattern">
+            <value>${cust.upload.file.pattern}</value>
+        </property>
+        <property name="transactionRepository" ref="custTransactionRepository" />
+
+    </bean>
+
     <bean id="voiceCallTransactionRepository" class="vigraha.dataloader.repository.impl.VoiceCallTransactionRepositoryImpl">
         <property name="jdbcTemplate">
             <ref bean="jdbcTemplate"/>
@@ -308,6 +335,12 @@
     </bean>
 
     <bean id="ussdTransactionRepository" class="vigraha.dataloader.repository.impl.USSDTransactionRepositoryImpl">
+        <property name="jdbcTemplate">
+            <ref bean="jdbcTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="custTransactionRepository" class="vigraha.dataloader.repository.CustTranactionRepository">
         <property name="jdbcTemplate">
             <ref bean="jdbcTemplate"/>
         </property>

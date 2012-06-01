@@ -44,5 +44,15 @@ public class FileHandler {
         return data;
     }
 
+    public void clearFile(String fullPath){
+        try{
+        FileWriter fstream = new FileWriter(fullPath);
+        BufferedWriter out = new BufferedWriter(fstream);
+
+        out.write("");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }
