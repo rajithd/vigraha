@@ -21,11 +21,11 @@ unless(substr($file_path, -4, 4) eq ".csv"){
 
 open (FH, ">".$file_path) or die "Can't write to ".$file_path."$!";
 
-print FH "{\"id\":\"880310186V\",\"msisdn\":\"0779545015\",\"name\":\"rajith delantha\",\"city\":\"kadawatha\"}".$row_breaker;
-print FH "{\"id\":\"880310187V\",\"msisdn\":\"0779545015\",\"name\":\"rajith delantha\",\"city\":\"kadawatha\"}".$row_breaker;
-print FH "{\"id\":\"880310188V\",\"msisdn\":\"0779545015\",\"name\":\"rajith delantha\",\"city\":\"kadawatha\"}".$row_breaker;
-print FH "{\"id\":\"880310189V\",\"msisdn\":\"0779545015\",\"name\":\"rajith delantha\",\"city\":\"kadawatha\"}".$row_breaker;
-print FH "{\"id\":\"880310180V\",\"msisdn\":\"0779545015\",\"name\":\"rajith delantha\",\"city\":\"kadawatha\"}".$row_breaker;
+print FH "[{\"id\":\"880310186V\",\"msisdn\":\"0779545015\",\"name\":\"rajith delantha\",\"city\":\"kadawatha\"},".$row_breaker;
+print FH "{\"id\":\"880310187V\",\"msisdn\":\"0779545015\",\"name\":\"rajith delantha\",\"city\":\"kadawatha\"},".$row_breaker;
+print FH "{\"id\":\"880310188V\",\"msisdn\":\"0779545015\",\"name\":\"rajith delantha\",\"city\":\"kadawatha\"},".$row_breaker;
+print FH "{\"id\":\"880310189V\",\"msisdn\":\"0779545015\",\"name\":\"rajith delantha\",\"city\":\"kadawatha\"},".$row_breaker;
+print FH "{\"id\":\"880310180V\",\"msisdn\":\"0779545015\",\"name\":\"rajith delantha\",\"city\":\"kadawatha\"}]".$row_breaker;
 
 
 
