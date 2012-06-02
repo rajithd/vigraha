@@ -28,8 +28,11 @@ public class HomeController {
     @RequestMapping(method = RequestMethod.POST)
     public void submitForm(@RequestParam("username") String username, @RequestParam("password") String password)
     {
-       jdbcTemplate.execute("select `user_name` from `admin` where ");
+      //  String u_name = jdbcTemplate.query  ("select `user_name` from `admin` where `pass_word` = password");
+        // if(u_name == username)
+         //{
 
+        // }
     }
 
 
