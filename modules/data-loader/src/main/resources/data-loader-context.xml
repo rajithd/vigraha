@@ -299,14 +299,30 @@
 
     </bean>
 
-    <bean id="custUploadObjectTarget" class="vigraha.dataloader.service.impl.CustUploadManagerServiceImpl">
+    <bean id="custUploadObjectTarget" class="vigraha.dataloader.service.impl.CustomerUploadManagerServiceImpl">
         <property name="sourceDirectoryPath">
             <value>${cust.upload.source.directory}</value>
         </property>
         <property name="fileNamePattern">
             <value>${cust.upload.file.pattern}</value>
         </property>
-        <property name="transactionRepository" ref="custTransactionRepository" />
+        <property name="archiveDirectoryPath">
+            <value>${cust.upload.archive.directory}</value>
+        </property>
+        <property name="columnSeparator">
+            <value>${cust.upload.column.separator}</value>
+        </property>
+        <property name="jsonIndex">
+            <value>${cust.upload.json.index}</value>
+        </property>
+        <property name="columnAppender">
+            <value>${cust.upload.column.appender}</value>
+        </property>
+        <property name="rowBreaker">
+            <value>${cust.upload.row.breaker}</value>
+        </property>
+        <property name="transactionRepository" ref="customerTransactionRepository" />
+        <property name="jsonDecoderService" ref="jsonDecoderService"/>
 
     </bean>
 
@@ -340,10 +356,13 @@
         </property>
     </bean>
 
-    <bean id="custTransactionRepository" class="vigraha.dataloader.repository.CustTranactionRepository">
+    <bean id="customerTransactionRepository" class="vigraha.dataloader.repository.impl.CustomerTranactionRepository">
         <property name="jdbcTemplate">
             <ref bean="jdbcTemplate"/>
         </property>
     </bean>
+
+    <bean id="jsonDecoderService" class="vigraha.dataloader.service.impl.JsonDecoderServiceImpl"/>
+
 
 </beans>

@@ -60,7 +60,7 @@ PRIMARY KEY (record_id)
 )
 ENGINE= InnoDB;
 
--- usertable
+-- customer table
 CREATE TABLE IF NOT EXISTS `customer` (
 `record_id` INT NOT NULL AUTO_INCREMENT,
 `id` VARCHAR(10) NOT NULL,
