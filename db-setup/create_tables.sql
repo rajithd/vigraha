@@ -59,3 +59,14 @@ CREATE TABLE IF NOT EXISTS `ussd` (
 PRIMARY KEY (record_id)
 )
 ENGINE= InnoDB;
+
+-- customer table
+CREATE TABLE IF NOT EXISTS `customer` (
+`record_id` INT NOT NULL AUTO_INCREMENT,
+`id` VARCHAR(10) NOT NULL,
+`msisdn` VARCHAR(15) NOT NULL,
+`name` VARCHAR(100) NOT NULL,
+`city` VARCHAR(50) NOT NULL,
+PRIMARY key(record_id)
+)
+ENGINE= InnoDB;

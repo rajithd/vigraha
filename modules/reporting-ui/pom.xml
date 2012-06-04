@@ -1,14 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
         <artifactId>vigraha</artifactId>
         <groupId>sliit.vigraha</groupId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-	<artifactId>reporting-ui</artifactId>
-	<name>reporting-ui</name>
+    <artifactId>reporting-ui</artifactId>
+    <name>reporting-ui</name>
+    <packaging>war</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jetty.version>6.1.4</jetty.version>
+        <org.springframework-version>3.1.0.RELEASE</org.springframework-version>
+        <spring.version>3.0.5.RELEASE</spring.version>
+        <slf4j.version>1.6.0</slf4j.version>
+        <java.version>1.5</java.version>
+        <junit.version>4.8.2</junit.version>
+        <birt.viewer.home>/home/rajith/softwares/birt-runtime-3_7_1/WebViewerExample
+        </birt.viewer.home>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.0.0.GA</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>c3p0</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>reporting-ui</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.8</version>
+                <configuration>
+                    <wtpversion>2.0</wtpversion>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.1</version>
+                <executions>
+                    <execution>
+                        <id>config</id>
+                        <phase>process-resources</phase>
+                        <configuration>
+                            <tasks>
+                                <copy todir="${project.build.directory}/${project.build.finalName}/report">
+                                    <fileset dir="reports/report-design">
+                                    </fileset>
+                                </copy>
+                                <copy todir="${project.build.directory}/${project.build.finalName}/webcontent">
+                                    <fileset dir="${birt.viewer.home}/webcontent">
+                                    </fileset>
+                                </copy>
+                                <copy todir="${project.build.directory}/${project.build.finalName}/WEB-INF/lib">
+                                    <fileset dir="${birt.viewer.home}/WEB-INF/lib">
+                                    </fileset>
+                                </copy>
+                                <!--<copy todir="${project.build.directory}/${project.build.finalName}/WEB-INF/platform">-->
+                                <!--<fileset dir="${birt.viewer.home}/WEB-INF/platform">-->
+                                <!--</fileset>-->
+                                <!--</copy>-->
+                                <copy todir="${project.build.directory}/${project.build.finalName}/WEB-INF/tlds">
+                                    <fileset dir="${birt.viewer.home}/WEB-INF/tlds">
+                                    </fileset>
+                                </copy>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.5</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources1</id>
+                        <!-- here the phase you need -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>
+                                ${project.build.directory}/${project.build.finalName}/webcontent/birt/pages/control
+                            </outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources/control</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-resources2</id>
+                        <!-- here the phase you need -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>
+                                ${project.build.directory}/${project.build.finalName}/webcontent/birt/pages/dialog
+                            </outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources/dialog</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-resources3</id>
+                        <!-- here the phase you need -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>
+                                ${project.build.directory}/${project.build.finalName}/webcontent/birt/pages/layout
+                            </outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources/layout</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
