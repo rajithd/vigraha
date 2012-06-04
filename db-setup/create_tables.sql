@@ -61,41 +61,48 @@ PRIMARY KEY (record_id)
 ENGINE= InnoDB;
 
 CREATE TABLE IF NOT EXISTS `admin` (
-`first_name` VARCHAR(15) NOT NULL ,
-`last_name` VARCHAR(20) NOT NULL ,
-`mobile_number` VARCHAR (11) NOT NULL ,
-`year_of_birth` VARCHAR (15) NOT NULL ,
+`firstname` VARCHAR(15) NOT NULL ,
+`lastname` VARCHAR(20) NOT NULL ,
+`mobilenumber` VARCHAR (11) NOT NULL ,
+`yearofbirth` VARCHAR (15) NOT NULL ,
 `profession` VARCHAR (15) NOT NULL ,
-`user_name` VARCHAR (20) NOT NULL ,
-`pass_word` VARCHAR (20) NOT NULL ,
-`confirm_pass_word` VARCHAR (20) NOT NULL ,
-`security_question` VARCHAR (100) NOT NULL,
-`id_number` VARCHAR (10) NOT NULL,
+`username` VARCHAR (20) NOT NULL ,
+`password` VARCHAR (20) NOT NULL ,
+`securityquestion` VARCHAR (100) NOT NULL,
+`idnumber` VARCHAR (10) NOT NULL,
 `address` VARCHAR (100) NOT NULL,
 `country` VARCHAR (20) NOT NULL,
 `province` VARCHAR (20) NOT NULL,
 `city` VARCHAR (20) NOT NULL,
 `role` VARCHAR (20) NOT NULL,
-PRIMARY KEY (id_number)
+PRIMARY KEY (idnumber)
 )
 ENGINE= InnoDB;
+
+DROP TABLE IF EXISTS `admin`;
 
 CREATE TABLE IF NOT EXISTS `promotion` (
-`program_name` VARCHAR(30) NOT NULL ,
-`start_date` VARCHAR(20) NOT NULL ,
-`end_date` VARCHAR (20) NOT NULL ,
----------------------------------------------
+`programname` VARCHAR(30) NOT NULL ,
+`startdate` VARCHAR(20) NOT NULL ,
+`enddate` VARCHAR (20) NOT NULL ,
+smstype VARCHAR(10) NOT NULL ,
+voicecalltype VARCHAR(10) NOT NULL ,
+smspromotion VARCHAR(10) NOT NULL ,
+lbspromotion VARCHAR(10) NOT NULL ,
+voicecallpromotion VARCHAR(10) NOT NULL ,
+gprspromotion VARCHAR(10) NOT NULL ,
+ussdpromotion VARCHAR(10) NOT NULL ,
 `promotion_number` INT NOT NULL ,
-`execute_time` VARCHAR (15) NOT NULL ,
----------------------------------------------
-`randomly_select` VARCHAR (20) NOT NULL ,
-`number_of_first_subscribers` INT NOT NULL ,
-`number_of_subscribers` INT NOT NULL ,
-`who_made` VARCHAR (20) NOT NULL,
+`executetime` VARCHAR (15) NOT NULL ,
+`randomlyselect` VARCHAR (20) NOT NULL ,
+`numberoffirstsubscribers` INT NOT NULL ,
+`numberofsubscribers` INT NOT NULL ,
+`whomade` VARCHAR (20) NOT NULL,
 `calls` VARCHAR (15) NOT NULL,
-`sms_message` VARCHAR (200) NOT NULL,
-PRIMARY KEY (promotion_number)
+`smsmessage` VARCHAR (200) NOT NULL,
+PRIMARY KEY (promotionnumber)
 )
 ENGINE= InnoDB;
 
-
+insert into `admin` values("admin","lastname","mobileno","yearofbirth","profession","admin","123","securityqu",
+              "1","address","country","province","city","role");

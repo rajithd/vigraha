@@ -13,51 +13,51 @@
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <!--Driver name to connect to the database-->
         <property name="driverClass">
-            <value>${db.driver}</value>
+            <value>${vigraha.jdbc.driver}</value>
         </property>
         <!--DB URL-->
         <property name="jdbcUrl">
-            <value>${db.url}</value>
+            <value>${vigraha.url}</value>
         </property>
         <!--DB User used to connect to the schema-->
         <property name="user">
-            <value>${db.username}</value>
+            <value>${vigraha.username}</value>
         </property>
         <!--Password required to access for the above user-->
         <property name="password">
-            <value>${db.password}</value>
+            <value>${vigraha.password}</value>
         </property>
         <!-- configuration pool via c3p0-->
         <property name="acquireIncrement">
-            <value>${db.c3p0.acquireIncrement}</value>
+            <value>${vigraha.c3p0.acquireIncrement}</value>
         </property>
         <property name="idleConnectionTestPeriod">
-            <value>${db.c3p0.idleConnectionTestPeriod}</value>
+            <value>${vigraha.c3p0.idleConnectionTestPeriod}</value>
             <!-- seconds -->
         </property>
         <property name="maxPoolSize">
-            <value>${db.c3p0.maxPoolSize}</value>
+            <value>${vigraha.c3p0.maxPoolSize}</value>
         </property>
         <property name="maxStatements">
-            <value>${db.c3p0.maxStatements}</value>
+            <value>${vigraha.c3p0.maxStatements}</value>
         </property>
         <property name="minPoolSize">
-            <value>${db.c3p0.minPoolSize}</value>
+            <value>${vigraha.c3p0.minPoolSize}</value>
         </property>
         <property name="initialPoolSize">
-            <value>${db.c3p0.initialPoolSize}</value>
+            <value>${vigraha.c3p0.initialPoolSize}</value>
         </property>
         <property name="maxIdleTime">
-            <value>${db.c3p0.maxIdleTime}</value>
+            <value>${vigraha.c3p0.maxIdleTime}</value>
         </property>
         <property name="acquireRetryAttempts">
-            <value>${db.c3p0.acquireRetryAttempts}</value>
+            <value>${vigraha.c3p0.acquireRetryAttempts}</value>
         </property>
         <property name="acquireRetryDelay">
-            <value>${db.c3p0.acquireRetryDelay}</value>
+            <value>${vigraha.c3p0.acquireRetryDelay}</value>
         </property>
         <property name="breakAfterAcquireFailure">
-            <value>${db.c3p0.breakAfterAcquireFailure}</value>
+            <value>${vigraha.c3p0.breakAfterAcquireFailure}</value>
         </property>
     </bean>
 
@@ -74,7 +74,17 @@
             <ref bean="dataSource"/>
         </property>
     </bean>
+    
+    <bean id="loginRepository" class="vigraha.admin.repository.LoginRepository">
+          <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
 
+     <bean id="registerRepository" class="vigraha.admin.repository.RegisterRepository">
+         <property name="jdbcTemplate" ref="jdbcTemplate"/>
+     </bean>
 
+    <bean id="promotionRepository" class="vigraha.admin.repository.PromotionRepository">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
 
 </beans>
