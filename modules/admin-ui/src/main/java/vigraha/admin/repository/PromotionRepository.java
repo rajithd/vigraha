@@ -10,5 +10,6 @@ public class PromotionRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    //public boolean isSuccessfullSavePromotion()
+   // public boolean isSuccessfullSavePromotion()
+
 }
