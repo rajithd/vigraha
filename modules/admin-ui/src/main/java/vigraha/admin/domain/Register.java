@@ -1,14 +1,14 @@
 package vigraha.admin.domain;
 
 public class Register {
-    private String first_name;
-    private String last_name;
-    private String mobile_number;
-    private String year_of_birth;
+    private String firstname;
+    private String lastname;
+    private String mobilenumber;
+    private String yearofbirth;
     private String profession;
-    private String user_name;
+    private String username;
     private String password;
-    private String security_question;
+    private String securityquestion;
     private String nic;
     private String address;
     private String country;
@@ -16,19 +16,19 @@ public class Register {
     private String city;
 
     public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+        this.firstname = first_name;
     }
 
     public void setLast_name(String last_name) {
-        this.last_name = last_name;
+        this.lastname = last_name;
     }
 
     public void setMobile_number(String mobile_number) {
-        this.mobile_number = mobile_number;
+        this.mobilenumber = mobile_number;
     }
 
     public void setYear_of_birth(String year_of_birth) {
-        this.year_of_birth = year_of_birth;
+        this.yearofbirth = year_of_birth;
     }
 
     public void setProfession(String profession) {
@@ -36,7 +36,7 @@ public class Register {
     }
 
     public void setUser_name(String user_name) {
-        this.user_name = user_name;
+        this.username = user_name;
     }
 
     public void setPassword(String password) {
@@ -44,7 +44,7 @@ public class Register {
     }
 
     public void setSecurity_question(String security_question) {
-        this.security_question = security_question;
+        this.securityquestion = security_question;
     }
 
     public void setNic(String nic) {
@@ -68,19 +68,19 @@ public class Register {
     }
 
     public String getFirst_name() {
-        return first_name;
+        return firstname;
     }
 
     public String getLast_name() {
-        return last_name;
+        return lastname;
     }
 
     public String getMobile_number() {
-        return mobile_number;
+        return mobilenumber;
     }
 
     public String getYear_of_birth() {
-        return year_of_birth;
+        return yearofbirth;
     }
 
     public String getProfession() {
@@ -88,7 +88,7 @@ public class Register {
     }
 
     public String getUser_name() {
-        return user_name;
+        return username;
     }
 
     public String getPassword() {
@@ -96,7 +96,7 @@ public class Register {
     }
 
     public String getSecurity_question() {
-        return security_question;
+        return securityquestion;
     }
 
     public String getNic() {

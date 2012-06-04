@@ -1,148 +1,166 @@
 package vigraha.admin.domain;
 
 public class Promotion {
-    private String program_name;
-    private String start_date;
-    private String end_date;
-    //
-    //
-    private int promotion_number;
-    private String execute_time;
-    //
-    private String randomly_select;
-    private int number_of_first_subscribers;
-    private int number_of_subscribers;
-    private String who_made;
+    private String programname;
+    private String startdate;
+    private String enddate;
+    private String smstype;
+    private String voicecalltype;
+    private String smspromotion;
+    private String lbspromotion;
+    private String voicecallpromotion;
+    private String gprspromotion ;
+    private String ussdpromotion;
+    private int promotionnumber;
+    private String executetime;
+    private String randomlyselect;
+    private int numberoffirstsubscribers;
+    private int numberofsubscribers;
+    private String whomade;
     private String call;
-    private String sms_message;
+    private String smsmessage;
 
-    public Promotion()
-    {}
+    public void setProgramname(String programname) {
+        this.programname = programname;
+    }
 
-    public Promotion(String program_name , String start_date , String end_date , int promotion_number ,
-                     String execute_time , String randomly_select , int number_of_first_subscribers ,
-                     int number_of_subscribers , String who_made ,String call ,String sms_message)
-    {
-        this.program_name = program_name;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.promotion_number = promotion_number;
-        this.execute_time = execute_time;
-        this.randomly_select = randomly_select;
-        this.number_of_first_subscribers = number_of_first_subscribers;
-        this.number_of_subscribers = number_of_subscribers;
-        this.who_made = who_made;
+    public void setStartdate(String startdate) {
+        this.startdate = startdate;
+    }
+
+    public void setEnddate(String enddate) {
+        this.enddate = enddate;
+    }
+
+    public void setSmstype(String smstype) {
+        this.smstype = smstype;
+    }
+
+    public void setVoicecalltype(String voicecalltype) {
+        this.voicecalltype = voicecalltype;
+    }
+
+    public void setSmspromotion(String smspromotion) {
+        this.smspromotion = smspromotion;
+    }
+
+    public void setLbspromotion(String lbspromotion) {
+        this.lbspromotion = lbspromotion;
+    }
+
+    public void setVoicecallpromotion(String voicecallpromotion) {
+        this.voicecallpromotion = voicecallpromotion;
+    }
+
+    public void setGprspromotion(String gprspromotion) {
+        this.gprspromotion = gprspromotion;
+    }
+
+    public void setUssdpromotion(String ussdpromotion) {
+        this.ussdpromotion = ussdpromotion;
+    }
+
+    public void setPromotionnumber(int promotionnumber) {
+        this.promotionnumber = promotionnumber;
+    }
+
+    public void setExecutetime(String executetime) {
+        this.executetime = executetime;
+    }
+
+    public void setRandomlyselect(String randomlyselect) {
+        this.randomlyselect = randomlyselect;
+    }
+
+    public void setNumberoffirstsubscribers(int numberoffirstsubscribers) {
+        this.numberoffirstsubscribers = numberoffirstsubscribers;
+    }
+
+    public void setNumberofsubscribers(int numberofsubscribers) {
+        this.numberofsubscribers = numberofsubscribers;
+    }
+
+    public void setWhomade(String whomade) {
+        this.whomade = whomade;
+    }
+
+    public void setCall(String call) {
         this.call = call;
-        this.sms_message = sms_message;
     }
 
-    public String getProgram_name()
-    {
-        return program_name;
+    public void setSmsmessage(String smsmessage) {
+        this.smsmessage = smsmessage;
     }
 
-    public String getStart_data()
-    {
-        return start_date;
+    public String getProgramname() {
+        return programname;
     }
 
-    public String getEnd_date()
-    {
-        return end_date;
+    public String getStartdate() {
+        return startdate;
     }
 
-    public int getPromotion_number()
-    {
-        return promotion_number;
+    public String getEnddate() {
+        return enddate;
     }
 
-    public String getExecute_time()
-    {
-        return execute_time;
+    public String getSmstype() {
+        return smstype;
     }
 
-    public String getRandomly_select()
-    {
-        return randomly_select;
+    public String getVoicecalltype() {
+        return voicecalltype;
     }
 
-    public int getNumber_of_first_subscribers()
-    {
-        return number_of_first_subscribers;
+    public String getSmspromotion() {
+        return smspromotion;
     }
 
-    public int getNumber_of_subscribers()
-    {
-        return number_of_subscribers;
+    public String getLbspromotion() {
+        return lbspromotion;
     }
 
-    public String getWho_made()
-    {
-        return who_made;
+    public String getVoicecallpromotion() {
+        return voicecallpromotion;
     }
 
-    public String getCall()
-    {
+    public String getGprspromotion() {
+        return gprspromotion;
+    }
+
+    public String getUssdpromotion() {
+        return ussdpromotion;
+    }
+
+    public int getPromotionnumber() {
+        return promotionnumber;
+    }
+
+    public String getExecutetime() {
+        return executetime;
+    }
+
+    public String getRandomlyselect() {
+        return randomlyselect;
+    }
+
+    public int getNumberoffirstsubscribers() {
+        return numberoffirstsubscribers;
+    }
+
+    public int getNumberofsubscribers() {
+        return numberofsubscribers;
+    }
+
+    public String getWhomade() {
+        return whomade;
+    }
+
+    public String getCall() {
         return call;
     }
 
-    public String getSms_message()
-    {
-        return sms_message;
-    }
-
-    public void setProgram_name(String program_name)
-    {
-        this.program_name = program_name;
-    }
-
-    public void setStart_date(String start_date)
-    {
-        this.start_date = start_date;
-    }
-
-    public void setEnd_date(String end_date)
-    {
-        this.end_date = end_date;
-    }
-
-    public void setPromotion_number(int promotion_number)
-    {
-        this.promotion_number = promotion_number;
-    }
-
-    public void setExecute_time(String execute_time)
-    {
-        this.execute_time = execute_time;
-    }
-
-    public void setRandomly_select(String randomly_select)
-    {
-        this.randomly_select = randomly_select;
-    }
-
-    public void setNumber_of_first_subscribers(int number_of_first_subscribers)
-    {
-        this.number_of_first_subscribers = number_of_first_subscribers;
-    }
-
-    public void setNumber_of_subscribers(int number_of_subscribers)
-    {
-        this.number_of_subscribers = number_of_subscribers;
-    }
-
-    public void setWho_made(String who_made)
-    {
-        this.who_made = who_made;
-    }
-
-    public void setCall(String call)
-    {
-        this.call = call;
-    }
-
-    public void setSms_message(String sms_message)
-    {
-        this.sms_message = sms_message;
+    public String getSmsmessage() {
+        return smsmessage;
     }
 }
