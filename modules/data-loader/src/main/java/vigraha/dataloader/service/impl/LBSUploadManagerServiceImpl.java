@@ -32,15 +32,16 @@ public class LBSUploadManagerServiceImpl implements UploadManagerService {
 
     private TransactionRepository transactionRepository;
     private FileHandler fileHandler;
-    private final Executor pool;
+    private Executor pool;
 
     public LBSUploadManagerServiceImpl(int poolSize){
-        this.poolSize = poolSize;
-        pool = Executors.newFixedThreadPool(this.poolSize);
+//        this.poolSize = poolSize;
+//        pool = Executors.newFixedThreadPool(this.poolSize);
     }
 
     public void upload() {
         logger.info("LBS CDR logs upload scheduler started");
+        pool = Executors.newFixedThreadPool(poolSize);
         fileHandler = new FileHandler();
         String[] files = getFiles();
         logger.info("Total of [{}] LBS logs found", files.length);

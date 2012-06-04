@@ -32,15 +32,16 @@ public class SMSUploadManagerServiceImpl implements UploadManagerService {
 
     private TransactionRepository transactionRepository;
     private FileHandler fileHandler;
-    private final Executor pool;
+    private Executor pool;
 
     public SMSUploadManagerServiceImpl(int poolSize){
-        this.poolSize = poolSize;
-        pool = Executors.newFixedThreadPool(this.poolSize);
+//        this.poolSize = poolSize;
+//        pool = Executors.newFixedThreadPool(this.poolSize);
     }
 
     public void upload() {
         logger.info("SMS CDR logs upload scheduler started");
+        pool = Executors.newFixedThreadPool(poolSize);
         fileHandler = new FileHandler();
         String[] files = getFiles();
         logger.info("Total of [{}] SMS logs found", files.length);

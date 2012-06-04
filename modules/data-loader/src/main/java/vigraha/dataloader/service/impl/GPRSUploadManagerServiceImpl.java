@@ -31,15 +31,16 @@ public class GPRSUploadManagerServiceImpl implements UploadManagerService {
 
     private TransactionRepository transactionRepository;
     private FileHandler fileHandler;
-    private final Executor pool;
+    private Executor pool;
 
     public GPRSUploadManagerServiceImpl(int poolSize){
-        this.poolSize = poolSize;
-        pool = Executors.newFixedThreadPool(this.poolSize);
+//        this.poolSize = poolSize;
+//        pool = Executors.newFixedThreadPool(this.poolSize);
     }
 
     public void upload() {
         logger.info("GPRS CDR logs upload scheduler started");
+        pool = Executors.newFixedThreadPool(poolSize);
         fileHandler = new FileHandler();
         String[] files = getFiles();
         logger.info("Total of [{}] GPRS logs found", files.length);
@@ -64,7 +65,7 @@ public class GPRSUploadManagerServiceImpl implements UploadManagerService {
     private void readFile(String file) throws IOException {
         FileChannel channel = null;
         FileInputStream inFile = null;
-        String fullPath = sourceDirectoryPath + file; //full path / todo need to get from property
+        String fullPath = sourceDirectoryPath + file;
         try {
             logger.info("Reading the file [ {} ] started", file);
             StringBuilder builder = new StringBuilder();
