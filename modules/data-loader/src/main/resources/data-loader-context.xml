@@ -97,6 +97,7 @@
                 <ref bean="gprsUploadManagerServiceTrigger"/>
                 <ref bean="lbsUploadManagerServiceTrigger"/>
                 <ref bean="ussdUploadManagerServiceTrigger"/>
+                <ref bean="custUploadManagerServiceTrigger"/>
             </list>
         </property>
     </bean>
@@ -125,6 +126,11 @@
     <bean id="ussdUploadManagerServiceTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
         <property name="jobDetail" ref="ussdTransactionManager"/>
         <property name="cronExpression" value="${ussd.upload.cron.expression}"/>
+    </bean>
+
+    <bean id="custUploadManagerServiceTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="custTransactionManager"/>
+        <property name="cronExpression" value="${cust.upload.cron.expression}"/>
     </bean>
 
     <bean id="voiceCallTransactionManager"
@@ -171,6 +177,16 @@
           class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
         <property name="targetObject">
             <ref bean="ussdUploadObjectTarget"/>
+        </property>
+        <property name="targetMethod">
+            <value>upload</value>
+        </property>
+    </bean>
+
+    <bean id="custTransactionManager"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="custUploadObjectTarget"/>
         </property>
         <property name="targetMethod">
             <value>upload</value>
@@ -297,6 +313,33 @@
 
     </bean>
 
+    <bean id="custUploadObjectTarget" class="vigraha.dataloader.service.impl.CustomerUploadManagerServiceImpl">
+        <property name="sourceDirectoryPath">
+            <value>${cust.upload.source.directory}</value>
+        </property>
+        <property name="fileNamePattern">
+            <value>${cust.upload.file.pattern}</value>
+        </property>
+        <property name="archiveDirectoryPath">
+            <value>${cust.upload.archive.directory}</value>
+        </property>
+        <property name="columnSeparator">
+            <value>${cust.upload.column.separator}</value>
+        </property>
+        <property name="jsonIndex">
+            <value>${cust.upload.json.index}</value>
+        </property>
+        <property name="columnAppender">
+            <value>${cust.upload.column.appender}</value>
+        </property>
+        <property name="rowBreaker">
+            <value>${cust.upload.row.breaker}</value>
+        </property>
+        <property name="transactionRepository" ref="customerTransactionRepository" />
+        <property name="jsonDecoderService" ref="jsonDecoderService"/>
+
+    </bean>
+
     <bean id="voiceCallTransactionRepository" class="vigraha.dataloader.repository.impl.VoiceCallTransactionRepositoryImpl">
         <property name="jdbcTemplate">
             <ref bean="jdbcTemplate"/>
@@ -326,5 +369,14 @@
             <ref bean="jdbcTemplate"/>
         </property>
     </bean>
+
+    <bean id="customerTransactionRepository" class="vigraha.dataloader.repository.impl.CustomerTranactionRepository">
+        <property name="jdbcTemplate">
+            <ref bean="jdbcTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="jsonDecoderService" class="vigraha.dataloader.service.impl.JsonDecoderServiceImpl"/>
+
 
 </beans>
