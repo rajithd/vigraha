@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:jaxrs="http://cxf.apache.org/jaxrs"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-       http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:property-placeholder location="classpath:rule-engine.properties"/>
@@ -75,7 +72,34 @@
             <ref bean="dataSource"/>
         </property>
     </bean>
+    
+    <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="promotionRuleFindServiceTrigger"/>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="promotionRuleFindServiceTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="promotionRuleFindManager"/>
+        <property name="cronExpression" value="${promotion.find.rule.executor.cron.expression}"/>
+    </bean>
 
+    <bean id="promotionRuleFindManager" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="promotionRuleFindObject"/>
+        </property>
+        <property name="targetMethod">
+            <value>execute</value>
+        </property>
+    </bean>
+    
+    <bean id="promotionRuleFindObject" class="vigraha.rule.service.impl.PromotionRuleFinderExecutorImpl">
+        <property name="poolSize">
+            <value>${promotion.find.rule.executor.thread.pool.size}</value>
+        </property>
+    </bean>
 
 
 </beans>

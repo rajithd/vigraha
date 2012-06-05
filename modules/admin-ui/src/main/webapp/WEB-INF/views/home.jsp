@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 
 <html>
@@ -62,7 +63,7 @@
                         </h1>
 
                         <div id='login-form'>
-                            <form action="" class="form-horizontal formtastic web_user" id="new_web_user" method="post">
+                            <form:form action="" class="form-horizontal formtastic web_user" id="new_web_user" method="post">
 
                                 <div class="string optional control-group" id="web_user_rhlogin_input">
                                     <label for="username" class="control-label style1">Login</label>
@@ -89,7 +90,7 @@
 	<span class="style1">or
 		<a href="Registration form.html">create an account</a></span>
                                 </fieldset>
-                            </form>
+                            </form:form>
                         </div>
 
                     </div>
@@ -102,3 +103,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js" type="text/javascript"></script>
 </body>
 </html>
+
+
