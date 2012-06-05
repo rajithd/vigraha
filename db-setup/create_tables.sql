@@ -1,5 +1,3 @@
-DROP TABLE IF EXISTS `voice_call`;
-
 CREATE TABLE IF NOT EXISTS `voice_call` (
 `record_id` INT NOT NULL ,
 `number_make_call` VARCHAR(11) NOT NULL ,
@@ -79,8 +77,6 @@ PRIMARY KEY (idnumber)
 )
 ENGINE= InnoDB;
 
-DROP TABLE IF EXISTS `admin`;
-
 CREATE TABLE IF NOT EXISTS `promotion` (
 `programname` VARCHAR(30) NOT NULL ,
 `startdate` VARCHAR(20) NOT NULL ,
@@ -104,5 +100,3 @@ PRIMARY KEY (promotionnumber)
 )
 ENGINE= InnoDB;
 
-insert into `admin` values("admin","lastname","mobileno","yearofbirth","profession","admin","123","securityqu",
-              "1","address","country","province","city","role");
