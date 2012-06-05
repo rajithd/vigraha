@@ -17,7 +17,7 @@ public class PromotionRepository {
                                               String randomlyselect,int numberoffirstsubscribers,int numberofsubscribers,
                                               String whomade,String call,String smsmessage)
     {
-        int row = jdbcTemplate.update("insert into `admin` values(?,?,?,?,?,?,?,?,?,?,?)" , programname , startdate , enddate ,
+        int row = jdbcTemplate.update("insert into `admin` values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" , programname , startdate , enddate ,
                 smstype , voicecalltype , smspromotion , lbspromotion , voicecallpromotion , gprspromotion , ussdpromotion ,
                 promotionnumber , executetime , randomlyselect , numberoffirstsubscribers , numberofsubscribers ,
                 whomade , call , smsmessage);
