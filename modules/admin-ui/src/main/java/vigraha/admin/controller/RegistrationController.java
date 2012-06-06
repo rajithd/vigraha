@@ -25,18 +25,20 @@ public class RegistrationController {
     @RequestMapping(method = RequestMethod.GET)
     public String registration(Model model)
     {
+        System.out.println("&&&&&&&&&&&&&load&&&&&&&&&&&&&&&&&&");
         return "registration";
     }
 
      @RequestMapping(method = RequestMethod.POST)
-     public String submitForm(@RequestParam("firstname") String firstname , @RequestParam("lastname") String lastname ,
-                        @RequestParam("mobilenumber") String mobilenumber , @RequestParam("yearofbirth") String yearofbirth ,
-                        @RequestParam("profession") String profession , @RequestParam("username") String username ,
-                        @RequestParam("password") String password ,
-                        @RequestParam("securityquestion") String securityquestion , @RequestParam("nic") String nic ,
-                        @RequestParam("address") String address , @RequestParam("country") String country ,
-                        @RequestParam("province") String province , @RequestParam("city") String city)
+     public String submitForm(@RequestParam("firstname") String firstname , @RequestParam("lastname") String lastname,
+                              @RequestParam("mobilenumber") String mobilenumber , @RequestParam("yearofbirth") String yearofbirth ,
+                              @RequestParam("profession") String profession , @RequestParam("username") String username ,
+                              @RequestParam("password") String password , @RequestParam("securityquestion") String securityquestion ,
+                              @RequestParam("nic") String nic , @RequestParam("address") String address ,
+                              @RequestParam("country") String country ,
+                              @RequestParam("province") String province , @RequestParam("city") String city)
        {
+           System.out.println("&&&&&&&&&&&&&&&&&&&&&&&");
            if(registerRepository.isSuccessfulSave(firstname,lastname,mobilenumber,yearofbirth,profession,
                    username,password,securityquestion,nic,address,country,province,city))
            {

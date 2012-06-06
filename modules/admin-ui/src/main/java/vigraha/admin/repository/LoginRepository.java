@@ -32,7 +32,7 @@ public class LoginRepository {
 //        if(adminList.size() == 0) return false;
 //        else return true;
 
-        int row = jdbcTemplate.queryForInt("select count(*) from admin where user_name='"+username+"' and pass_word='"+password+"'");
+        int row = jdbcTemplate.queryForInt("select count(*) from admin where username='"+username+"' and password='"+password+"'");
         System.out.println("====================" + row);
         if(row > 0) return true;
         else return false;

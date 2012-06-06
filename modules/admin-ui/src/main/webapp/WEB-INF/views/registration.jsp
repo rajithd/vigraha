@@ -1,13 +1,8 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Thejani
-  Date: 5/31/12
-  Time: 1:01 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <html>
 <head>
@@ -40,9 +35,9 @@
                 <li><a href="Registration form.html">Register</a></li>
                 <li><a href="Login Page.html">Sign In</a></li>
             </ul>
-            <form class="navbar-search pull-right">
+            <form:form class="navbar-search pull-right">
                 <input type="text" class="search-query" placeholder="Search">
-            </form>
+            </form:form>
 
             <ul class="nav">
                 <li class="dropdown">
@@ -70,47 +65,47 @@
         <div class="row">
             <div class="span6">
                 <br />
-                <form class="form-horizontal">
+                <form:form class="form-horizontal">
                     <fieldset>
 
                         <h3>Personal Information</h3>
 
                         <div class="control-group">
-                            <label class="control-label">First Name *</label>
+                            <label for="firstname" class="control-label">First Name *</label>
                             <div class="controls docs-input-sizes">
-                                <input class="span3" type="text" placeholder="Enter First Name">
+                                <input class="span3" id="firstname" name="firstname" type="text" placeholder="Enter First Name">
                             </div>
                         </div>
                         <br />
 
                         <div class="control-group">
-                            <label class="control-label">Last Name *</label>
+                            <label for="lastname" class="control-label">Last Name *</label>
                             <div class="controls docs-input-sizes">
-                                <input class="span3" type="text" placeholder="Enter Last Name">
+                                <input class="span3" id="lastname" name="lastname" type="text" placeholder="Enter Last Name">
                             </div>
                         </div>
                         <br />
 
                         <div class="control-group">
-                            <label class="control-label">Moblie Number *</label>
+                            <label for="mobilenumber" class="control-label">Moblie Number *</label>
                             <div class="controls docs-input-sizes">
-                                <input class="span3" type="text" placeholder="Enter Mobile No">
+                                <input class="span3" id="mobilenumber" name="mobilenumber" type="text" placeholder="Enter Mobile No">
                             </div>
                         </div>
                         <br />
 
                         <div class="control-group">
-                            <label class="control-label">Year of Birth *</label>
+                            <label for="yearofbirth" class="control-label">Year of Birth *</label>
                             <div class="controls docs-input-sizes">
-                                <input class="span3" type="text" placeholder=".Enter Year of Birth">
+                                <input class="span3" id="yearofbirth" name="yearofbirth" type="text" placeholder=".Enter Year of Birth">
                             </div>
                         </div>
                         <br />
 
                         <div class="control-group">
-                            <label class="control-label">Profession</label>
+                            <label for="profession" class="control-label">Profession</label>
                             <div class="controls docs-input-sizes">
-                                <select id="select01">
+                                <select id="profession" name="profession">
                                     <option>something</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -123,17 +118,17 @@
                         <h3>Sign In Information</h3>
 
                         <div class="control-group">
-                            <label class="control-label">User Name *</label>
+                            <label for="username" class="control-label">User Name *</label>
                             <div class="controls docs-input-sizes">
-                                <input class="span3" type="text" placeholder="Enter User Name">
+                                <input class="span3" id="username" name="username" type="text" placeholder="Enter User Name">
                             </div>
                         </div>
                         <br />
 
                         <div class="control-group">
-                            <label class="control-label">Password *</label>
+                            <label for="password" class="control-label">Password *</label>
                             <div class="controls docs-input-sizes">
-                                <input class="span3" type="text" placeholder="Enter Password">
+                                <input class="span3" id="password" name="password" type="text" placeholder="Enter Password">
                             </div>
                         </div>
                         <br />
@@ -148,11 +143,11 @@
                         <h3>Security Information</h3>
 
                         <div class="control-group">
-                            <label class="control-label">Security question *</label>
+                            <label for="securityquestion" class="control-label">Security question *</label>
 
                             <div class="controls docs-input-sizes">
 
-                                <select id="select02">
+                                <select id="securityquestion" name="securityquestion">
 
                                     <option>Mother's Maiden name</option>
                                     <option>First Maths teacher</option>
@@ -168,26 +163,26 @@
                         <br />
 
                         <div class="control-group">
-                            <label class="control-label">National Identity Card Number *</label>
+                            <label for="nic" class="control-label">National Identity Card Number *</label>
                             <div class="controls docs-input-sizes">
-                                <input class="span3" type="text" placeholder="Enter National Identity Card Number">
+                                <input class="span3" id="nic" name="nic" type="text" placeholder="Enter National Identity Card Number">
                             </div>
                         </div>
 
                         <h3>Location Information</h3>
 
                         <div class="control-group">
-                            <label class="control-label" for="textarea">Address</label>
+                            <label class="control-label" for="address">Address</label>
                             <div class="controls">
-                                <textarea class="input-xlarge" id="textarea" rows="4"></textarea>
+                                <textarea class="input-xlarge" id="address" name="address" rows="4"></textarea>
                             </div>
                         </div>
                         <br />
 
                         <div class="control-group">
-                            <label class="control-label">Country</label>
+                            <label for="country" class="control-label">Country</label>
                             <div class="controls docs-input-sizes">
-                                <select id="select03">
+                                <select id="country" name="country">
                                     <option>something</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -199,9 +194,9 @@
                         <br />
 
                         <div class="control-group">
-                            <label class="control-label">Province</label>
+                            <label for="province" class="control-label">Province</label>
                             <div class="controls docs-input-sizes">
-                                <select id="select04">
+                                <select id="province" name="province">
                                     <option>something</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -213,9 +208,9 @@
                         <br />
 
                         <div class="control-group">
-                            <label class="control-label">City / State</label>
+                            <label for="city" class="control-label">City / State</label>
                             <div class="controls docs-input-sizes">
-                                <select id="select05">
+                                <select id="city" name="city">
                                     <option>something</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -240,7 +235,7 @@
                             <button class="btn">Cancel</button>
                         </div>
                     </fieldset>
-                </form>
+                </form:form>
             </div>
         </div>
     </div>
