@@ -63,7 +63,7 @@
                         </h1>
 
                         <div id='login-form'>
-                            <form:form action="" class="form-horizontal formtastic web_user" id="new_web_user" method="post">
+                            <form:form class="form-horizontal formtastic web_user" id="new_web_user" method="post">
 
                                 <div class="string optional control-group" id="web_user_rhlogin_input">
                                     <label for="username" class="control-label style1">Login</label>

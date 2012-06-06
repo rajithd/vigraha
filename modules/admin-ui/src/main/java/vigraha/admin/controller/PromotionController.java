@@ -42,7 +42,7 @@ public class PromotionController {
         }
         else
         {
-            return "loginerror";
+            return "login-error";
         }
 
     }
