@@ -100,3 +100,22 @@ PRIMARY KEY (promotionnumber)
 )
 ENGINE= InnoDB;
 
+CREATE TABLE IF NOT EXISTS `customer` (
+`record_id` INT NOT NULL AUTO_INCREMENT,
+`id` VARCHAR(10) NOT NULL,
+`msisdn` VARCHAR(15) NOT NULL,
+`name` VARCHAR(100) NOT NULL,
+`city` VARCHAR(50) NOT NULL,
+PRIMARY key(record_id)
+)
+ENGINE= InnoDB;
+
+CREATE TABLE IF NOT EXISTS `PROMOTION_RULE_EXECUTOR` (
+  `ruleid` INT NOT NULL AUTO_INCREMENT,
+  `startdate` VARCHAR(20) NOT NULL ,
+  `enddate` VARCHAR (20) NOT NULL ,
+  `status` varchar (10) NOT NULL ,
+  PRIMARY KEY (ruleid)
+)
+ENGINE= InnoDB;
+
