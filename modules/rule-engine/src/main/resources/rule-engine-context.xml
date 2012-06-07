@@ -100,6 +100,12 @@
             <value>${promotion.find.rule.executor.thread.pool.size}</value>
         </property>
     </bean>
+    
+    <bean id="promotionRuleFindRepositoryImpl" class="vigraha.rule.repository.impl.PromotionRuleFindRepositoryImpl">
+        <property name="jdbcTemplate">
+            <ref bean="jdbcTemplate"/>
+        </property>
+    </bean>
 
 
 </beans>

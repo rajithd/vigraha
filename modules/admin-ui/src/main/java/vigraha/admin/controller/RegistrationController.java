@@ -25,7 +25,7 @@ public class RegistrationController {
     @RequestMapping(method = RequestMethod.GET)
     public String registration(Model model)
     {
-        System.out.println("=============Registration load========================");
+        System.out.println("&&&&&&&&&&&&&load&&&&&&&&&&&&&&&&&&");
         return "registration";
     }
 
@@ -38,7 +38,7 @@ public class RegistrationController {
                               @RequestParam("country") String country ,
                               @RequestParam("province") String province , @RequestParam("city") String city)
        {
-           System.out.println("==========register===================");
+           System.out.println("&&&&&&&&&&&&&&&&&&&&&&&");
            if(registerRepository.isSuccessfulSave(firstname,lastname,mobilenumber,yearofbirth,profession,
                    username,password,securityquestion,nic,address,country,province,city))
            {
@@ -46,7 +46,7 @@ public class RegistrationController {
            }
            else
            {
-               return "redirect:/login-error";
+               return "loginerror";
            }
 
        }

@@ -1,7 +1,5 @@
 package vigraha.admin.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -17,8 +15,6 @@ import java.util.Date;
 @RequestMapping("/home")
 public class HomeController {
 
-    private final static Logger logger = LoggerFactory.getLogger(HomeController.class);
-    
     private JdbcTemplate jdbcTemplate;
     @Autowired
     private LoginRepository loginRepository;
@@ -29,23 +25,19 @@ public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String home(Model model){
-        System.out.println("==============================================");
-        logger.info("=============Retrieving Home Page===============");
+        System.out.println("======================================");
         return "home";
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public String submitForm(@RequestParam("username") String username, @RequestParam("password") String password)
     {
-        System.out.println("=========================================================================");
+        System.out.println("=====================================================================");
         System.out.println("==========" + loginRepository.isSuccessfulAuthentication(username,password));
-        logger.info("Checking username [{}] and with entered password",username);
         if(loginRepository.isSuccessfulAuthentication(username,password)){
-            logger.info("Login successful.Display home page");
-            return "redirect:/welcome";
+            return "home";
         } else {
-            logger.info("Login unsuccessful.Redirect to login error page");
-            return "redirect:/login-error";
+            return "loginerror";
         }
     }
 
