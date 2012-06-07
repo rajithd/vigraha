@@ -99,6 +99,7 @@
         <property name="poolSize">
             <value>${promotion.find.rule.executor.thread.pool.size}</value>
         </property>
+        <property name="ruleFindRepository" ref="promotionRuleFindRepositoryImpl"/>
     </bean>
     
     <bean id="promotionRuleFindRepositoryImpl" class="vigraha.rule.repository.impl.PromotionRuleFindRepositoryImpl">

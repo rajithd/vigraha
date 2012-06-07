@@ -8,4 +8,5 @@ public interface TableHandler {
     public String TABLE_LBS = "lbs";
     public String TABLE_USSD = "ussd";
     public String TABLE_PROMOTION = "promotion";
+    public String TABLE_PROMOTION_RULE_EXECUTOR = "PROMOTION_RULE_EXECUTOR";
 }
