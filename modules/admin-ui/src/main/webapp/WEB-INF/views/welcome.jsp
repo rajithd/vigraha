@@ -179,7 +179,7 @@
 
                         <h3 class="headerbar"><a href="http://www.dynamicdrive.com/style/">Administrator</a></h3>
                         <ul class="submenu">
-                            <li><a href="promotion">Promotion Program</a></li>
+                            <li><a href="promotion/">Promotion Program</a></li>
                             <li><a href="http://www.dynamicdrive.com/style/csslibrary/category/C2/">Vertical CSS Menus</a></li>
                             <li><a href="http://www.dynamicdrive.com/style/csslibrary/category/C4/">Image CSS</a></li>
                             <li><a href="http://www.dynamicdrive.com/style/csslibrary/category/C6/">Form CSS</a></li>

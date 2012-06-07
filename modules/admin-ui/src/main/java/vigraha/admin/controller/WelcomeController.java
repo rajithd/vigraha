@@ -19,7 +19,7 @@ public class WelcomeController {
     @RequestMapping(method = RequestMethod.POST)
     public String goPromotion()
     {
-        return "promotion";
+        return "redirect:/promotion";
     }
 
 }

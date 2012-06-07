@@ -1,5 +1,7 @@
 package vigraha.admin.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,8 @@ import vigraha.admin.repository.PromotionRepository;
 @RequestMapping("/promotion")
 
 public class PromotionController {
+
+    private final static Logger logger = LoggerFactory.getLogger(PromotionController.class);
 
     private JdbcTemplate jdbcTemplate;
     @Autowired
@@ -50,7 +54,7 @@ public class PromotionController {
         }
         else
         {
-            return "login-error";
+            return "redirect:/login-error";
         }
 
     }

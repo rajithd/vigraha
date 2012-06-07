@@ -46,7 +46,7 @@ public class RegistrationController {
            }
            else
            {
-               return "loginerror";
+               return "redirect:/loginerror";
            }
 
        }
