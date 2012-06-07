@@ -29,17 +29,20 @@ public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String home(Model model){
-        logger.info("=============== Retrieving Home page ===============");
+        System.out.println("======================================");
+       logger.info("=============== Retrieving Home page ===============");
         return "home";
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public String submitForm(@RequestParam("username") String username, @RequestParam("password") String password)
     {
+        System.out.println("=====================================================================");
+        System.out.println("==========" + loginRepository.isSuccessfulAuthentication(username,password));
         logger.info("Checking username [{}] and with entered password", username);
         if(loginRepository.isSuccessfulAuthentication(username,password)){
             logger.info("Login successful. Displaying home page");
-            return "home";
+            return "redirect:/welcome";
         } else {
             logger.info("Login unsuccessful. Redirect to login error page");
             return "redirect:/login-error";

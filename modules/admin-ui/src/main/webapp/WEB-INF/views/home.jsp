@@ -63,7 +63,8 @@
                         </h1>
 
                         <div id='login-form'>
-                            <form:form class="form-horizontal formtastic web_user" id="new_web_user" method="post">
+                            <form:form action="" class="form-horizontal formtastic web_user" id="new_web_user" method="post">
+                                <form:form class="form-horizontal formtastic web_user" id="new_web_user" method="post">
 
                                 <div class="string optional control-group" id="web_user_rhlogin_input">
                                     <label for="username" class="control-label style1">Login</label>
@@ -80,7 +81,7 @@
                                     <div class="controls"><input class="" id="password"
                                                                  name="password" type="password"/>
 
-                                        <p class="help-block"><a href="/app/account/password/new" class="style1">Forgot
+                                        <p class="help-block"><a href="forget-password" class="style1">Forgot
                                             your password?</a></p>
                                     </div>
                                 </div>
@@ -88,8 +89,9 @@
                                 <fieldset class="form-actions">
                                     <button type="submit" class="btn btn-primary">Sign in</button>
 	<span class="style1">or
-		<a href="Registration form.html">create an account</a></span>
+		<a href="registration">create an account</a></span>
                                 </fieldset>
+                            </form:form>
                             </form:form>
                         </div>
 

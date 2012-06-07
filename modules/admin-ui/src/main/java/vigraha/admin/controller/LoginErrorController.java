@@ -9,13 +9,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/login-error")
+
+
 public class LoginErrorController {
 
     private final static Logger logger = LoggerFactory.getLogger(LoginErrorController.class);
 
     @RequestMapping(method = RequestMethod.GET)
-    public String home(Model model){
-        logger.info("=============== Retrieving Login error page ===============");
+public String loginError(Model model)
+    {
+        logger.info("==========Retrieving login error page============");
         return "login-error";
     }
 
