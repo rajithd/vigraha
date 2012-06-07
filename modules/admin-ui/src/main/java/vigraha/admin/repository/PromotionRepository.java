@@ -10,22 +10,23 @@ public class PromotionRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public boolean isSuccessfullSavePromotion(String programname,String startdate,String enddate,
-                                              String smstype,String voicecalltype,String smspromotion,
-                                              String lbspromotion,String voicecallpromotion,String gprspromotion,
-                                              String ussdpromotion,int promotionnumber,String executetime,
-                                              String randomlyselect,int numberoffirstsubscribers,int numberofsubscribers,
+    public boolean isSuccessfullSavePromotion(String programname,String startdate, String starttime,
+                                              String enddate,String endtime,
+                                              String type,String promotion,String promotionnumber,
+                                              String subscribers,String randomlyselect,
+                                              String numberoffirstsubscribers,String numberofsubscribers,
                                               String whomade,String call,String smsmessage)
     {
-        int row = jdbcTemplate.update("insert into `admin` values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" , programname , startdate , enddate ,
-                smstype , voicecalltype , smspromotion , lbspromotion , voicecallpromotion , gprspromotion , ussdpromotion ,
-                promotionnumber , executetime , randomlyselect , numberoffirstsubscribers , numberofsubscribers ,
-                whomade , call , smsmessage);
+        int row = jdbcTemplate.update("insert into `promotion` values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" , programname , startdate , starttime , enddate ,
+                                       endtime , type , promotion , promotionnumber , subscribers , randomlyselect , numberoffirstsubscribers , numberofsubscribers ,
+                                        whomade , call , smsmessage);
 
-        if(row == -1)
-            return false;
-        else
+        System.out.println("************" + row);
+
+        if(row > 0)
             return true;
+        else
+            return false;
 
     }
 

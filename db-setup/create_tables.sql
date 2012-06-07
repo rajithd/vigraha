@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS `voice_call`;
+
 CREATE TABLE IF NOT EXISTS `voice_call` (
 `record_id` INT NOT NULL ,
 `number_make_call` VARCHAR(11) NOT NULL ,
@@ -72,31 +74,34 @@ CREATE TABLE IF NOT EXISTS `admin` (
 `country` VARCHAR (20) NOT NULL,
 `province` VARCHAR (20) NOT NULL,
 `city` VARCHAR (20) NOT NULL,
-`role` VARCHAR (20) NOT NULL,
 PRIMARY KEY (idnumber)
 )
 ENGINE= InnoDB;
 
+DROP TABLE IF EXISTS `admin`;
+
 CREATE TABLE IF NOT EXISTS `promotion` (
 `programname` VARCHAR(30) NOT NULL ,
 `startdate` VARCHAR(20) NOT NULL ,
+`starttime` VARCHAR(20) NOT NULL ,
 `enddate` VARCHAR (20) NOT NULL ,
-smstype VARCHAR(10) NOT NULL ,
-voicecalltype VARCHAR(10) NOT NULL ,
-smspromotion VARCHAR(10) NOT NULL ,
-lbspromotion VARCHAR(10) NOT NULL ,
-voicecallpromotion VARCHAR(10) NOT NULL ,
-gprspromotion VARCHAR(10) NOT NULL ,
-ussdpromotion VARCHAR(10) NOT NULL ,
-`promotionnumber` INT NOT NULL ,
-`executetime` VARCHAR (15) NOT NULL ,
+`endtime` VARCHAR(20) NOT NULL ,
+`type` VARCHAR(10),
+`promotion` VARCHAR(10),
+`promotionnumber` VARCHAR(10) NOT NULL ,
+`subscribers` VARCHAR (15),
 `randomlyselect` VARCHAR (20) NOT NULL ,
-`numberoffirstsubscribers` INT NOT NULL ,
-`numberofsubscribers` INT NOT NULL ,
+`numberoffirstsubscribers` VARCHAR(10) NOT NULL ,
+`numberofsubscribers` VARCHAR(10) NOT NULL ,
 `whomade` VARCHAR (20) NOT NULL,
 `calls` VARCHAR (15) NOT NULL,
 `smsmessage` VARCHAR (200) NOT NULL,
 PRIMARY KEY (promotionnumber)
 )
 ENGINE= InnoDB;
+
+DROP TABLE IF EXISTS `promotion`;
+
+insert into `admin` values("admin","lastname","mobileno","yearofbirth","profession","admin","123",
+                            "securityqu","1","address","country","province","city");
 
