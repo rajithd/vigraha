@@ -88,8 +88,8 @@
 
                                 <fieldset class="form-actions">
                                     <button type="submit" class="btn btn-primary">Sign in</button>
-	<span class="style1">or
-		<a href="registration">create an account</a></span>
+	<%--<span class="style1">or--%>
+		<%--<a href="registration">create an account</a></span>--%>
                                 </fieldset>
                             </form:form>
                             </form:form>

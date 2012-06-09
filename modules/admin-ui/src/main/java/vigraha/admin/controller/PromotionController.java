@@ -34,21 +34,30 @@ public class PromotionController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String savePromotion(@RequestParam("programname") String programname , @RequestParam("startdate") String startdate ,
-                                @RequestParam("starttime") String starttime , @RequestParam("enddate") String enddate ,
-                                @RequestParam("endtime") String endtime ,@RequestParam("type") String type ,
-                                @RequestParam("promotion") String promotion , @RequestParam("promotionnumber") String promotionnumber ,
-                                @RequestParam("subscribers") String subscribers ,
-                                @RequestParam("randomlyselect") String randomlyselect ,
-                                @RequestParam("numberoffirstsubscribers") String numberoffirstsubscribers ,
-                                @RequestParam("numberofsubscribers") String numberofsubscribers ,
-                                @RequestParam("whomade") String whomade , @RequestParam("call") String call ,
-                                @RequestParam("smsmessage") String smsmessage)
+    public String savePromotion(@RequestParam("companycode") String companycode ,
+                                @RequestParam("promotionname") String promotionname , @RequestParam("startdate") String startdate ,
+                                @RequestParam("starttime") String starttime ,
+                                @RequestParam("enddate") String enddate ,@RequestParam("endtime") String endtime ,
+                                @RequestParam("sms") String sms , @RequestParam("lbs") String lbs ,
+                                @RequestParam("voicecall") String voicecall , @RequestParam("gprs") String gprs ,
+                                @RequestParam("ussd") String ussd ,
+                                @RequestParam("promotionnumber") String promotionnumber , @RequestParam("executeevery") String executeevery ,
+                                @RequestParam("specifictime") String specifictime,@RequestParam("promotionend") String promotionend ,
+                                @RequestParam("donotrepeate") String donotrepeate , @RequestParam("repeate") String repeate ,
+                                @RequestParam("random") String random ,
+                                @RequestParam("firstsub") String firstsub ,
+                                @RequestParam("all") String all , @RequestParam("agerestriction1") String agerestriction1 ,
+                                @RequestParam("agerestriction2") String agerestriction2 , @RequestParam("smsmessage") String smsmessage)
     {
-        System.out.println("========================promotion============================");
-        if(promotionRepository.isSuccessfullSavePromotion(programname,startdate,starttime,enddate,endtime,
-                type,promotion,promotionnumber,subscribers,randomlyselect,numberoffirstsubscribers,numberofsubscribers,
-                whomade,call,smsmessage))
+
+
+   int id = 0;
+
+        logger.info("========================promotion============================");
+        if(promotionRepository.isSuccessfullSavePromotion(id,companycode,promotionname,startdate,starttime,enddate,endtime,
+                sms,lbs,voicecall,gprs,ussd,promotionnumber,executeevery,
+                specifictime,promotionend,donotrepeate,repeate,random,
+                firstsub,all,agerestriction1,agerestriction2,smsmessage))
         {
             return "promotion";
         }

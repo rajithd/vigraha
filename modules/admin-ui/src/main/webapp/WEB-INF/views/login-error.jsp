@@ -14,13 +14,13 @@
     <meta content='' name='author'>
     <meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <link href='/app/images/favicon-32.png' rel='shortcut icon' type='image/png'>
-    <link href="Style/overpass.css" media="all" rel="stylesheet" type="text/css" />
-    <script src="java scripts/modernizr.min.js" type="text/javascript"></script>
+    <link href="../resources/Style/overpass.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="../resources/java scripts/modernizr.min.js" type="text/javascript"></script>
     <meta name="csrf-param" content="authenticity_token"/>
     <meta name="csrf-token" content="iclzi38MWARQHg3by4BybNaR9+9gjN&#x2F;dhQGqSW2gYt4="/>
 
-    <link href="../resources/Style/common.css.css" media="all" rel="stylesheet" type="text/css" />
-    <link href="../resources/Style/site.css.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="../resources/Style/common.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="../resources/Style/site.css" media="all" rel="stylesheet" type="text/css" />
     <link href="../resources/Style/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="../resources/Style/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
 

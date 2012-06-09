@@ -79,11 +79,15 @@
           <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 
-     <bean id="registerRepository" class="vigraha.admin.repository.RegisterRepository">
+     <bean id="registerRepository" class="vigraha.admin.repository.AdminRegisterRepository">
          <property name="jdbcTemplate" ref="jdbcTemplate"/>
      </bean>
 
     <bean id="promotionRepository" class="vigraha.admin.repository.PromotionRepository">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+
+    <bean id="companyRegisterRepository" class="vigraha.admin.repository.CompanyRegisterRepository">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 

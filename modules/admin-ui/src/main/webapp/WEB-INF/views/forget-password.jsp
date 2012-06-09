@@ -15,7 +15,7 @@
     <meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <%--<link href='/app/images/favicon-32.png' rel='shortcut icon' type='image/png'>--%>
     <%--<link href="/app/stylesheets/overpass.css" media="all" rel="stylesheet" type="text/css" />--%>
-    <script src="java scripts/modernizr.min.js" type="text/javascript"></script>
+    <script src="../resources/java_scripts/modernizr.min.js" type="text/javascript"></script>
     <meta name="csrf-param" content="authenticity_token"/>
     <meta name="csrf-token" content="iclzi38MWARQHg3by4BybNaR9+9gjN&#x2F;dhQGqSW2gYt4="/>
 
