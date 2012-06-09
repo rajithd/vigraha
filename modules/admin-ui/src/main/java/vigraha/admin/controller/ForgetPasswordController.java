@@ -7,11 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 @Controller
 @RequestMapping("/forget-password")
 
-public class ForgetpasswordController {
-    private final static Logger logger = LoggerFactory.getLogger(ForgetpasswordController.class);
+public class ForgetPasswordController {
+    private final static Logger logger = LoggerFactory.getLogger(ForgetPasswordController.class);
 
     @RequestMapping(method = RequestMethod.GET)
     public String forgetPassword(Model model)
@@ -19,4 +20,6 @@ public class ForgetpasswordController {
         logger.info("==========Retrieving Forget password page============");
         return "forget-password";
     }
+
 }
+

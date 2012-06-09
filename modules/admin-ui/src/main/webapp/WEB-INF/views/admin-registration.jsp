@@ -269,49 +269,29 @@ $(function(){
                         <h3>Personal Information</h3>
 
                         <div class="control-group">
-                            <label for="firstname" class="control-label">First Name *</label>
+                            <label for="fullname" class="control-label">Full Name *</label>
                             <div class="controls docs-input-sizes">
-                                <input class="span3" id="firstname" name="firstname" type="text" placeholder="Enter First Name">
+                                <input class="span3" id="fullname" name="fullname" type="text" placeholder="Enter First Name">
                             </div>
                         </div>
                         <br />
 
                         <div class="control-group">
-                            <label for="lastname" class="control-label">Last Name *</label>
+                            <label for="mobileno" class="control-label">Mobile Number *</label>
                             <div class="controls docs-input-sizes">
-                                <input class="span3" id="lastname" name="lastname" type="text" placeholder="Enter Last Name">
+                                <input class="span3" id="mobileno" name="mobileno" type="text" placeholder="Enter Last Name">
                             </div>
                         </div>
                         <br />
 
                         <div class="control-group">
-                            <label for="mobilenumber" class="control-label">Moblie Number *</label>
+                            <label for="id" class="control-label">ID *</label>
                             <div class="controls docs-input-sizes">
-                                <input class="span3" id="mobilenumber" name="mobilenumber" type="text" placeholder="Enter Mobile No">
+                                <input class="span3" id="id" name="id" type="text" placeholder="Enter Mobile No">
                             </div>
                         </div>
                         <br />
 
-                        <div class="control-group">
-                            <label for="yearofbirth" class="control-label">Year of Birth *</label>
-                            <div class="controls docs-input-sizes">
-                                <input class="span3" id="yearofbirth" name="yearofbirth" type="text" placeholder=".Enter Year of Birth">
-                            </div>
-                        </div>
-                        <br />
-
-                        <div class="control-group">
-                            <label for="profession" class="control-label">Profession</label>
-                            <div class="controls docs-input-sizes">
-                                <select id="profession" name="profession">
-                                    <option>something</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                        </div>
 
                         <h3>Sign In Information</h3>
 
@@ -338,95 +318,7 @@ $(function(){
                             </div>
                         </div>
 
-                        <h3>Security Information</h3>
 
-                        <div class="control-group">
-                            <label for="securityquestion" class="control-label">Security question *</label>
-
-                            <div class="controls docs-input-sizes">
-
-                                <select id="securityquestion" name="securityquestion">
-
-                                    <option>Mother's Maiden name</option>
-                                    <option>First Maths teacher</option>
-                                    <option>Childhood best friend</option>
-                                </select>
-                                <br />
-                                <br />
-
-                                <label class="control-label"></label>
-                                <input class="span3" type="text" placeholder="Enter Security question" />
-                            </div>
-                        </div>
-                        <br />
-
-                        <div class="control-group">
-                            <label for="nic" class="control-label">National Identity Card Number *</label>
-                            <div class="controls docs-input-sizes">
-                                <input class="span3" id="nic" name="nic" type="text" placeholder="Enter National Identity Card Number">
-                            </div>
-                        </div>
-
-                        <h3>Location Information</h3>
-
-                        <div class="control-group">
-                            <label class="control-label" for="address">Address</label>
-                            <div class="controls">
-                                <textarea class="input-xlarge" id="address" name="address" rows="4"></textarea>
-                            </div>
-                        </div>
-                        <br />
-
-                        <div class="control-group">
-                            <label for="country" class="control-label">Country</label>
-                            <div class="controls docs-input-sizes">
-                                <select id="country" name="country">
-                                    <option>something</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                        </div>
-                        <br />
-
-                        <div class="control-group">
-                            <label for="province" class="control-label">Province</label>
-                            <div class="controls docs-input-sizes">
-                                <select id="province" name="province">
-                                    <option>something</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                        </div>
-                        <br />
-
-                        <div class="control-group">
-                            <label for="city" class="control-label">City / State</label>
-                            <div class="controls docs-input-sizes">
-                                <select id="city" name="city">
-                                    <option>something</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <br />
-                        <div class="control-group">
-                            <div class="controls">
-                                <label class="checkbox">
-                                    <input type="checkbox" id="optionsCheckbox" value="option1">
-                                    I Agree with Terms and Conditions
-                                </label>
-                            </div>
-                        </div>
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">Save changes</button>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

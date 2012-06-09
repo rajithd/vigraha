@@ -1,12 +1,12 @@
 #Vigraha Reporting
 
-1.1. Build Requirements
+## Build Requirements
     * JDK 1.6 (1.6.0_12)
     * Maven 2.2.1
     * MySql 5 (5.0.21)
     * Apache tomcat 6.5
 
-1.2 1) Download the birt-runtime-3_7_2.zip
+## 1) Download the birt-runtime-3_7_2.zip
     2) Extract the birt-runtime-3_7_3.zip file
     3) set the "birt.viewer.home" path in the viewer/pom.xml to the
        extracted "birt-runtime-3_7_1/WebViewerExample" folder. This will copy the required libs from birt viewer.
@@ -20,7 +20,7 @@
 eg:     <attribute>
             <name>baseURL</name>
             <required>true</required>
-            <rtexprvalue>http://127.0.0.1/</rtexprvalue>
+            <rtexprvalue>http://127.0.0.1:8080/</rtexprvalue>
             <description>
                 Specifies base URL of BIRT viewer.
                 Default to the current context.
@@ -28,10 +28,9 @@ eg:     <attribute>
         </attribute>
 
 
-1.3 Configure and Deploy application on Tomcat
-
+## Configure and Deploy application on Tomcat
  1) Run mvn clean install from ${app.home}/reporting-ui
- 2) Get the tomcat and copy the ${app.home}/viewer/target/reporting-ui.war to
+ 2) Get the tomcat and copy the ${app.home}/reporting-ui/target/reporting-ui.war to
     $CATALINA_HOME/webapps/.
  3) Start the tomcat
  4) Go to web browser and type "http://<ip>:<port>/reporting-ui/index to view the app

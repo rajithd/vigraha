@@ -5,9 +5,11 @@
 
 <html>
 <head>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> <!----- accordion js -------->
+    <!--<script type="text/javascript"; src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js";></script>--> <!----- accordion js -------->
 
-<script type="text/javascript" src="java scripts/ddaccordion.js"></script>
+    <script type="text/javascript" src="../resources/java_scripts/jquery.min.js"></script>
+
+    <script type="text/javascript" src="../resources/java_scripts/ddaccordion.js"></script>
 
     <script type="text/javascript">
 
@@ -34,11 +36,11 @@
 
     </script>
 
-    <script src="java scripts/bootstrap-dropdown.js"></script>		<!------------------- DropDown Menu js ----------------------------------------->
+    <script src="../resources/java_scripts/bootstrap-dropdown.js"></script>		<!------------------- DropDown Menu js ----------------------------------------->
 
-<script src="http://code.jquery.com/jquery-1.7.min.js"></script>	<!------------------------ datepicker js ----------------------------->
+    <script src="http://code.jquery.com/jquery-1.7.min.js"></script>	<!------------------------ datepicker js ----------------------------->
 
-    <script type="text/javascript" src="java scripts/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="../resources/java_scripts/bootstrap-datepicker.js"></script>
 
     <script>
     $(function(){
@@ -77,9 +79,9 @@
     });
     </script>
 
-    <script type="text/javascript" src="java scripts/bootstrap.js"></script>			<!------------------------ timepicker js ------------------------>
+    <script type="text/javascript" src="../resources/java_scripts/bootstrap.js"></script>			<!------------------------ timepicker js ------------------------>
 
-    <script type="text/javascript" src="java scripts/bootstrap-timepicker-0.3.js"></script>
+    <script type="text/javascript" src="../resources/java_scripts/bootstrap-timepicker-0.3.js"></script>
 
     <script type="text/javascript">
 
@@ -99,6 +101,8 @@
 
         });
     </script>
+
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>
        <fmt:message key="promotion.title"/>
@@ -108,7 +112,7 @@
     <link href="../resources/Style/bootstrap.css" type="text/css" rel="stylesheet" />
     <link href="../resources/Style/bootstrap.min.css" type="text/css" rel="stylesheet" />
     <link href="../resources/Style/bootstrap-responsive.css" type="text/css" rel="stylesheet" />
-    <link href="../resources/Style/jquery.datepick.css" type="text/css" rel="stylesheet" />
+    <link href="../resources/Style/jquery.ui.datepicker.css" type="text/css" rel="stylesheet" />
     <link href="../resources/Style/datepicker.less" type="text/css" rel="stylesheet" />
     <link href="../resources/Style/timepicker.css" type="text/css" rel="stylesheet" />
 
@@ -137,8 +141,8 @@
     .urbangreymenu .headerbar{
         font: bold 13px Verdana;
         color: white;
-        /*background: #606060 url(arrowstop.gif) no-repeat 8px 6px; *//*last 2 values are the x and y coordinates of bullet image*/
-        margin-bottom: 0; /*bottom spacing between header and rest of content*/
+        background: #606060 url(arrowstop.gif) no-repeat 8px 6px; /*last 2 values are the x and y coordinates of bullet image*/
+        margin-bottom: 5px; /*bottom spacing between header and rest of content*/
         text-transform: uppercase;
         padding: 7px 0 7px 31px; /*31px is left indentation of header text*/
     }
@@ -184,8 +188,10 @@
 </head>
 
 <body>
-<div class="navbar">											 <!--Navigation Bar-->
+<div class="navbar">									<!------------------------------- Navigation Bar ------------------------------------->
+
     <div class="navbar-inner">
+
         <div class="container">
 
             <ul class="nav">
@@ -195,7 +201,7 @@
 
                     <a href="#">Home</a>
                 </li>
-                <li><a href="registration">Register</a></li>
+                <li><a href="admin-registration">Register</a></li>
                 <li><a href="home">Sign In</a></li>
             </ul>
             <form:form class="navbar-search pull-right">
@@ -204,7 +210,7 @@
 
             <ul class="nav">
                 <li class="dropdown">
-                    <a href="#"	class="dropdown-toggle"	 data-toggle="dropdown">Login<b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrator <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Action</a></li>
                         <li><a href="#">User Privilages</a></li>
@@ -213,12 +219,15 @@
                         <li><a href="#">Separated link</a></li>
                     </ul>
                 </li>
+
             </ul>
+
         </div>
     </div>
 </div>
 
-<div id="header-bar">				<!-- Header Bar -->
+<div id="header-bar">				<!------------------------- Header Bar ---------------------------------->
+
     <img src="../resources/Images/66.png" />
 </div>
 
@@ -240,37 +249,44 @@
 
     <div class="urbangreymenu">
 
-        <h3 class="headerbar"><a href="http://www.dynamicdrive.com/style/">Administrator</a></h3>
+        <h3 class="headerbar"><a href="#">Administrator</a></h3>
         <ul class="submenu">
-            <li><a href="http://www.dynamicdrive.com/style/csslibrary/category/C1/">Horizontal CSS Menus</a></li>
-            <li><a href="http://www.dynamicdrive.com/style/csslibrary/category/C2/">Vertical CSS Menus</a></li>
-            <li><a href="http://www.dynamicdrive.com/style/csslibrary/category/C4/">Image CSS</a></li>
-            <li><a href="http://www.dynamicdrive.com/style/csslibrary/category/C6/">Form CSS</a></li>
-            <li><a href="http://www.dynamicdrive.com/style/csslibrary/category/C5/">DIVs and containers</a></li>
-            <li><a href="http://www.dynamicdrive.com/style/csslibrary/category/C7/">Links & Buttons</a></li>
-            <li><a href="http://www.dynamicdrive.com/style/csslibrary/category/C8/">Other</a></li>
-            <li><a href="http://www.dynamicdrive.com/style/csslibrary/all/">Browse All</a></li>
+            <li><a href="#">Edit Programme</a></li>
+            <li><a href="#">Search Programme</a></li>
+            <li><a href="#">Create New Administrator</a></li>
+            <li><a href="#">Change password</a></li>
+            <li><a href="#">Modify/Delete admin account</a></li>
+            <li><a href="#">Logout</a></li>
         </ul>
 
-        <h3 class="headerbar"><a href="http://www.javascriptkit.com">Data Loader</a></h3>
+        <h3 class="headerbar"><a href="#">Promotion Program</a></h3>
         <ul class="submenu">
-            <li><a href="http://www.javascriptkit.com/cutpastejava.shtml" >Free JavaScripts</a></li>
-            <li><a href="http://www.javascriptkit.com/javatutors/">JavaScript tutorials</a></li>
-            <li><a href="http://www.javascriptkit.com/jsref/">JavaScript Reference</a></li>
-            <li><a href="http://www.javascriptkit.com/dhtmltutors/">DHTML & CSS</a></li>
-            <li><a href="http://www.javascriptkit.com/howto/">Web Design</a></li>
-            <li><a href="http://www.javascriptkit.com/java/">Free Java Applets</a></li>
+            <li><a href="#">Promotion Programe report - Yearly</a></li>
+            <li><a href="#">Promotion Programe report - Monthly</a></li>
+            <li><a href="#">Promotion Programe report - Daily</a></li>
         </ul>
 
-        <h3 class="headerbar"><a href="http://www.javascriptkit.com">Reporting</a></h3>
+        <h3 class="headerbar"><a href="#">Loyality Program</a></h3>
         <ul class="submenu">
-            <li><a href="http://www.javascriptkit.com/cutpastejava.shtml" >Free JavaScripts</a></li>
-            <li><a href="http://www.javascriptkit.com/javatutors/">JavaScript tutorials</a></li>
-            <li><a href="http://www.javascriptkit.com/jsref/">JavaScript Reference</a></li>
-            <li><a href="http://www.javascriptkit.com/dhtmltutors/">DHTML & CSS</a></li>
-            <li><a href="http://www.javascriptkit.com/howto/">Web Design</a></li>
-            <li><a href="http://www.javascriptkit.com/java/">Free Java Applets</a></li>
+            <li><a href="#" >Loyality Program report - Yearly</a></li>
+            <li><a href="#">Loyality Program report - Monthly</a></li>
+            <li><a href="#">Loyality Program report - Daily</a></li>
         </ul>
+
+        <h3 class="headerbar"><a href="#">Tenure Program Reports</a></h3>
+        <ul class="submenu">
+            <li><a href="#" >Tenure Program report - Yearly</a></li>
+            <li><a href="#">Tenure Program report - Monthly</a></li>
+            <li><a href="#">Tenure Program report - Daily</a></li>
+        </ul>
+
+        <h3 class="headerbar"><a href="#">Subscriber Details User Management</a></h3>
+        <ul class="submenu">
+            <li><a href="#" >Tenure Program report - Yearly</a></li>
+            <li><a href="#">Tenure Program report - Monthly</a></li>
+            <li><a href="#">Tenure Program report - Daily</a></li>
+        </ul>
+
 
     </div>
 
@@ -279,247 +295,285 @@
 
 <!--<div class="span8">-->
 
+
 <div class="offset2">		<!------------------------------- Promotion Form ------------------------------------->
-    <div class="row">
-        <div class="row">
+<div class="row">
+<div class="row">
 
-            <div class="span8" style="background-color:#F4F4F4">
-            <div class="offset1">
-                <br />
+<div class="span8">
 
-                <form:form class="form-horizontal">
-                    <fieldset>
+    <h2>Promotion Form</h2>		<!------------------------------- Main Title ------------------------------------->
 
-                        <h3>Programme Name</h3> <br />
+    <hr />
 
+</div>
 
-                        <div class="control-group">
-                            <label for="programname" class="control-label">Programme Name *</label>
-                            <div class="controls docs-input-sizes">
-                                <input class="span3" id="programname" name="programname" type="text" placeholder="Enter Programme Name">
-                            </div>
-                        </div>
-                        <br />
+<div class="span8" style="background-color:#F4F4F4">
+<div class="offset1">
+<br />
 
-                        <h3>Promotion Period</h3> <br />
+<form:form class="form-horizontal">
+<fieldset>
 
-                        <div class="control-group">
-                            <label for="startdate" class="control-label">Start Date *</label>
-                            <div class="controls docs-input-sizes">
-                                <input class="span3" id="startdate" name="startdate" type="text" placeholder="Enter Start Date">
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                <!-- #BeginDate format:Am1 -->May 28, 2012<!-- #EndDate -->
-                            </div>
-                        </div>
-                        <br />
+<h3>Company Informations</h3> <br />
 
-                        <div class="control-group">
-                            <label for="starttime" class="control-label">Start Time *</label>
-                            <div class="controls docs-input-sizes">
-                                <!--<form>-->
-                                <!--<input class="modal-timepicker" type="text" />
-                              <span class="help-inline">Select Time</span>-->
-                                <div class="input-append time">
-                                    <input size="16" placeholder="Show as dropdown" class="dropdown-timepicker"  id="starttime" name="starttime" type="text" />
-                                    <span class="add-on"><!--<i class="icon-th"></i>--><img src="../resources/Images/clock.png" width="16" height="18"/></span>
-                                    <!--</form> -->
-                                </div>
-                            </div>
-                        </div>
+<div class="control-group">
+    <label for="companycode" class="control-label">Company Code *</label>
+    <div class="controls docs-input-sizes">
+        <select id="companycode" name="companycode">
+            <option>something</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </div>
+</div>
 
-                        <br />
+<h3>Promotion Informations</h3> <br />
 
 
-                        <div class="control-group">
-                            <label for="enddate" class="control-label">End Date *</label>
-                            <div class="controls docs-input-sizes">
-                                <input class="span3" id="enddate" name="enddate" type="text" placeholder="Enter End Date">
-                            </div>
-                        </div>
-                        <br />
+<div class="control-group">
+    <label for="promotionname" class="control-label">Promotion Name *</label>
+    <div class="controls docs-input-sizes">
+        <input class="span3" id="promotionname" name="promotionname" type="text" placeholder="Enter Programme Name">
+    </div>
+</div>
 
-                        <div class="control-group">
-                            <label for="endtime" class="control-label">End Time *</label>
-                            <div class="controls docs-input-sizes">
-                                <!--<form>-->
-                                <!--<input class="modal-timepicker" type="text" />
-                              <span class="help-inline">Select Time</span>-->
+<br />
 
-                                <div class="input-append time">
-                                    <input size="16" placeholder="Show as dropdown" class="dropdown-timepicker" id="endtime" name="endtime" type="text" />
-                                    <span class="add-on"><!--<i class="icon-th"></i>--><img src="../resources/Images/clock.png" width="16" height="18"/></span>
-                                    <!--</form> -->
-                                </div>
-                                <!--</form> -->
+<h3>Promotion Period</h3> <br />
 
-                            </div>
-                        </div>
+<div class="control-group">
+    <label for="startdate" class="control-label">Start Date *</label>
+    <div class="controls docs-input-sizes">
 
-                        <br />
+        <div class="input-append date" id="dp1" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+            <input class="dropdown-datepicker" id="startdate" name="startdate" size="16" type="text" value="12-02-2012" readonly="">
+            <span class="add-on"><i class="icon-th"></i><!--<img src="Images/calendar.png" width="16"; height="18";/>--></span>
 
-                        <h3>Promotion Type</h3> <br />
+        </div>
 
-                        <div class="control-group">
-                            <label for="type" class="control-label">Type</label>
-                            <div class="controls docs-input-sizes">
-                                <select id="type" name="type">
-                                    <option>SMS</option>
-                                    <option>Voice call</option>
-                                </select>
-                            </div>
-                        </div>
+    </div>
+</div>
 
-                        <h3>Promotion Based On</h3> <br />
-
-                        <div class="control-group">
-                            <label for="promotion" class="control-label">Promotion</label>
-                            <div class="controls docs-input-sizes">
-                                <select id="promotion" name="promotion">
-                                    <option>SMS</option>
-                                    <option>LBS</option>
-                                    <option>Voice call</option>
-                                    <option>GPRS</option>
-                                    <option>USSD</option>
-                                </select>
-                            </div>
-                        </div>
-                        <br />
-
-                        <h3>Promotion Number</h3> <br />
-
-                        <div class="control-group">
-                            <label for="promotionnumber" class="control-label">Promotion Number *</label>
-                            <div class="controls docs-input-sizes">
-                                <input class="span3" id="promotionnumber" name="promotionnumber" type="text" placeholder="Enter Promotion Number">
-                            </div>
-                        </div>
-                        <br />
-
-                        <h3>Cycle Time</h3> <br />
-
-                        <div class="control-group">
-                            <div class="controls">
-                                <label for="executetime" class="radio">
-                                    <input type="radio" name="executetime" id="executetime" value="option1" checked="">
-                                    &nbsp;&nbsp;&nbsp;
-                                    Execute every &nbsp;
-                                    <input class="span3" type="text" placeholder="Minutes"> </label>
-
-                                <label for="executeatend" class="radio">
-                                    <input type="radio" name="executeatend" id="executeatend" value="option1" checked="">
-                                    &nbsp;&nbsp;&nbsp;
-                                    Execute at the end of the Promotion Period</label>
-
-                            </div>
-                        </div>
-                        <br />
-
-                        <h3>Processing Restirction</h3>  <br />
-
-                        <div class="control-group">
-                            <label for="subscribers" class="control-label">Subscribers</label>
-                            <div class="controls docs-input-sizes">
-                                <select id="subscribers" name="subscribers">
-                                    <option>Do not repeate subscribers</option>
-                                    <option>Repeate subscribers</option>
-                                </select>
-                            </div>
-                        </div>
-
-
-                        <h3>Selection Mechanism</h3> <br />
-                        <br />
-
-                        <div class="control-group">
-                            <label for="randomlyselect" class="control-label">Randomly Select</label>
-                            <div class="controls docs-input-sizes">
-                                <input class="span3" id="randomlyselect" name="randomlyselect" type="text" placeholder="Enter Mechanism">
-
-                            </div>
-                        </div>
-                        <br />
-
-                        <div class="control-group">
-
-                            <label for="numberoffirstsubscribers" class="control-label">Number of First Subscribers</label>
-                            <div class="controls docs-input-sizes">
-                                <input class="span3" id="numberoffirstsubscribers" name="numberoffirstsubscribers" type="text" placeholder="Enter Mechanism">
-
-                            </div>
-                        </div>
-                        <br />
-
-
-                        <div class="control-group">
-
-                            <label for="numberofsubscribers" class="control-label">Number of Subscribers </label>
-                            <div class="controls docs-input-sizes">
-                                <input class="span3" id="numberofsubscribers" name="numberofsubscribers" type="text" placeholder="Enter Mechanism">
-                                <br />
-
-                                <div class="controls">
-                                    <label for="whomade" class="control-label"> who made</label>
-                                    <div class="controls docs-input-sizes">
-                                        <input class="span3" id="whomade" name="whomade" type="text" placeholder="Enter Mechanism">
-
-
-                                    </div>
-                                </div>
-                                <br />
-
-
-                            </div>
-                        </div>
-
-
-                        <div class="controls">
-                            <div class="controls">
-                                <label for="call" class="control-label">Calls</label>
-                                <div class="controls docs-input-sizes">
-                                    <input class="span3" id="call" name="call" type="text" placeholder="Enter Mechanism">
-
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-
-
-                        <h4>Age Restriction</h4> <br />
-
-                        <div class="controls">
-                            <h5>Notification Message</h5> <br />
-                        </div>
-
-
-
-                        <div class="control-group">
-
-                            <label for="smsmessage" class="control-label">SMS Message</label>
-                            <div class="controls docs-input-sizes">
-                                <input class="span3" id="smsmessage" name="smsmessage" type="text" placeholder="Enter Mechanism">
-
-                            </div>
-                        </div>
-                        <br />
-
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-primary">Save changes</button>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button class="btn">Cancel</button>
-                        </div>
-                    </fieldset>
-                </form:form>
-            </div>
-            </div>
+<div class="control-group">
+    <label for="starttime" class="control-label">Start Time *</label>
+    <div class="controls docs-input-sizes">
+        <!--<form>-->
+        <!--<input class="modal-timepicker" type="text" />
+      <span class="help-inline">Select Time</span>-->
+        <div class="input-append time" id="dp1" >
+            <input size="16" id="starttime" name="starttime" placeholder="Show as dropdown" class="dropdown-timepicker" type="text" />
+            <span class="add-on"><!--<i class="icon-th"></i>--><img src="../resources/Images/clock.png" width="16" height="18"/></span>
+            <!--</form> -->
         </div>
     </div>
 </div>
+
+<br />
+
+
+<div class="control-group">
+    <label for="enddate" class="control-label">End Date *</label>
+    <div class="controls docs-input-sizes">
+
+        <div class="input-append date" id="dp2" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+            <input class="dropdown-datepicker" id="enddate" name="enddate" size="16" type="text" value="12-02-2012" readonly="">
+            <span class="add-on"><i class="icon-th"></i><!--<img src="Images/calendar.png" width="16"; height="18";/>--></span>
+        </div>
+
+        <!-- <input class="span3" type="text" placeholder="Enter End Date">-->
+
+    </div>
+</div>
+
+<div class="control-group">
+    <label for="endtime" class="control-label">End Time *</label>
+    <div class="controls docs-input-sizes">
+        <!--<form>-->
+        <!--<input class="modal-timepicker" type="text" />
+      <span class="help-inline">Select Time</span>-->
+
+        <div class="input-append time" id="dp1" >
+            <input size="16" id="endtime" name="endtime" placeholder="Show as dropdown" class="dropdown-timepicker" type="text" />
+            <span class="add-on"><!--<i class="icon-th"></i>--><img src="../resources/Images/clock.png" width="16" height="18"/></span>
+            <!--</form> -->
+        </div>
+        <!--</form> -->
+
+    </div>
+</div>
+
+<br />
+
+<!--<h3>Promotion Type</h3> <br />
+
+<div class="control-group">
+<div class="controls">
+  <label class="checkbox">SMS *<input type="checkbox" id="optionsCheckbox" value="option1"> </label>
+
+  <label class="checkbox">Voice Call *<input type="checkbox" id="optionsCheckbox" value="option1"> </label>
+
 </div>
 </div>
+<br />-->
+
+<h3>Promotion Based On</h3> <br />
+
+<div class="control-group">
+    <div class="controls">
+        <label for="sms" class="checkbox">SMS *<input type="checkbox" id="sms" name="sms" value="option1"> </label>
+
+        <label for="lbs" class="checkbox">LBS *<input type="checkbox" id="lbs" name="lbs" value="option1"> </label>
+
+        <label for="voicecall" class="checkbox">Voice Call *<input type="checkbox" id="voicecall" name="voicecall" value="option1"> </label>
+
+        <label for="gprs" class="checkbox">GPRS *<input type="checkbox" id="gprs" name="gprs" value="option1"> </label>
+
+        <label for="ussd" class="checkbox">USSD *<input type="checkbox" id="ussd" name="ussd" value="option1"> </label>
+
+    </div>
+</div>
+<br />
+
+<h3>Promotion Number</h3> <br />
+
+<div class="control-group">
+    <label for="promotionnumber" class="control-label">Promotion Number *</label>
+    <div class="controls docs-input-sizes">
+        <input class="span3" id="promotionnumber" name="promotionnumber" type="text" placeholder="Enter Promotion Number">
+    </div>
+</div>
+<br />
+
+<h3>Cycle Time</h3> <br />
+
+<form:form>
+
+    <div class="control-group">
+        <div class="controls">
+
+            <label for="executeevery" class="radio">
+                <input type="radio" name="executeevery" id="executeevery" value="option1" checked="">
+                &nbsp;&nbsp;&nbsp;
+                Execute every &nbsp;
+                <input class="span2" type="text" placeholder="Hours"> </label> <br />
+
+            <label for="specifictime" class="radio">
+                <input type="radio" name="specifictime" id="specifictime" value="option1" checked="">
+                &nbsp;&nbsp;&nbsp;
+                Execute at Specific Time&nbsp;&nbsp;
+                <input size="16" placeholder="Show as dropdown" class="dropdown-timepicker" type="text" />
+
+            </label>	<br />
+
+            <label for="promotionend" class="radio">
+                <input type="radio" name="promotionend" id="promotionend" value="option1" checked="">
+                &nbsp;&nbsp;&nbsp;
+                Execute at the end of the Promotion Period</label>
+
+        </div>
+    </div>
+</form:form>
+<br />
+
+<h3>Processing Restirction</h3>  <br />
+
+<form:form>
+
+    <div class="control-group">
+        <div class="controls">
+
+            <label for="donotrepeate" class="radio">
+                <input type="radio" name="donotrepeate" id="donotrepeate" value="option1" checked="">
+                &nbsp;&nbsp;&nbsp;
+                Do not Repeat Subscribers</label>
+
+            <label for="repeate" class="radio">
+                <input type="radio" name="repeate" id="repeate" value="option1" checked="">
+                &nbsp;&nbsp;&nbsp;
+                Repeat Subcriberss</label>
+
+        </div>
+    </div>
+</form:form>
+<br />
+
+
+<h3>Selection Mechanism</h3> <br />
+
+<form:form>
+    <div class="control-group">
+        <div class="controls">
+
+            <label for="random" class="radio">
+                <input type="radio" name="random" id="random" value="option1" checked="">
+                &nbsp;&nbsp;&nbsp;
+                Randomly Select</label>
+
+            <label for="firstsub" class="radio">
+                <input type="radio" name="firstsub" id="firstsub" value="option1" checked="">
+                &nbsp;&nbsp;&nbsp;
+                Number of First Subscribers</label>
+
+            <label for="all" class="radio">
+                <input type="radio" name="all" id="all" value="option1" checked="">
+                &nbsp;&nbsp;&nbsp;
+                All Subscribers</label>
+
+        </div>
+    </div>
+</form:form>
+
+<br />
+
+<h3>Restriction</h3> <br />
+
+<form:form>
+
+    <label class="control-label"><h5>Age Restriction</h5></label>
+
+    <div class="control-group">
+        <div class="controls docs-input-sizes">
+            <input class="span1" type="text" placeholder="Enter Age">
+            &nbsp; To&nbsp;
+            <input class="span1" type="text" placeholder="Enter Age">
+        </div>
+    </div>
+</form:form>
+<br />
+
+<h3>Notification Message</h3> <br />
+
+<div class="control-group">
+    <label class="control-label" for="smsmessage">SMS Message</label>
+    <div class="controls">
+        <textarea class="input-xlarge" id="smsmessage" name="smsmessage" rows="4"></textarea>
+    </div>
+</div>
+<br />
+
+<div class="form-actions">
+    <button type="submit" class="btn btn-primary">Save changes</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="btn">Cancel</button>
+</div>
+</fieldset>
+</form:form>
+
+</div>
+</div>
+</div>
+</div>
+
 
 </div>
 </div>
 
+</div>
+</div>
+</div>
 <hr />						<!------------------------ footer ------------------------------------------->
 
 <footer class="container">
@@ -532,5 +586,6 @@
     <p></p>
 
 </footer>
+
 </body>
 </html>
