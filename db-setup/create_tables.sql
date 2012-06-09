@@ -61,47 +61,70 @@ PRIMARY KEY (record_id)
 ENGINE= InnoDB;
 
 CREATE TABLE IF NOT EXISTS `admin` (
-`firstname` VARCHAR(15) NOT NULL ,
-`lastname` VARCHAR(20) NOT NULL ,
-`mobilenumber` VARCHAR (11) NOT NULL ,
-`yearofbirth` VARCHAR (15) NOT NULL ,
-`profession` VARCHAR (15) NOT NULL ,
+`full_name` VARCHAR(50) NOT NULL ,
+`mobile_no` VARCHAR(11) NOT NULL ,
+`id` VARCHAR (20) NOT NULL ,
 `username` VARCHAR (20) NOT NULL ,
 `password` VARCHAR (20) NOT NULL ,
-`securityquestion` VARCHAR (100) NOT NULL,
-`idnumber` VARCHAR (10) NOT NULL,
-`address` VARCHAR (100) NOT NULL,
-`country` VARCHAR (20) NOT NULL,
-`province` VARCHAR (20) NOT NULL,
-`city` VARCHAR (20) NOT NULL,
-PRIMARY KEY (idnumber)
+PRIMARY KEY (id)
+)
+ENGINE= InnoDB;
+
+CREATE TABLE IF NOT EXISTS `promotion` (
+`promotion_id` INT NOT NULL AUTO_INCREMENT ,
+`company_code` VARCHAR(50) NOT NULL ,
+`promotion_name` VARCHAR(30) NOT NULL ,
+`start_date_time` DATETIME NOT NULL ,
+`end_date_time` DATETIME NOT NULL ,
+`based_on` VARCHAR(50) NOT NULL ,
+`promotion_number` VARCHAR(10) NOT NULL ,
+`cycle_type` VARCHAR(50) NOT NULL ,
+`cycle_time` VARCHAR(50) NOT NULL ,
+`restriction` VARCHAR(50) NOT NULL ,
+`selection_type` VARCHAR (50) NOT NULL ,
+`selection_value` VARCHAR(50) NOT NULL ,
+`age_restriction` VARCHAR(20) ,
+`sms_message` VARCHAR (200) NOT NULL,
+`program_owner` VARCHAR (30) NOT NULL ,
+PRIMARY KEY (promotion_id)
+)
+ENGINE= InnoDB;
+
+CREATE TABLE IF NOT EXISTS `company` (
+`company_name` VARCHAR(50) NOT NULL ,
+`company_reg_no` VARCHAR(11) NOT NULL ,
+`company_tele_1` VARCHAR (20) NOT NULL ,
+`company_tele_2` VARCHAR (20),
+`company_address` VARCHAR (20) NOT NULL ,
+`email` VARCHAR (20) NOT NULL ,
+`username` VARCHAR (20) NOT NULL ,
+`password` VARCHAR (20) NOT NULL ,
+PRIMARY KEY (company_reg_no)
 )
 ENGINE= InnoDB;
 
 DROP TABLE IF EXISTS `admin`;
+DROP TABLE IF EXISTS `promotion`;
+DROP TABLE IF EXISTS `company`;
 
-CREATE TABLE IF NOT EXISTS `promotion` (
-`programname` VARCHAR(30) NOT NULL ,
-`startdate` VARCHAR(20) NOT NULL ,
-`starttime` VARCHAR(20) NOT NULL ,
-`enddate` VARCHAR (20) NOT NULL ,
-`endtime` VARCHAR(20) NOT NULL ,
-`type` VARCHAR(10),
-`promotion` VARCHAR(10) ,
-`promotionnumber` VARCHAR(10) NOT NULL ,
-`subscribers` VARCHAR(10) NOT NULL ,
-`randomlyselect` VARCHAR (20) NOT NULL ,
-`numberoffirstsubscribers` VARCHAR(10) NOT NULL ,
-`numberofsubscribers` VARCHAR(10) NOT NULL ,
-`whomade` VARCHAR (20) NOT NULL,
-`calls` VARCHAR (15) NOT NULL,
-`smsmessage` VARCHAR (200) NOT NULL,
-PRIMARY KEY (promotionnumber)
+
+insert into `admin` values("admin","mobileno","id","admin","123");
+
+CREATE TABLE IF NOT EXISTS `PROMOTION_RULE_EXECUTOR` (
+  `rule_id` INT NOT NULL AUTO_INCREMENT,
+  `promotion_rule_id` INT NOT NULL ,
+  `start_date` DATETIME NOT NULL ,
+  `end_date` DATETIME NOT NULL ,
+  `execute_time` DATETIME NOT NULL ,
+  `promotion_number` VARCHAR (20) NOT NULL ,
+  `status` VARCHAR (10) NOT NULL ,
+  PRIMARY KEY (rule_id)
 )
 ENGINE= InnoDB;
 
-DROP TABLE IF EXISTS `promotion`;
-
-insert into `admin` values("admin","lastname","mobileno","yearofbirth","profession","admin","123",
-                            "securityqu","1","address","country","province","city");
-
+CREATE TABLE IF NOT EXISTS `PROMOTION_SEND_MSISDN`(
+  `rule_id` INT,
+  `promotion_rule_id` INT,
+  `msisdn` VARCHAR
+)
+ENGINE= InnoDB;
