@@ -310,7 +310,7 @@ a:active {
 }
 
 .pdfTest{
-    background-image:url("../images/pdficon.png");
+    background-image:url("images/pdficon.png");
     background-repeat:no-repeat;
     width:16px;
     height:16px;

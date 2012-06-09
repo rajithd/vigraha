@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<Context path="/viewer/spring/" docBase="viewer" debug="5" reloadable="true" crossContext="true">
+<Context path="/reporting-ui/" docBase="viewer" debug="5" reloadable="true" crossContext="true">
     <Resource name="jdbc/vcReportingDB"
               auth="Container"
               type="javax.sql.DataSource"

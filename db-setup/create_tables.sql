@@ -107,5 +107,26 @@ DROP TABLE IF EXISTS `admin`;
 DROP TABLE IF EXISTS `promotion`;
 DROP TABLE IF EXISTS `company`;
 
+
 insert into `admin` values("admin","mobileno","id","admin","123");
+
+CREATE TABLE IF NOT EXISTS `PROMOTION_RULE_EXECUTOR` (
+  `rule_id` INT NOT NULL AUTO_INCREMENT,
+  `promotion_rule_id` INT NOT NULL ,
+  `start_date` DATETIME NOT NULL ,
+  `end_date` DATETIME NOT NULL ,
+  `execute_time` DATETIME NOT NULL ,
+  `promotion_number` VARCHAR (20) NOT NULL ,
+  `status` VARCHAR (10) NOT NULL ,
+  PRIMARY KEY (rule_id)
+)
+ENGINE= InnoDB;
+
+CREATE TABLE IF NOT EXISTS `PROMOTION_SEND_MSISDN`(
+  `rule_id` INT,
+  `promotion_rule_id` INT,
+  `msisdn` VARCHAR
+)
+ENGINE= InnoDB;
+
 
