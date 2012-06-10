@@ -132,6 +132,10 @@
         <property name="jobDetail" ref="custTransactionManager"/>
         <property name="cronExpression" value="${cust.upload.cron.expression}"/>
     </bean>
+    
+    <bean id="summeryProcudureCallTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="cronExpression" value="${summery.upload.cron.expression}"/>
+    </bean>
 
     <bean id="voiceCallTransactionManager"
           class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
@@ -187,6 +191,16 @@
           class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
         <property name="targetObject">
             <ref bean="custUploadObjectTarget"/>
+        </property>
+        <property name="targetMethod">
+            <value>upload</value>
+        </property>
+    </bean>
+
+    <bean id="summeryTransactionManager"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="summeryUploadObjectTarget"/>
         </property>
         <property name="targetMethod">
             <value>upload</value>
@@ -340,6 +354,12 @@
 
     </bean>
 
+    <bean id="summeryUploadObjectTarget" class="vigraha.dataloader.service.impl.CustomerUploadManagerServiceImpl">
+        <property name="transactionRepository" ref="summeryTransactionRepository" />
+        <property name="jsonDecoderService" ref="jsonDecoderService"/>
+
+    </bean>
+
     <bean id="voiceCallTransactionRepository" class="vigraha.dataloader.repository.impl.VoiceCallTransactionRepositoryImpl">
         <property name="jdbcTemplate">
             <ref bean="jdbcTemplate"/>
@@ -371,6 +391,12 @@
     </bean>
 
     <bean id="customerTransactionRepository" class="vigraha.dataloader.repository.impl.CustomerTranactionRepository">
+        <property name="jdbcTemplate">
+            <ref bean="jdbcTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="summeryTransactionRepository" class="vigraha.dataloader.repository.impl.SummeryProcedureCall">
         <property name="jdbcTemplate">
             <ref bean="jdbcTemplate"/>
         </property>
