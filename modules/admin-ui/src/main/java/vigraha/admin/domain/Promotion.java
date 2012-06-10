@@ -1,163 +1,129 @@
 package vigraha.admin.domain;
 
+import java.util.Map;
+
 public class Promotion {
-    private String programname;
-    private String startdate;
-    private String enddate;
-    private String smstype;
-    private String voicecalltype;
-    private String smspromotion;
-    private String lbspromotion;
-    private String voicecallpromotion;
-    private String gprspromotion ;
-    private String ussdpromotion;
-    private int promotionnumber;
-    private String executetime;
-    private String randomlyselect;
-    private int numberoffirstsubscribers;
+    private String company_code;
+    private String promotion_name;
+    private String start_date;
+    private String start_time;
+    private String end_date;
+    private String end_time;
+    private Map<String,String>getbasedOn; // sms , lbs , voice call , gprs , ussd
+    private int promotion_number;
+    private String cycle_time; // execute every , promotion end , specific time
+    private String processing_restriction; // do not repeate subscribers , repeate subscribers
+    private String select_mechanism; // random , 1st subscriber , all
+    private int age;
     private int numberofsubscribers;
-    private String whomade;
-    private String call;
     private String smsmessage;
 
-    public void setProgramname(String programname) {
-        this.programname = programname;
+    public void setCompany_code(String company_code) {
+        this.company_code = company_code;
     }
 
-    public void setStartdate(String startdate) {
-        this.startdate = startdate;
+    public void setPromotion_name(String promotion_name) {
+        this.promotion_name = promotion_name;
     }
 
-    public void setEnddate(String enddate) {
-        this.enddate = enddate;
+    public void setStart_date(String start_date) {
+        this.start_date = start_date;
     }
 
-    public void setSmstype(String smstype) {
-        this.smstype = smstype;
+    public void setStart_time(String start_time) {
+        this.start_time = start_time;
     }
 
-    public void setVoicecalltype(String voicecalltype) {
-        this.voicecalltype = voicecalltype;
+    public void setEnd_date(String end_date) {
+        this.end_date = end_date;
     }
 
-    public void setSmspromotion(String smspromotion) {
-        this.smspromotion = smspromotion;
+    public void setEnd_time(String end_time) {
+        this.end_time = end_time;
     }
 
-    public void setLbspromotion(String lbspromotion) {
-        this.lbspromotion = lbspromotion;
+    public void setGetbasedOn(Map<String, String> getbasedOn) {
+        this.getbasedOn = getbasedOn;
     }
 
-    public void setVoicecallpromotion(String voicecallpromotion) {
-        this.voicecallpromotion = voicecallpromotion;
+    public void setPromotion_number(int promotion_number) {
+        this.promotion_number = promotion_number;
     }
 
-    public void setGprspromotion(String gprspromotion) {
-        this.gprspromotion = gprspromotion;
+    public void setCycle_time(String cycle_time) {
+        this.cycle_time = cycle_time;
     }
 
-    public void setUssdpromotion(String ussdpromotion) {
-        this.ussdpromotion = ussdpromotion;
+    public void setProcessing_restriction(String processing_restriction) {
+        this.processing_restriction = processing_restriction;
     }
 
-    public void setPromotionnumber(int promotionnumber) {
-        this.promotionnumber = promotionnumber;
+    public void setSelect_mechanism(String select_mechanism) {
+        this.select_mechanism = select_mechanism;
     }
 
-    public void setExecutetime(String executetime) {
-        this.executetime = executetime;
-    }
-
-    public void setRandomlyselect(String randomlyselect) {
-        this.randomlyselect = randomlyselect;
-    }
-
-    public void setNumberoffirstsubscribers(int numberoffirstsubscribers) {
-        this.numberoffirstsubscribers = numberoffirstsubscribers;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public void setNumberofsubscribers(int numberofsubscribers) {
         this.numberofsubscribers = numberofsubscribers;
     }
 
-    public void setWhomade(String whomade) {
-        this.whomade = whomade;
-    }
-
-    public void setCall(String call) {
-        this.call = call;
-    }
-
     public void setSmsmessage(String smsmessage) {
         this.smsmessage = smsmessage;
     }
 
-    public String getProgramname() {
-        return programname;
+    public String getCompany_code() {
+        return company_code;
     }
 
-    public String getStartdate() {
-        return startdate;
+    public String getPromotion_name() {
+        return promotion_name;
     }
 
-    public String getEnddate() {
-        return enddate;
+    public String getStart_date() {
+        return start_date;
     }
 
-    public String getSmstype() {
-        return smstype;
+    public String getStart_time() {
+        return start_time;
     }
 
-    public String getVoicecalltype() {
-        return voicecalltype;
+    public String getEnd_date() {
+        return end_date;
     }
 
-    public String getSmspromotion() {
-        return smspromotion;
+    public String getEnd_time() {
+        return end_time;
     }
 
-    public String getLbspromotion() {
-        return lbspromotion;
+    public Map<String, String> getGetbasedOn() {
+        return getbasedOn;
     }
 
-    public String getVoicecallpromotion() {
-        return voicecallpromotion;
+    public int getPromotion_number() {
+        return promotion_number;
     }
 
-    public String getGprspromotion() {
-        return gprspromotion;
+    public String getCycle_time() {
+        return cycle_time;
     }
 
-    public String getUssdpromotion() {
-        return ussdpromotion;
+    public String getProcessing_restriction() {
+        return processing_restriction;
     }
 
-    public int getPromotionnumber() {
-        return promotionnumber;
+    public String getSelect_mechanism() {
+        return select_mechanism;
     }
 
-    public String getExecutetime() {
-        return executetime;
-    }
-
-    public String getRandomlyselect() {
-        return randomlyselect;
-    }
-
-    public int getNumberoffirstsubscribers() {
-        return numberoffirstsubscribers;
+    public int getAge() {
+        return age;
     }
 
     public int getNumberofsubscribers() {
         return numberofsubscribers;
-    }
-
-    public String getWhomade() {
-        return whomade;
-    }
-
-    public String getCall() {
-        return call;
     }
 
     public String getSmsmessage() {

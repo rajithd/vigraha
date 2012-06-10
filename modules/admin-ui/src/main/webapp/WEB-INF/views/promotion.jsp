@@ -251,12 +251,13 @@
 
         <h3 class="headerbar"><a href="#">Administrator</a></h3>
         <ul class="submenu">
-            <li><a href="#">Edit Programme</a></li>
+            <li><a href="promotion">Add Promotion</a></li>
             <li><a href="#">Search Programme</a></li>
-            <li><a href="#">Create New Administrator</a></li>
-            <li><a href="#">Change password</a></li>
+            <li><a href="admin-registration">Create New Administrator</a></li>
+            <li><a href="company-registration">Create New Company</a></li>
+            <li><a href="forget-password">Change password</a></li>
             <li><a href="#">Modify/Delete admin account</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="home">Logout</a></li>
         </ul>
 
         <h3 class="headerbar"><a href="#">Promotion Program</a></h3>
@@ -321,11 +322,10 @@
     <label for="companycode" class="control-label">Company Code *</label>
     <div class="controls docs-input-sizes">
         <select id="companycode" name="companycode">
-            <option>something</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+           <c:forEach var="company" items="${companies}" varStatus="status">
+                  <c:out value="${company.company_name}"/>
+               <c:out value="${company.reg_no}"/>
+           </c:forEach>
         </select>
     </div>
 </div>
@@ -423,14 +423,16 @@
 
 <div class="control-group">
     <div class="controls">
+
+        <%--<form:checkbox path="getbasedOn[sms1]" value="sms1" />--%>
         <label for="sms" class="checkbox">SMS *<input type="checkbox" id="sms" name="sms" value="option1"> </label>
-
+        <%--<form:checkbox path="getbasedOn[lbs1]" value="lbs1" />--%>
         <label for="lbs" class="checkbox">LBS *<input type="checkbox" id="lbs" name="lbs" value="option1"> </label>
-
+        <%--<form:checkbox path="getbasedOn[voicecall1]" value="voicecall1" />--%>
         <label for="voicecall" class="checkbox">Voice Call *<input type="checkbox" id="voicecall" name="voicecall" value="option1"> </label>
-
+        <%--<form:checkbox path="getbasedOn[gprs1]" value="gprs1" />--%>
         <label for="gprs" class="checkbox">GPRS *<input type="checkbox" id="gprs" name="gprs" value="option1"> </label>
-
+        <%--<form:checkbox path="getbasedOn[ussd1]" value="ussd1" />--%>
         <label for="ussd" class="checkbox">USSD *<input type="checkbox" id="ussd" name="ussd" value="option1"> </label>
 
     </div>
@@ -459,6 +461,7 @@
                 &nbsp;&nbsp;&nbsp;
                 Execute every &nbsp;
                 <input class="span2" type="text" placeholder="Hours"> </label> <br />
+
 
             <label for="specifictime" class="radio">
                 <input type="radio" name="specifictime" id="specifictime" value="option1" checked="">

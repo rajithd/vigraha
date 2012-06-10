@@ -223,12 +223,13 @@
 
                         <h3 class="headerbar"><a href="#">Administrator</a></h3>
                         <ul class="submenu">
-                            <li><a href="#">Edit Programme</a></li>
+                            <li><a href="promotion">Add Promotion</a></li>
                             <li><a href="#">Search Programme</a></li>
-                            <li><a href="#">Create New Administrator</a></li>
-                            <li><a href="#">Change password</a></li>
+                            <li><a href="admin-registration">Create New Administrator</a></li>
+                            <li><a href="company-registration">Create New Company</a></li>
+                            <li><a href="forget-password">Change password</a></li>
                             <li><a href="#">Modify/Delete admin account</a></li>
-                            <li><a href="#">Logout</a></li>
+                            <li><a href="home">Logout</a></li>
                         </ul>
 
                         <h3 class="headerbar"><a href="#">Promotion Program</a></h3>

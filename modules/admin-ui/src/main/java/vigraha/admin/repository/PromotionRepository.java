@@ -34,8 +34,8 @@ public class PromotionRepository {
 
        //String age = agerestriction1 + "," + agerestriction2;
 
-        int row = jdbcTemplate.update("insert into `promotion` values(?,?,?,?,?,?,?)" , id ,promotionname,start_date_time,
-                                        end_date_time,promotionnumber,smsmessage,"admin");
+        int row = jdbcTemplate.update("insert into `promotion` values(?,?,?,?,?,?,?,?)" , id ,promotionname,start_date_time,
+                                        end_date_time,promotionnumber,smsmessage,"admin","ADD");
 
         System.out.println("************" + row);
 
