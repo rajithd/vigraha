@@ -35,27 +35,27 @@ public class CompanyRegisterRepository {
             return true;
     }
 
-    public Collection findAllCompanies()
-    {
-
-        return this.jdbcTemplate.query("select company_name , company_reg_no from company" , new CompanyMapper());
-    }
-
-    private static final class CompanyMapper implements RowMapper
-    {
-
-        public List<Company> mapRow(ResultSet rs, int rowNum) throws SQLException {
-            List<Company> companyList = new ArrayList<Company>();
-            Company company = new Company();
-            company.setCompany_name(rs.getString("company_name"));
-            company.setReg_no(rs.getString("company_reg_no"));
-            companyList.add(company);
-            logger.info("================success=========");
-            return companyList;
-        }
-
-
-    }
+//    public Collection findAllCompanies()
+//    {
+//
+//        return this.jdbcTemplate.query("select company_name , company_reg_no from company" , new CompanyService());
+//    }
+//
+//    private static final class CompanyService implements RowMapper
+//    {
+//
+//        public List<Company> mapRow(ResultSet rs, int rowNum) throws SQLException {
+//            List<Company> companyList = new ArrayList<Company>();
+//            Company company = new Company();
+//            company.setCompany_name(rs.getString("company_name"));
+//            company.setReg_no(rs.getString("company_reg_no"));
+//            companyList.add(company);
+//            logger.info("================success=========");
+//            return companyList;
+//        }
+//
+//
+//    }
 
 
 

@@ -18,10 +18,10 @@ public class AdminRegisterRepository {
      public boolean isSuccessfulSave(String fullname,String mobileno,String id,String username,
                                      String password)
      {
-         String md5 = MD5Encrypter.encryptPassword(password);
+         //String md5 = MD5Encrypter.encryptPassword(password);
 
          int row = jdbcTemplate.update("insert into `admin` values(?,?,?,?,?)" , fullname , mobileno ,
-                                        id , username , md5);
+                                        id , username , password);
 
          System.out.println("************" + row);
          if(row < 1)

@@ -5,82 +5,84 @@
 
 <html>
 <head>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>  <!----- accordion js -------->
+    <!--<script type="text/javascript"; src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>-->  <!----- accordion js -------->
 
-<script type="text/javascript" src="java scripts/ddaccordion.js"></script>
+    <script type="text/javascript" src="../resources/java_scripts/jquery.min.js"></script>
 
-<script type="text/javascript">
+    <script type="text/javascript" src="../resources/java_scripts/ddaccordion.js"></script>
 
-    ddaccordion.init({
-        headerclass: "headerbar", //Shared CSS class name of headers group
-        contentclass: "submenu", //Shared CSS class name of contents group
-        revealtype: "mouseover", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
-        mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
-        collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
-        defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc] [] denotes no content
-        onemustopen: true, //Specify whether at least one header should be open always (so never all headers closed)
-        animatedefault: false, //Should contents open by default be animated into view?
-        persiststate: true, //persist state of opened contents within browser session?
-        toggleclass: ["", "selected"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
-        togglehtml: ["", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
-        animatespeed: "normal", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
-        oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
-            //do nothing
-        },
-        onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
-            //do nothing
-        }
-    })
+    <script type="text/javascript">
 
-</script>
+        ddaccordion.init({
+            headerclass: "headerbar", //Shared CSS class name of headers group
+            contentclass: "submenu", //Shared CSS class name of contents group
+            revealtype: "mouseover", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+            mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+            collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
+            defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc] [] denotes no content
+            onemustopen: true, //Specify whether at least one header should be open always (so never all headers closed)
+            animatedefault: false, //Should contents open by default be animated into view?
+            persiststate: true, //persist state of opened contents within browser session?
+            toggleclass: ["", "selected"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+            togglehtml: ["", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+            animatespeed: "normal", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+            oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
+                //do nothing
+            },
+            onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+                //do nothing
+            }
+        })
 
-<script src="http://code.jquery.com/jquery-1.7.min.js"></script>	<!------------------------ datepicker js ----------------------------->
+    </script>
 
-<script type="text/javascript" src="java scripts/bootstrap-datepicker.js"></script>
+    <script src="../resources/java_scripts/jquery-1.7.min.js"></script>	<!------------------------ datepicker js ----------------------------->
 
-<script>
-$(function(){
-    window.prettyPrint && prettyPrint();
-    $('#dp1').datepicker({
-        format: 'mm-dd-yyyy'
+    <script type="text/javascript" src="../resources/java_scripts/bootstrap-datepicker.js"></script>
+
+    <script>
+    $(function(){
+        window.prettyPrint && prettyPrint();
+        $('#dp1').datepicker({
+            format: 'mm-dd-yyyy'
+        });
+        $('#dp2').datepicker();
+        $('#dp3').datepicker();
+
+
+        var startDate = new Date(2012,1,20);
+        var endDate = new Date(2012,1,25);
+        $('#dp4').datepicker()
+                .on('changeDate', function(ev){
+                    if (ev.date.valueOf() > endDate.valueOf()){
+                        $('#alert').show().find('strong').text('The start date can not be greater then the end date');
+                    } else {
+                        $('#alert').hide();
+                        startDate = new Date(ev.date);
+                        $('#startDate').text($('#dp4').data('date'));
+                    }
+                    $('#dp4').datepicker('hide');
+                });
+        $('#dp5').datepicker()
+                .on('changeDate', function(ev){
+                    if (ev.date.valueOf() < startDate.valueOf()){
+                        $('#alert').show().find('strong').text('The end date can not be less then the start date');
+                    } else {
+                        $('#alert').hide();
+                        endDate = new Date(ev.date);
+                        $('#endDate').text($('#dp5').data('date'));
+                    }
+                    $('#dp5').datepicker('hide');
+                });
     });
-    $('#dp2').datepicker();
-    $('#dp3').datepicker();
+    </script>
 
 
-    var startDate = new Date(2012,1,20);
-    var endDate = new Date(2012,1,25);
-    $('#dp4').datepicker()
-            .on('changeDate', function(ev){
-                if (ev.date.valueOf() > endDate.valueOf()){
-                    $('#alert').show().find('strong').text('The start date can not be greater then the end date');
-                } else {
-                    $('#alert').hide();
-                    startDate = new Date(ev.date);
-                    $('#startDate').text($('#dp4').data('date'));
-                }
-                $('#dp4').datepicker('hide');
-            });
-    $('#dp5').datepicker()
-            .on('changeDate', function(ev){
-                if (ev.date.valueOf() < startDate.valueOf()){
-                    $('#alert').show().find('strong').text('The end date can not be less then the start date');
-                } else {
-                    $('#alert').hide();
-                    endDate = new Date(ev.date);
-                    $('#endDate').text($('#dp5').data('date'));
-                }
-                $('#dp5').datepicker('hide');
-            });
-});
-</script>
+    <script type="text/javascript" src="../resources/java_scripts/bootstrap-typeahead.js"></script>	<!---------------- Auto complete text js --------------->
 
+<script src="../resources/java_scripts/bootstrap-dropdown.js"></script>		<!------------------- DropDown Menu js ----------------------------------------->
 
-<script type="text/javascript" src="java scripts/bootstrap-typeahead.js"></script>	<!---------------- Auto complete text js --------------->
-
-<script src="java scripts/bootstrap-dropdown.js"></script>		<!------------------- DropDown Menu js ----------------------------------------->
-
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>
        <fmt:message key="registration.title"/>
     </title>
@@ -110,7 +112,7 @@ $(function(){
         font: bold 13px Verdana;
         color: white;
         background: #606060 url(arrowstop.gif) no-repeat 8px 6px; /*last 2 values are the x and y coordinates of bullet image*/
-        margin-bottom: 0; /*bottom spacing between header and rest of content*/
+        margin-bottom: 5px; /*bottom spacing between header and rest of content*/
         text-transform: uppercase;
         padding: 7px 0 7px 31px; /*31px is left indentation of header text*/
     }
@@ -154,11 +156,12 @@ $(function(){
 
     </style>
 
-
 </head>
 <body>
-<div class="navbar">
+<div class="navbar">						<!------------------------------- Navigation Bar ------------------------------------->
+
     <div class="navbar-inner">
+
         <div class="container">
 
             <ul class="nav">
@@ -168,9 +171,10 @@ $(function(){
 
                     <a href="#">Home</a>
                 </li>
-                <li><a href="registration">Register</a></li>
+                <li><a href="company-registration">Register</a></li>
                 <li><a href="home">Sign In</a></li>
             </ul>
+
             <form:form class="navbar-search pull-right">
                 <input type="text" class="search-query" placeholder="Search">
             </form:form>
@@ -206,64 +210,80 @@ $(function(){
 
 <div class="container">			<!------------------------- Container ---------------------------->
 
-<div class="content">
+    <div class="content">
 
-<br />
+        <br />
 
-<div class="container-fluid">
-<div class="row-fluid">
+        <div class="container-fluid">
+            <div class="row-fluid">
 
-<div class="span3">				<!------------------------------- accordian menu ----------------------------->
+                <div class="span3">				<!------------------------------- accordian menu ----------------------------->
 
-    <div class="urbangreymenu">
+                    <div class="urbangreymenu">
 
-        <h3 class="headerbar"><a href="http://www.dynamicdrive.com/style/">Administrator</a></h3>
-        <ul class="submenu">
-            <li><a href="http://www.dynamicdrive.com/style/csslibrary/category/C1/">Horizontal CSS Menus</a></li>
-            <li><a href="http://www.dynamicdrive.com/style/csslibrary/category/C2/">Vertical CSS Menus</a></li>
-            <li><a href="http://www.dynamicdrive.com/style/csslibrary/category/C4/">Image CSS</a></li>
-            <li><a href="http://www.dynamicdrive.com/style/csslibrary/category/C6/">Form CSS</a></li>
-            <li><a href="http://www.dynamicdrive.com/style/csslibrary/category/C5/">DIVs and containers</a></li>
-            <li><a href="http://www.dynamicdrive.com/style/csslibrary/category/C7/">Links & Buttons</a></li>
-            <li><a href="http://www.dynamicdrive.com/style/csslibrary/category/C8/">Other</a></li>
-            <li><a href="http://www.dynamicdrive.com/style/csslibrary/all/">Browse All</a></li>
-        </ul>
+                        <h3 class="headerbar"><a href="#">Administrator</a></h3>
+                        <ul class="submenu">
+                            <li><a href="promotion">Add Promotion</a></li>
+                            <li><a href="#">Search Programme</a></li>
+                            <li><a href="admin-registration">Create New Administrator</a></li>
+                            <li><a href="company-registration">Create New Company</a></li>
+                            <li><a href="forget-password">Change password</a></li>
+                            <li><a href="#">Modify/Delete admin account</a></li>
+                            <li><a href="home">Logout</a></li>
+                        </ul>
 
-        <h3 class="headerbar"><a href="http://www.javascriptkit.com">Data Loader</a></h3>
-        <ul class="submenu">
-            <li><a href="http://www.javascriptkit.com/cutpastejava.shtml" >Free JavaScripts</a></li>
-            <li><a href="http://www.javascriptkit.com/javatutors/">JavaScript tutorials</a></li>
-            <li><a href="http://www.javascriptkit.com/jsref/">JavaScript Reference</a></li>
-            <li><a href="http://www.javascriptkit.com/dhtmltutors/">DHTML & CSS</a></li>
-            <li><a href="http://www.javascriptkit.com/howto/">Web Design</a></li>
-            <li><a href="http://www.javascriptkit.com/java/">Free Java Applets</a></li>
-        </ul>
+                        <h3 class="headerbar"><a href="#">Promotion Program</a></h3>
+                        <ul class="submenu">
+                            <li><a href="#">Promotion Programe report - Yearly</a></li>
+                            <li><a href="#">Promotion Programe report - Monthly</a></li>
+                            <li><a href="#">Promotion Programe report - Daily</a></li>
+                        </ul>
 
-        <h3 class="headerbar"><a href="http://www.javascriptkit.com">Reporting</a></h3>
-        <ul class="submenu">
-            <li><a href="http://www.javascriptkit.com/cutpastejava.shtml" >Free JavaScripts</a></li>
-            <li><a href="http://www.javascriptkit.com/javatutors/">JavaScript tutorials</a></li>
-            <li><a href="http://www.javascriptkit.com/jsref/">JavaScript Reference</a></li>
-            <li><a href="http://www.javascriptkit.com/dhtmltutors/">DHTML & CSS</a></li>
-            <li><a href="http://www.javascriptkit.com/howto/">Web Design</a></li>
-            <li><a href="http://www.javascriptkit.com/java/">Free Java Applets</a></li>
-        </ul>
+                        <h3 class="headerbar"><a href="#">Loyality Program</a></h3>
+                        <ul class="submenu">
+                            <li><a href="#" >Loyality Program report - Yearly</a></li>
+                            <li><a href="#">Loyality Program report - Monthly</a></li>
+                            <li><a href="#">Loyality Program report - Daily</a></li>
+                        </ul>
 
-    </div>
+                        <h3 class="headerbar"><a href="#">Tenure Program Reports</a></h3>
+                        <ul class="submenu">
+                            <li><a href="#" >Tenure Program report - Yearly</a></li>
+                            <li><a href="#">Tenure Program report - Monthly</a></li>
+                            <li><a href="#">Tenure Program report - Daily</a></li>
+                        </ul>
 
-</div>
+                        <h3 class="headerbar"><a href="#">Subscriber Details User Management</a></h3>
+                        <ul class="submenu">
+                            <li><a href="#" >Tenure Program report - Yearly</a></li>
+                            <li><a href="#">Tenure Program report - Monthly</a></li>
+                            <li><a href="#">Tenure Program report - Daily</a></li>
+                        </ul>
+
+
+                    </div>
+
+                </div>
 
 
 
-<div class="offset2">
-    <div class="row">
-        <div class="row">
+                <div class="offset2">
+                    <div class="row">
+                        <div class="row">
 
-            <div class="span8" style="background-color:#F4F4F4">
-            <div class="offset1">
-                <br />
+                            <div class="span8">
 
-                <form:form class="form-horizontal">			<!------------------------ registration form ------------------------------------------->
+                                <h2>Administrator Registration Form</h2>
+
+                                <hr />
+
+                            </div>
+
+                            <div class="span8" style="background-color:#F4F4F4">
+                            <div class="offset1">
+                                <br />
+
+                                <form:form class="form-horizontal">			<!------------------------ registration form ------------------------------------------->
                     <fieldset>
 
                         <h3>Personal Information</h3>

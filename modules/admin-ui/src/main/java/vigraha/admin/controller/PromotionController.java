@@ -6,10 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import vigraha.admin.repository.PromotionRepository;
+import vigraha.admin.service.CompanyService;
+import vigraha.admin.domain.Company;
+import vigraha.admin.domain.Promotion;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/promotion")
@@ -21,6 +27,8 @@ public class PromotionController {
     private JdbcTemplate jdbcTemplate;
     @Autowired
     private PromotionRepository promotionRepository;
+    @Autowired
+    private CompanyService companyService;
 
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -29,9 +37,17 @@ public class PromotionController {
     @RequestMapping(method = RequestMethod.GET)
     public String promotions(Model model)
     {
+        Company company = new Company();
+        model.addAttribute("company",company);
         System.out.println("====================Promotion load===========================");
         return "promotion";
     }
+
+//    @ModelAttribute("companies")
+//    public List<Company> populateCompny()
+//    {
+//        return CompanyService.findAllCompanies();
+//    }
 
     @RequestMapping(method = RequestMethod.POST)
     public String savePromotion(@RequestParam("companycode") String companycode ,

@@ -15,7 +15,7 @@
     <meta content='width=device-width, initial-scale=1.0' name='viewport'>
     <link href='/app/images/favicon-32.png' rel='shortcut icon' type='image/png'>
     <link href="../resources/Style/overpass.css" media="all" rel="stylesheet" type="text/css" />
-    <script src="../resources/java scripts/modernizr.min.js" type="text/javascript"></script>
+    <script src="../resources/java_scripts/modernizr.min.js" type="text/javascript"></script>
     <meta name="csrf-param" content="authenticity_token"/>
     <meta name="csrf-token" content="iclzi38MWARQHg3by4BybNaR9+9gjN&#x2F;dhQGqSW2gYt4="/>
 
@@ -60,7 +60,7 @@
                 <div class='offset2 column-content grid-wrapper'>
                     <div class='span8 span-flush-right'>
                         <h1 class='ribbon'>
-                            <div class='ribbon-content'>Login Error </div>
+                            <div class='ribbon-content'>Login Error</div>
                             <div class='ribbon-left'></div>
                         </h1>
 
@@ -85,17 +85,17 @@
                                         </div>
                                 </div>-->
 
-                                <h4>Login Not Successful.......!</h4>
+                                <h4 style="color:#F00">Login Not Successful.......!</h4>
 
                                 <a href="home">
                                     <fieldset class="form-actions"><input class="btn create" id="web_user_submit" name="commit" type="submit" value="Sign in" />
 
 
 
-	<span class="style1">or
-		<a href="registration">create an account</a></span>
+                                <!--<span class="style1">or
+                <a href="Registration form.html">create an account</a></span>-->
                                 </fieldset>
-                                </a>
+                            </a>
                             </form:form>
                         </div>
 
@@ -108,16 +108,16 @@
 
 <!--java scripts-->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js" type="text/javascript"></script>
-<script src="java scripts/rails.js" type="text/javascript"></script>
-<script src="java scripts/plugins.js" type="text/javascript"></script>
-<script src="/app/javascripts/jquery.cookie.js?1336601278" type="text/javascript"></script>
-<script src="/app/javascripts/jquery.validate.min.js?1336601278" type="text/javascript"></script>
-<script src="java scripts/form.js" type="text/javascript"></script>
+<script src="../resources/java_scripts/jquery.min.js" type="text/javascript"></script>
+<script src="../resources/java_scripts/rails.js" type="text/javascript"></script>
+<script src="../resources/java_scripts/plugins.js" type="text/javascript"></script>
+<script src="../resources/java_scripts/jquery.cookie.js" type="text/javascript"></script>
+<script src="../resources/java_scripts/jquery.validate.min.js" type="text/javascript"></script>
+<script src="../resources/java_scripts/form.js" type="text/javascript"></script>
 
 
-<script src="/app/javascripts/tracking.js?1336601278" type="text/javascript"></script>
-<script src="/app/javascripts/omniture/s_code.js?1336601278" type="text/javascript"></script>
+<script src="../resources/java_scripts/tracking.js" type="text/javascript"></script>
+<script src="../resources/java_scripts/s_code.js" type="text/javascript"></script>
 <script language="JavaScript" type="text/javascript">
     <!--
     s.pageName="openshift | login | show"
