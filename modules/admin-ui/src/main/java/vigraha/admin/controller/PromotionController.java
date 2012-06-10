@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import vigraha.admin.domain.CompanyPromotion;
 import vigraha.admin.repository.PromotionRepository;
-import vigraha.admin.service.CompanyService;
-import vigraha.admin.domain.Company;
 import vigraha.admin.domain.Promotion;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -27,8 +27,7 @@ public class PromotionController {
     private JdbcTemplate jdbcTemplate;
     @Autowired
     private PromotionRepository promotionRepository;
-    @Autowired
-    private CompanyService companyService;
+
 
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -37,50 +36,94 @@ public class PromotionController {
     @RequestMapping(method = RequestMethod.GET)
     public String promotions(Model model)
     {
-        Company company = new Company();
-        model.addAttribute("company",company);
-        System.out.println("====================Promotion load===========================");
+        Promotion promotion = new Promotion();
+        model.addAttribute("promotion",promotion);
         return "promotion";
     }
 
-//    @ModelAttribute("companies")
-//    public List<Company> populateCompny()
-//    {
-//        return CompanyService.findAllCompanies();
-//    }
+    @ModelAttribute("companyTypes")
+    public List<Promotion> populateCompanyPromotion(){
+        return promotionRepository.getAllCompanyList();
+    }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String savePromotion(@RequestParam("companycode") String companycode ,
-                                @RequestParam("promotionname") String promotionname , @RequestParam("startdate") String startdate ,
-                                @RequestParam("starttime") String starttime ,
-                                @RequestParam("enddate") String enddate ,@RequestParam("endtime") String endtime ,
-                                @RequestParam("sms") String sms , @RequestParam("lbs") String lbs ,
-                                @RequestParam("voicecall") String voicecall , @RequestParam("gprs") String gprs ,
-                                @RequestParam("ussd") String ussd ,
-                                @RequestParam("promotionnumber") String promotionnumber , @RequestParam("executeevery") String executeevery ,
-                                @RequestParam("specifictime") String specifictime,@RequestParam("promotionend") String promotionend ,
-                                @RequestParam("donotrepeate") String donotrepeate , @RequestParam("repeate") String repeate ,
-                                @RequestParam("random") String random ,
-                                @RequestParam("firstsub") String firstsub ,
-                                @RequestParam("all") String all , @RequestParam("agerestriction1") String agerestriction1 ,
-                                @RequestParam("agerestriction2") String agerestriction2 , @RequestParam("smsmessage") String smsmessage)
-    {
+    public String submitForm(Promotion promotion){
+        String cycleTime = getCycleTime(promotion);
+        String processRestriction = getProcessRestriction(promotion);
+        String selectMechanism = getSelectionMechanismValue(promotion);
+        List<String> basedOnList = getBasedOnValues(promotion);
+        String basedOnMessage = formatMessage(basedOnList);
+        String promotionName = promotion.getPromotionName();
+        return "promotion";
+    }
 
-
-   int id = 0;
-
-        logger.info("========================promotion============================");
-        if(promotionRepository.isSuccessfullSavePromotion(id,companycode,promotionname,startdate,starttime,enddate,endtime,
-                sms,lbs,voicecall,gprs,ussd,promotionnumber,executeevery,
-                specifictime,promotionend,donotrepeate,repeate,random,
-                firstsub,all,agerestriction1,agerestriction2,smsmessage))
-        {
-            return "promotion";
+    private String formatMessage(List<String> basedOnList) {
+        boolean isFirst = true;
+        String message ="";
+        for (String s : basedOnList){
+            if(isFirst){
+                message += s;
+                isFirst = false;
+            } else {
+                message += ","+s;
+            }
         }
-        else
-        {
-            return "redirect:/login-error";
+        return message;
+    }
+
+    private String getCycleTime(Promotion promotion) {
+        String cycleTime = null;
+        if(promotion.getCycleTime().equals("executeEvery")){
+            cycleTime = promotion.getHours();
+        } else if(promotion.getCycleTime().equals("specificTime")) {
+            cycleTime = promotion.getSpecificTime();
+        } else {
+            cycleTime = "none";
+        }
+        return cycleTime;
+    }
+
+    private String getProcessRestriction(Promotion promotion){
+        String message = null;
+        if(promotion.getProcessingRestriction().equals("doNotRepeat")){
+            message = "DO_NOT_REPEAT";
+        } else if(promotion.getProcessingRestriction().equals("repeat")) {
+            message = "REPEAT";
+        }
+        return message;
+    }
+    
+    private String getSelectionMechanismValue(Promotion promotion){
+        String message = null;
+        if(promotion.getSelectMechanism().equals("random")){
+            message = "RANDOM";
+        } else if(promotion.getSelectMechanism().equals("firstSubscribers")){
+            message = "FIRST_SUBSCRIBERS";
+        } else if(promotion.getSelectMechanism().equals("all")){
+            message = "ALL";
         }
 
+        return message;
+    }
+
+    private List<String> getBasedOnValues(Promotion promotion){
+        List<String> messageList = new ArrayList<String>();
+        if(promotion.getBasedOn().get("sms") != null){
+            messageList.add("SMS");
+        }
+        if(promotion.getBasedOn().get("lbs") != null){
+            messageList.add("LBS");
+        }
+        if(promotion.getBasedOn().get("voicecall") != null){
+            messageList.add("VOICE");
+        }
+        if(promotion.getBasedOn().get("gprs") != null){
+            messageList.add("GPRS");
+        }
+        if(promotion.getBasedOn().get("ussd") != null){
+            messageList.add("USSD");
+        }
+
+        return messageList;
     }
 }

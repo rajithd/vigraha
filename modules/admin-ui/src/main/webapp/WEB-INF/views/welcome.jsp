@@ -7,11 +7,11 @@
 <head>
     <!--<script type="text/javascript"; src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js";></script>-->	<!----- accordion js -------->
 
-    <script type="text/javascript" src="../resources/java_scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/java_scripts/jquery.min.js"></script>
 
-    <script type="text/javascript" src="../resources/java_scripts/ddaccordion.js"></script>
+    <script type="text/javascript" src="resources/java_scripts/ddaccordion.js"></script>
 
-    <script type="text/javascript" src="../resources/java_scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/java_scripts/jquery.min.js"></script>
 
     <script type="text/javascript">
 
@@ -104,16 +104,16 @@
 
     <script src="http://code.jquery.com/jquery-1.7.min.js"></script>
 
-    <script src="../resources/java_scripts/bootstrap-carousel.js"></script>		<!-- Image Slide Show -->
+    <script src="resources/java_scripts/bootstrap-carousel.js"></script>		<!-- Image Slide Show -->
 
-<script src="../resources/java_scripts/bootstrap-dropdown.js"></script>		<!-- DropDown Menu -->
+<script src="resources/java_scripts/bootstrap-dropdown.js"></script>		<!-- DropDown Menu -->
 
-    <link href="../resources/Style/style.css" type="text/css" rel="stylesheet" />
-    <link href="../resources/Style/bootstrap.css" type="text/css" rel="stylesheet" />
-    <link href="../resources/Style/bootstrap.min.css" type="text/css" rel="stylesheet" />
-    <link href="../resources/Style/bootstrap-responsive.css" type="text/css" rel="stylesheet" />
-    <link href="../resources/Style/bootstrap.min.css" type="text/css" rel="stylesheet" />
-    <link href="../resources/Style/bootstrap-responsive.min.css" type="text/css" rel="stylesheet" />
+    <link href="resources/Style/style.css" type="text/css" rel="stylesheet" />
+    <link href="resources/Style/bootstrap.css" type="text/css" rel="stylesheet" />
+    <link href="resources/Style/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="resources/Style/bootstrap-responsive.css" type="text/css" rel="stylesheet" />
+    <link href="resources/Style/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="resources/Style/bootstrap-responsive.min.css" type="text/css" rel="stylesheet" />
 
 
     <style type="text/css">
@@ -164,7 +164,7 @@
 
 <div id="header-bar">				<!-------------------------- Header Bar ----------------------------------->
 
-    <img src="../resources/Images/43.png" />
+    <img src="resources/Images/43.png" />
 
 </div>
 
@@ -239,7 +239,7 @@
                         <div id="myCarousel" class="carousel slide">
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <img src="../resources/Images/1.png" alt="">
+                                    <img src="resources/Images/1.png" alt="">
                                     <div class="carousel-caption">
                                         <h4>Vigraha</h4>
                                         <p>What is Vigraha ?
@@ -249,7 +249,7 @@
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <img src="../resources/Images/13.png" alt="">
+                                    <img src="resources/Images/13.png" alt="">
                                     <div class="carousel-caption" >
                                         <h4>CDR (Call Detail Record)</h4>
                                         <p>What is CDR analyzer ?
@@ -258,7 +258,7 @@
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <img src="../resources/Images/6.png" alt="">
+                                    <img src="resources/Images/6.png" alt="">
                                     <div class="carousel-caption">
                                         <h4>To Whom it is useful ?</h4>
                                         <p>This is a framework intended for telecommunication companies with custom configurations that will suit them.
