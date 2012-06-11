@@ -9,6 +9,8 @@ public class Promotion {
     private String cycleType;
     private String cycleTime;
     private String promotionNumber;
+    private String basedOn;
+
 
     public int getPromotionId() {
         return promotionId;
@@ -56,5 +58,13 @@ public class Promotion {
 
     public void setCycleType(String cycleType) {
         this.cycleType = cycleType;
+    }
+
+    public String getBasedOn() {
+        return basedOn;
+    }
+
+    public void setBasedOn(String basedOn) {
+        this.basedOn = basedOn;
     }
 }

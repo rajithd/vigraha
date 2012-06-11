@@ -124,12 +124,17 @@
         <property name="poolSize">
             <value>${promotion.rule.execute.thread.pool.size}</value>
         </property>
+        <property name="promotionRuleExecutorRepository" ref="promotionRuleExecutorRepository"/>
     </bean>
 
     <bean id="promotionRuleFindRepositoryImpl" class="vigraha.rule.repository.impl.PromotionRuleFindRepositoryImpl">
         <property name="jdbcTemplate">
             <ref bean="jdbcTemplate"/>
         </property>
+    </bean>
+    
+    <bean id="promotionRuleExecutorRepository" class="vigraha.rule.repository.impl.PromotionRuleExecutorRepository">
+        <property name="jdbcTemplate"  ref="jdbcTemplate"/>
     </bean>
 
 

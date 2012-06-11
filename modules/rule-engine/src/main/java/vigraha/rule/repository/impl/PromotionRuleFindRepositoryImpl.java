@@ -76,7 +76,7 @@ public class PromotionRuleFindRepositoryImpl implements RuleFindRepository, Tabl
     }
 
     private Promotion findClosestDate(){
-        String sql = "select promotion_id,start_date_time,end_date_time,promotion_number,cycle_type,cycle_time from "
+        String sql = "select promotion_id,start_date_time,end_date_time,promotion_number,cycle_type,cycle_time,based_on from "
                 + TABLE_PROMOTION + " where promotion_status=? and end_date_time > now() order by end_date_time limit 1;";
         logger.info("SQL : [{}]", sql);
         return jdbcTemplate.queryForObject(sql, new RowMapper<Promotion>() {
@@ -89,6 +89,7 @@ public class PromotionRuleFindRepositoryImpl implements RuleFindRepository, Tabl
                 promotion.setPromotionNumber(resultSet.getString("promotion_number"));
                 promotion.setCycleType(resultSet.getString("cycle_type"));
                 promotion.setCycleTime(resultSet.getString("cycle_time"));
+                promotion.setBasedOn(resultSet.getString("based_on"));
                 return promotion;
             }
         }, PromotionStatus.CREATE.toString());
@@ -96,9 +97,9 @@ public class PromotionRuleFindRepositoryImpl implements RuleFindRepository, Tabl
 
     private void insertExecutableRuleToTable(Promotion promotion, String executeTime){
         logger.info("Inserting New rule to PROMOTION_RULE_EXECUTOR table with promotion_rule_id : [{}]", promotion.getPromotionId());
-        String sql = "insert into " + TABLE_PROMOTION_RULE_EXECUTOR + "(`promotion_rule_id`,`start_date`,`end_date`,`execute_time`,`promotion_number`,`status`) " +
-                "values(?,?,?,?,?,?);";
-        jdbcTemplate.update(sql,promotion.getPromotionId(),promotion.getStartDate(),promotion.getEndDate(),executeTime,promotion.getPromotionNumber(),
+        String sql = "insert into " + TABLE_PROMOTION_RULE_EXECUTOR + "(`promotion_rule_id`,`start_date`,`end_date`,`execute_time`,`promotion_number`,`based_on`,`status`) " +
+                "values(?,?,?,?,?,?,?);";
+        jdbcTemplate.update(sql,promotion.getPromotionId(),promotion.getStartDate(),promotion.getEndDate(),executeTime,promotion.getPromotionNumber(),promotion.getBasedOn(),
                 ExecutorStatus.PENDING.toString());
 
         logger.info("Insert successful");

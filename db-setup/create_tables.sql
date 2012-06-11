@@ -111,6 +111,7 @@ CREATE TABLE IF NOT EXISTS `promotion_rule_executor` (
   `end_date` DATETIME NOT NULL ,
   `execute_time` DATETIME NOT NULL ,
   `promotion_number` VARCHAR (20) NOT NULL ,
+  `based_on` VARCHAR (50) NOT NULL ,
   `status` VARCHAR (10) NOT NULL ,
   PRIMARY KEY (rule_id)
 )
