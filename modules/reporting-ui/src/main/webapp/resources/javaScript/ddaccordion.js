@@ -1,9 +1,12 @@
 //** Accordion Content script: By Dynamic Drive, at http://www.dynamicdrive.com
-//** Created: Jan 7th, 08'. Last updated: June 7th, 2010 to v1.9
+//** Created: Jan 7th, 08'. Last updated: Feb 16th, 2012 to v2.0
 
 //Version 1.9: June 7th, 2010':
 //**1) Ajax content support added, so a given header's content can be dynamically fetched from an external file and on demand.
 //**2) Optimized script performance by caching header and content container references
+
+//Version 2.0: Feb 16th, 2012':
+//** 1) Added option ("scrolltoheader") to scroll to the expanded header in question after it expands (useful if a header contains long content).
 
 
 var ddaccordion={
@@ -19,8 +22,8 @@ var ddaccordion={
 		})
 	},
 
-	expandone:function(headerclass, selected){ //PUBLIC function to expand a particular header
-		this.toggleone(headerclass, selected, "expand")
+	expandone:function(headerclass, selected, scrolltoheader){ //PUBLIC function to expand a particular header
+		this.toggleone(headerclass, selected, "expand", scrolltoheader)
 	},
 
 	collapseone:function(headerclass, selected){ //PUBLIC function to collapse a particular header
@@ -41,11 +44,11 @@ var ddaccordion={
 		})
 	},
 
-	toggleone:function(headerclass, selected, optstate){ //PUBLIC function to expand/ collapse a particular header
+	toggleone:function(headerclass, selected, optstate, scrolltoheader){ //PUBLIC function to expand/ collapse a particular header
 		var $targetHeader=this.headergroup[headerclass].eq(selected)
 		var $subcontent=this.contentgroup[headerclass].eq(selected)
 		if (typeof optstate=="undefined" || optstate=="expand" && $subcontent.is(":hidden") || optstate=="collapse" && $subcontent.is(":visible"))
-			$targetHeader.trigger("evt_accordion")
+			$targetHeader.trigger("evt_accordion", [false, scrolltoheader])
 	},
 
 	ajaxloadcontent:function($targetHeader, $targetContent, config, callback){
@@ -85,7 +88,7 @@ var ddaccordion={
 			handlecontent(ajaxinfo.cacheddata)
 	},
 
-	expandit:function($targetHeader, $targetContent, config, useractivated, directclick, skipanimation){
+	expandit:function($targetHeader, $targetContent, config, useractivated, directclick, skipanimation, scrolltoheader){
 		var ajaxinfo=$targetHeader.data('ajaxinfo')
 		if (ajaxinfo){ //if this content should be fetched via Ajax
 			if (ajaxinfo.status=="none" || ajaxinfo.status=="loading")
@@ -99,12 +102,21 @@ var ddaccordion={
 		this.transformHeader($targetHeader, config, "expand")
 		$targetContent.slideDown(skipanimation? 0 : config.animatespeed, function(){
 			config.onopenclose($targetHeader.get(0), parseInt($targetHeader.attr('headerindex')), $targetContent.css('display'), useractivated)
+			if (scrolltoheader){
+				var sthdelay=(config["collapseprev"])? 20 : 0
+				clearTimeout(config.sthtimer)
+				config.sthtimer=setTimeout(function(){ddaccordion.scrollToHeader($targetHeader)}, sthdelay)
+			}
 			if (config.postreveal=="gotourl" && directclick){ //if revealtype is "Go to Header URL upon click", and this is a direct click on the header
 				var targetLink=($targetHeader.is("a"))? $targetHeader.get(0) : $targetHeader.find('a:eq(0)').get(0)
 				if (targetLink) //if this header is a link
-					setTimeout(function(){location=targetLink.href}, 200) //ignore link target, as window.open(targetLink, targetLink.target) doesn't work in FF if popup blocker enabled
+					setTimeout(function(){location=targetLink.href}, 200 + (scrolltoheader? 400+sthdelay : 0) ) //ignore link target, as window.open(targetLink, targetLink.target) doesn't work in FF if popup blocker enabled
 			}
 		})
+	},
+
+	scrollToHeader:function($targetHeader){
+		ddaccordion.$docbody.stop().animate({scrollTop: $targetHeader.offset().top}, 400)
 	},
 
 	collapseit:function($targetHeader, $targetContent, config, isuseractivated){
@@ -153,6 +165,7 @@ var ddaccordion={
 		var persistedheaders=ddaccordion.getCookie(config.headerclass)
 		ddaccordion.headergroup[config.headerclass]=$('.'+config.headerclass) //remember header group for this accordion
 		ddaccordion.contentgroup[config.headerclass]=$('.'+config.contentclass) //remember content group for this accordion
+		ddaccordion.$docbody=(window.opera)? (document.compatMode=="CSS1Compat"? jQuery('html') : jQuery('body')) : jQuery('html,body')
 		var $headers=ddaccordion.headergroup[config.headerclass]
 		var $subcontents=ddaccordion.contentgroup[config.headerclass]
 		config.cssclass={collapse: config.toggleclass[0], expand: config.toggleclass[1]} //store expand and contract CSS classes as object properties
@@ -202,10 +215,12 @@ var ddaccordion={
 				ddaccordion.transformHeader($header, config, "collapse")
 			}
 		})
-		$headers.bind("evt_accordion", function(e, isdirectclick){ //assign CUSTOM event handler that expands/ contacts a header
+		//if (config["scrolltoheader"] && lastexpanded.$header)
+			//ddaccordion.scrollToHeader(lastexpanded.$header)
+		$headers.bind("evt_accordion", function(e, isdirectclick, scrolltoheader){ //assign CUSTOM event handler that expands/ contacts a header
 				var $subcontent=$subcontents.eq(parseInt($(this).attr('headerindex'))) //get subcontent that should be expanded/collapsed
 				if ($subcontent.css('display')=="none"){
-					ddaccordion.expandit($(this), $subcontent, config, true, isdirectclick) //2nd last param sets 'isuseractivated' parameter
+					ddaccordion.expandit($(this), $subcontent, config, true, isdirectclick, false, scrolltoheader) //2nd last param sets 'isuseractivated' parameter
 					if (config["collapseprev"] && lastexpanded.$header && $(this).get(0)!=lastexpanded.$header.get(0)){ //collapse previous content?
 						ddaccordion.collapseit(lastexpanded.$header, lastexpanded.$content, config, true) //Last Boolean value sets 'isuseractivated' parameter
 					}
@@ -219,10 +234,10 @@ var ddaccordion={
 			if (config.revealtype=="mouseenter"){
 				clearTimeout(config.revealdelay)
 				var headerindex=parseInt($(this).attr("headerindex"))
-				config.revealdelay=setTimeout(function(){ddaccordion.expandone(config["headerclass"], headerindex)}, config.mouseoverdelay || 0)
+				config.revealdelay=setTimeout(function(){ddaccordion.expandone(config["headerclass"], headerindex, config.scrolltoheader)}, config.mouseoverdelay || 0)
 			}
 			else{
-				$(this).trigger("evt_accordion", [true]) //last parameter indicates this is a direct click on the header
+				$(this).trigger("evt_accordion", [true, config.scrolltoheader]) //last parameter indicates this is a direct click on the header
 				return false //cancel default click behavior
 			}
 		})
