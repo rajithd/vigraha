@@ -31,7 +31,7 @@ public class PromotionRuleFindRepositoryImpl implements RuleFindRepository, Tabl
         if(isExistsPromotionExecutorPending()){
             logger.info("Found 1 record with pending status");
             PromotionExecutor promotionExecutor = getPromotionExecutor();
-            if(compareDateTime(promotion.getCycleTime(),promotionExecutor.getExecuteTime())){
+            if(compareDateTime(getExecuteTime(promotion),promotionExecutor.getExecuteTime())){
                 String executeTime = getExecuteTime(promotion);
                 logger.info("Get new execute time : [{}]" , executeTime);
                 deletePreviousPromotionFromPromotionExecutor(promotionExecutor.getPromotionRuleId());
@@ -45,6 +45,15 @@ public class PromotionRuleFindRepositoryImpl implements RuleFindRepository, Tabl
             insertExecutableRuleToTable(promotion, executeTime);
             updatePromotionStatusToAdded(promotion);
         }
+    }
+
+    private String getExecutionTime(Promotion promotion){
+        if(promotion.getCycleType().equals(CycleType.PROMOTION_END.toString())){
+            return promotion.getEndDate();
+        } else {                            // CycleType.SPECIFIC_TIME
+            return promotion.getCycleTime();
+        }
+
     }
 
     private void updatePromotionStatusToCreate(PromotionExecutor promotionExecutor) {
