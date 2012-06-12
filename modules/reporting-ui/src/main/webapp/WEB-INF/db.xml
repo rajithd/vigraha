@@ -74,5 +74,9 @@
             <ref bean="dataSource"/>
         </property>
     </bean>
+    
+    <bean id="promotionDailyRepository" class="vigraha.reporting.repository.PromotionDailyRepository">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
 
 </beans>
