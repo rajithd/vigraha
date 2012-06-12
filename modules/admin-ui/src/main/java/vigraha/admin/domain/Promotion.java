@@ -3,130 +3,157 @@ package vigraha.admin.domain;
 import java.util.Map;
 
 public class Promotion {
-    private String company_code;
-    private String promotion_name;
-    private String start_date;
-    private String start_time;
-    private String end_date;
-    private String end_time;
-    private Map<String,String>getbasedOn; // sms , lbs , voice call , gprs , ussd
-    private int promotion_number;
-    private String cycle_time; // execute every , promotion end , specific time
-    private String processing_restriction; // do not repeate subscribers , repeate subscribers
-    private String select_mechanism; // random , 1st subscriber , all
-    private int age;
-    private int numberofsubscribers;
-    private String smsmessage;
+    private String companyName;
+    private String companyCode;
+    private String displayName;
+    private String promotionName;
+    private String startDate;
+    private String startTime;
+    private String endDate;
+    private String endTime;
+    private Map<String,String> basedOn; // sms , lbs , voice call , gprs , ussd
+    private int promotionNumber;
+    private String cycleTime; // execute every , promotion end , specific time
+    private String processingRestriction; // do not repeate subscribers , repeate subscribers
+    private String selectMechanism; // random , 1st subscriber , all
+    private int numberOfSubscribers;
+    private String smsMessage;
+    private String hours;
+    private String specificTime;
 
-    public void setCompany_code(String company_code) {
-        this.company_code = company_code;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setPromotion_name(String promotion_name) {
-        this.promotion_name = promotion_name;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
-    public void setStart_date(String start_date) {
-        this.start_date = start_date;
+    public String getDisplayName() {
+        return getCompanyName() + "(" + getCompanyCode() + ")";
     }
 
-    public void setStart_time(String start_time) {
-        this.start_time = start_time;
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 
-    public void setEnd_date(String end_date) {
-        this.end_date = end_date;
+    public String getCompanyCode() {
+        return companyCode;
     }
 
-    public void setEnd_time(String end_time) {
-        this.end_time = end_time;
+    public void setCompanyCode(String companyCode) {
+        this.companyCode = companyCode;
     }
 
-    public void setGetbasedOn(Map<String, String> getbasedOn) {
-        this.getbasedOn = getbasedOn;
+    public String getPromotionName() {
+        return promotionName;
     }
 
-    public void setPromotion_number(int promotion_number) {
-        this.promotion_number = promotion_number;
+    public void setPromotionName(String promotionName) {
+        this.promotionName = promotionName;
     }
 
-    public void setCycle_time(String cycle_time) {
-        this.cycle_time = cycle_time;
+    public String getStartDate() {
+        return startDate;
     }
 
-    public void setProcessing_restriction(String processing_restriction) {
-        this.processing_restriction = processing_restriction;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
-    public void setSelect_mechanism(String select_mechanism) {
-        this.select_mechanism = select_mechanism;
+    public String getStartTime() {
+        return startTime;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public void setNumberofsubscribers(int numberofsubscribers) {
-        this.numberofsubscribers = numberofsubscribers;
+    public String getEndDate() {
+        return endDate;
     }
 
-    public void setSmsmessage(String smsmessage) {
-        this.smsmessage = smsmessage;
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 
-    public String getCompany_code() {
-        return company_code;
+    public String getEndTime() {
+        return endTime;
     }
 
-    public String getPromotion_name() {
-        return promotion_name;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
-    public String getStart_date() {
-        return start_date;
+    public Map<String, String> getBasedOn() {
+        return basedOn;
     }
 
-    public String getStart_time() {
-        return start_time;
+    public void setBasedOn(Map<String, String> basedOn) {
+        this.basedOn = basedOn;
     }
 
-    public String getEnd_date() {
-        return end_date;
+    public int getPromotionNumber() {
+        return promotionNumber;
     }
 
-    public String getEnd_time() {
-        return end_time;
+    public void setPromotionNumber(int promotionNumber) {
+        this.promotionNumber = promotionNumber;
     }
 
-    public Map<String, String> getGetbasedOn() {
-        return getbasedOn;
+    public String getCycleTime() {
+        return cycleTime;
     }
 
-    public int getPromotion_number() {
-        return promotion_number;
+    public void setCycleTime(String cycleTime) {
+        this.cycleTime = cycleTime;
     }
 
-    public String getCycle_time() {
-        return cycle_time;
+    public String getProcessingRestriction() {
+        return processingRestriction;
     }
 
-    public String getProcessing_restriction() {
-        return processing_restriction;
+    public void setProcessingRestriction(String processingRestriction) {
+        this.processingRestriction = processingRestriction;
     }
 
-    public String getSelect_mechanism() {
-        return select_mechanism;
+    public String getSelectMechanism() {
+        return selectMechanism;
     }
 
-    public int getAge() {
-        return age;
+    public void setSelectMechanism(String selectMechanism) {
+        this.selectMechanism = selectMechanism;
     }
 
-    public int getNumberofsubscribers() {
-        return numberofsubscribers;
+    public int getNumberOfSubscribers() {
+        return numberOfSubscribers;
     }
 
-    public String getSmsmessage() {
-        return smsmessage;
+    public void setNumberOfSubscribers(int numberOfSubscribers) {
+        this.numberOfSubscribers = numberOfSubscribers;
+    }
+
+    public String getSmsMessage() {
+        return smsMessage;
+    }
+
+    public void setSmsMessage(String smsMessage) {
+        this.smsMessage = smsMessage;
+    }
+
+    public String getHours() {
+        return hours;
+    }
+
+    public void setHours(String hours) {
+        this.hours = hours;
+    }
+
+    public String getSpecificTime() {
+        return specificTime;
+    }
+
+    public void setSpecificTime(String specificTime) {
+        this.specificTime = specificTime;
     }
 }

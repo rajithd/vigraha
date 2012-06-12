@@ -107,7 +107,6 @@ DROP TABLE IF EXISTS `admin`;
 DROP TABLE IF EXISTS `promotion`;
 DROP TABLE IF EXISTS `company`;
 
-
 insert into `admin` values("admin","mobileno","id","admin","123");
 
 CREATE TABLE IF NOT EXISTS `PROMOTION_RULE_EXECUTOR` (
@@ -128,5 +127,6 @@ CREATE TABLE IF NOT EXISTS `PROMOTION_SEND_MSISDN`(
   `msisdn` VARCHAR
 )
 ENGINE= InnoDB;
+
 
 

@@ -3,8 +3,16 @@ package vigraha.admin.repository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import vigraha.admin.domain.Company;
+import vigraha.admin.domain.CompanyPromotion;
+import vigraha.admin.domain.Promotion;
 
 import javax.swing.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PromotionRepository {
 
@@ -43,6 +51,21 @@ public class PromotionRepository {
             return true;
         else
             return false;
+
+    }
+
+    public List<Promotion> getAllCompanyList(){
+        List<Promotion> promotionList = jdbcTemplate.query("select * from company" , new RowMapper<Promotion>() {
+            @Override
+            public Promotion mapRow(ResultSet resultSet, int i) throws SQLException {
+                Promotion promotion = new Promotion();
+                promotion.setCompanyCode(resultSet.getString("company_reg_no"));
+                promotion.setCompanyName(resultSet.getString("company_name"));
+                return promotion;
+            }
+        });
+
+        return promotionList;
 
     }
 

@@ -14,10 +14,10 @@
     <meta content='' name='author'>
     <meta content='width=device-width, initial-scale=1.0' name='viewport'>
 
-    <link href="../resources/Style/common.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="../resources/Style/site.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="../resources/Style/bootstrap.css" rel="stylesheet" type="text/css"/>
-    <link href="../resources/Style/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="resources/Style/common.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="resources/Style/site.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="resources/Style/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="resources/Style/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
 
 
     <style type="text/css">
@@ -41,7 +41,7 @@
                 <div class='brand'>
                     <a href="/app/">
                         <div class='brand-image'>
-                            <img src="../resources/Images/Vigraha Logo final.png" width="400px"
+                            <img src="resources/Images/logo.png" width="400px"
                                  style="position:relative"/>
                         </div>
                     </a></div>
