@@ -24,26 +24,25 @@ public class PromotionRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public boolean isSuccessfullSavePromotion(int id,String companycode ,String promotionname,String startdate, String starttime,
-                                              String enddate,String endtime,String sms,String lbs,String voicecall,
-                                              String gprs,String ussd,String promotionnumber,String executeevery,
-                                              String specifictime,String promotionend,String donotrepeate,
-                                              String repeate,String random,String firstsub,
-                                              String all,String agerestriction1,String agerestriction2,String smsmessage)
+    public boolean isSuccessfullSavePromotion(int id,String companyCode,String promotionName,String startDate,
+                                              String startTime,String endDate,String endTime,String basedOnMessage,
+                                              String promotionNumber,String cycleTimeName,String cycleTimeValue,
+                                              String processRestriction,String selectMechanismName,String selectMechanismValue,String smsMessage)
     {
 
 //        String date = "20" + "3";
 //         logger.info("date [{}]" , date);
 
 
-       String start_date_time = startdate + " " + starttime;
+       String start_date_time = startDate + " " + startTime;
 
-       String end_date_time = enddate + " " + endtime;
+       String end_date_time = endDate + " " + endTime;
 
        //String age = agerestriction1 + "," + agerestriction2;
 
-        int row = jdbcTemplate.update("insert into `promotion` values(?,?,?,?,?,?,?,?)" , id ,promotionname,start_date_time,
-                                        end_date_time,promotionnumber,smsmessage,"admin","ADD");
+        int row = jdbcTemplate.update("insert into `promotion` values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" , id ,companyCode,promotionName,
+               start_date_time,end_date_time,basedOnMessage,promotionNumber,cycleTimeName,cycleTimeValue,
+                processRestriction,selectMechanismName,selectMechanismValue,smsMessage,"admin","ADD");
 
         System.out.println("************" + row);
 

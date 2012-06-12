@@ -42,7 +42,7 @@
                 <div class='brand'>
                     <a href="/app/">
                         <div class='brand-image'>
-                            <img src="../resources/Images/Vigraha Logo final.png" width="400px" style="position:relative" />
+                            <img src="../resources/Images/logo.png" width="400px" style="position:relative" />
                         </div>
                         <!--<div class='brand-text'><strong>Vigraha</strong>
                         </div>-->

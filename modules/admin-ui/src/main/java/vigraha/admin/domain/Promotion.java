@@ -12,14 +12,16 @@ public class Promotion {
     private String endDate;
     private String endTime;
     private Map<String,String> basedOn; // sms , lbs , voice call , gprs , ussd
-    private int promotionNumber;
+    private String promotionNumber;
     private String cycleTime; // execute every , promotion end , specific time
     private String processingRestriction; // do not repeate subscribers , repeate subscribers
     private String selectMechanism; // random , 1st subscriber , all
     private int numberOfSubscribers;
     private String smsMessage;
-    private String hours;
-    private String specificTime;
+    private String hours;  // take value for Execute Every
+    private String specificTime; // take value for Execute at Specific Time
+    private String randomCount; // take value for Randomly Select
+    private String randomCount1; // take value for Number of First Subscribers
 
     public String getCompanyName() {
         return companyName;
@@ -93,11 +95,11 @@ public class Promotion {
         this.basedOn = basedOn;
     }
 
-    public int getPromotionNumber() {
+    public String getPromotionNumber() {
         return promotionNumber;
     }
 
-    public void setPromotionNumber(int promotionNumber) {
+    public void setPromotionNumber(String promotionNumber) {
         this.promotionNumber = promotionNumber;
     }
 
@@ -155,5 +157,21 @@ public class Promotion {
 
     public void setSpecificTime(String specificTime) {
         this.specificTime = specificTime;
+    }
+
+    public String getRandomCount() {
+        return randomCount;
+    }
+
+    public void setRandomCount(String randomCount) {
+        this.randomCount = randomCount;
+    }
+
+    public String getRandomCount1() {
+        return randomCount1;
+    }
+
+    public void setRandomCount1(String randomCount1) {
+        this.randomCount1 = randomCount1;
     }
 }

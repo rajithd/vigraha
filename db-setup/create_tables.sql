@@ -83,9 +83,10 @@ CREATE TABLE IF NOT EXISTS `promotion` (
 `restriction` VARCHAR(50) NOT NULL ,
 `selection_type` VARCHAR (50) NOT NULL ,
 `selection_value` VARCHAR(50) NOT NULL ,
-`age_restriction` VARCHAR(20) ,
+/*`age_restriction` VARCHAR(20) , */
 `sms_message` VARCHAR (200) NOT NULL,
 `program_owner` VARCHAR (30) NOT NULL ,
+`add` VARCHAR (30) NOT NULL ,
 PRIMARY KEY (promotion_id)
 )
 ENGINE= InnoDB;
@@ -107,8 +108,12 @@ DROP TABLE IF EXISTS `admin`;
 DROP TABLE IF EXISTS `promotion`;
 DROP TABLE IF EXISTS `company`;
 
-
 insert into `admin` values("admin","mobileno","id","admin","123");
+
+insert into `company` values("Pizza Hut","PH","011","022","pizzaAddress","pizzaHut@yahoo.com","pizza","pizza");
+insert into `company` values("Odel","OD","011","022","odelAddress","odel@yahoo.com","odel","odel");
+
+
 
 CREATE TABLE IF NOT EXISTS `PROMOTION_RULE_EXECUTOR` (
   `rule_id` INT NOT NULL AUTO_INCREMENT,
