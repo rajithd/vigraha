@@ -16,10 +16,10 @@ public class LoginErrorController {
     private final static Logger logger = LoggerFactory.getLogger(LoginErrorController.class);
 
     @RequestMapping(method = RequestMethod.GET)
-public String loginError(Model model)
-    {
+    public String loginError(Model model) {
         logger.info("==========Retrieving login error page============");
         return "login-error";
     }
+
 
 }

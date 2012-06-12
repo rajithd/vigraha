@@ -10,7 +10,7 @@
     </appender>
 
     <appender name="trace" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="/home/rajith/sliit/research/vigraha-logs/reporting-rule-engine-trace.log"/>
+        <param name="File" value="/home/rajith/sliit/research/vigraha-logs/rule-trace.log"/>
         <param name="Threshold" value="debug"/>
         <param name="DatePattern" value="'.'yyyy-MM-dd"/>
         <layout class="org.apache.log4j.PatternLayout">
@@ -19,7 +19,7 @@
     </appender>
 
     <appender name="error" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="File" value="/home/rajith/sliit/research/vigraha-logs/reporting-rule-engine-error.log"/>
+        <param name="File" value="/home/rajith/sliit/research/vigraha-logs/rule-error.log"/>
         <param name="Threshold" value="error"/>
         <param name="DatePattern" value="'.'yyyy-MM-dd"/>
         <layout class="org.apache.log4j.PatternLayout">
@@ -27,7 +27,7 @@
         </layout>
     </appender>
 
-    <logger name="vigraha.dataloader">
+    <logger name="vigraha.rule">
         <level value="info"/>
         <appender-ref ref="console"/>
         <appender-ref ref="trace"/>

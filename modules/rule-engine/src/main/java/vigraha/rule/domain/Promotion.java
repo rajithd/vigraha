@@ -6,8 +6,11 @@ public class Promotion {
     private int promotionId;
     private String startDate;
     private String endDate;
-    private String executeTime;
+    private String cycleType;
+    private String cycleTime;
     private String promotionNumber;
+    private String basedOn;
+
 
     public int getPromotionId() {
         return promotionId;
@@ -33,19 +36,35 @@ public class Promotion {
         this.endDate = endDate;
     }
 
-    public String getExecuteTime() {
-        return executeTime;
-    }
-
-    public void setExecuteTime(String executeTime) {
-        this.executeTime = executeTime;
-    }
-
     public String getPromotionNumber() {
         return promotionNumber;
     }
 
     public void setPromotionNumber(String promotionNumber) {
         this.promotionNumber = promotionNumber;
+    }
+
+    public String getCycleTime() {
+        return cycleTime;
+    }
+
+    public void setCycleTime(String cycleTime) {
+        this.cycleTime = cycleTime;
+    }
+
+    public String getCycleType() {
+        return cycleType;
+    }
+
+    public void setCycleType(String cycleType) {
+        this.cycleType = cycleType;
+    }
+
+    public String getBasedOn() {
+        return basedOn;
+    }
+
+    public void setBasedOn(String basedOn) {
+        this.basedOn = basedOn;
     }
 }

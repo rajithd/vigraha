@@ -14,10 +14,10 @@
     <meta content='' name='author'>
     <meta content='width=device-width, initial-scale=1.0' name='viewport'>
 
-    <link href="../resources/Style/common.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="../resources/Style/site.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="../resources/Style/bootstrap.css" rel="stylesheet" type="text/css"/>
-    <link href="../resources/Style/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="resources/Style/common.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="resources/Style/site.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="resources/Style/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="resources/Style/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
 
 
     <style type="text/css">
@@ -41,7 +41,7 @@
                 <div class='brand'>
                     <a href="/app/">
                         <div class='brand-image'>
-                            <img src="../resources/Images/Vigraha Logo final.png" width="400px"
+                            <img src="resources/Images/logo.png" width="400px"
                                  style="position:relative"/>
                         </div>
                     </a></div>
@@ -66,32 +66,32 @@
                             <form:form action="" class="form-horizontal formtastic web_user" id="new_web_user" method="post">
                                 <form:form class="form-horizontal formtastic web_user" id="new_web_user" method="post">
 
-                                <div class="string optional control-group" id="web_user_rhlogin_input">
-                                    <label for="username" class="control-label style1">Login</label>
+                                    <div class="string optional control-group" id="web_user_rhlogin_input">
+                                        <label for="username" class="control-label style1">Login</label>
 
-                                    <div class="controls"><input autofocus="autofocus" class="" id="username"
-                                                                 name="username" placeholder=""
-                                                                 type="text"/>
+                                        <div class="controls"><input autofocus="autofocus" class="" id="username"
+                                                                     name="username" placeholder=""
+                                                                     type="text"/>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="password optional control-group" id="web_user_password_input">
-                                    <label for="password" class="control-label style1">Password</label>
+                                    <div class="password optional control-group" id="web_user_password_input">
+                                        <label for="password" class="control-label style1">Password</label>
 
-                                    <div class="controls"><input class="" id="password"
-                                                                 name="password" type="password"/>
+                                        <div class="controls"><input class="" id="password"
+                                                                     name="password" type="password"/>
 
-                                        <p class="help-block"><a href="forget-password" class="style1">Forgot
-                                            your password?</a></p>
+                                            <p class="help-block"><a href="forget-password" class="style1">Forgot
+                                                your password?</a></p>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <fieldset class="form-actions">
-                                    <button type="submit" class="btn btn-primary">Sign in</button>
-	<%--<span class="style1">or--%>
-		<%--<a href="registration">create an account</a></span>--%>
-                                </fieldset>
-                            </form:form>
+                                    <fieldset class="form-actions">
+                                        <button type="submit" class="btn btn-primary">Sign in</button>
+                                            <%--<span class="style1">or--%>
+                                            <%--<a href="registration">create an account</a></span>--%>
+                                    </fieldset>
+                                </form:form>
                             </form:form>
                         </div>
 
