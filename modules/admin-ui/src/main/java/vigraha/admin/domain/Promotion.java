@@ -16,6 +16,8 @@ public class Promotion {
     private String cycleTime; // execute every , promotion end , specific time
     private String processingRestriction; // do not repeate subscribers , repeate subscribers
     private String selectMechanism; // random , 1st subscriber , all
+    private String age1;
+    private String age2;
     private int numberOfSubscribers;
     private String smsMessage;
     private String hours;  // take value for Execute Every
@@ -125,6 +127,22 @@ public class Promotion {
 
     public void setSelectMechanism(String selectMechanism) {
         this.selectMechanism = selectMechanism;
+    }
+
+    public String getAge1() {
+        return age1;
+    }
+
+    public void setAge1(String age1) {
+        this.age1 = age1;
+    }
+
+    public String getAge2() {
+        return age2;
+    }
+
+    public void setAge2(String age2) {
+        this.age2 = age2;
     }
 
     public int getNumberOfSubscribers() {

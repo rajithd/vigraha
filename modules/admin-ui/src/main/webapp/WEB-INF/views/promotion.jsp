@@ -482,9 +482,9 @@ accordian css
     <label for="starttime" class="control-label">Start Time *</label>
 
     <div class="controls docs-input-sizes">
-        <span class="help-inline">Select Time</span>-->
+        <%--<span class="help-inline">Select Time</span>-->--%>
         <div class="input-append time" id="dp1">
-            <form:input path="startTime" size="16" id="starttime" name="starttime" placeholder="Show as dropdown" class="dropdown-timepicker"
+            <form:input path="startTime" size="16" id="starttime" name="starttime"
                         type="text"/>
             <span class="add-on"><!--<i class="icon-th"></i>--><img src="resources/Images/clock.png" width="16"
                                                                     height="18"/></span>
@@ -514,10 +514,10 @@ accordian css
     <label for="endtime" class="control-label">End Time *</label>
 
     <div class="controls docs-input-sizes">
-        <span class="help-inline">Select Time</span>-->
+        <%--<span class="help-inline">Select Time</span>-->--%>
 
         <div class="input-append time" id="dp1">
-            <form:input path="endTime" size="16" id="endtime" name="endtime" placeholder="Show as dropdown" class="dropdown-timepicker"
+            <form:input path="endTime" size="16" id="endtime" name="endtime"
                         type="text"/>
             <span class="add-on"><!--<i class="icon-th"></i>--><img src="resources/Images/clock.png" width="16"
                                                                     height="18"/></span>
@@ -581,7 +581,7 @@ accordian css
             <form:radiobutton id="specifictime" path="cycleTime" value="specificTime" />
             &nbsp;&nbsp;&nbsp;
             Execute at Specific Time&nbsp;&nbsp;
-            <form:input size="16" placeholder="Show as dropdown" class="dropdown-timepicker" type="text" path="specificTime"/>
+            <form:input size="16" type="text" path="specificTime"/>
 
         </label> <br/>
 
@@ -644,8 +644,23 @@ accordian css
     </div>
 </div>
 
-
 <br/>
+
+<h3>Restriction</h3> <br />
+
+<form>
+
+    <label class="control-label"><h5>Age Restriction</h5></label>
+
+    <div class="control-group">
+        <div class="controls docs-input-sizes">
+            <form:input path="age1" class="span1" type="text" placeholder="Enter Age"/>
+            &nbsp; To&nbsp;
+            <form:input path="age2" class="span1" type="text" placeholder="Enter Age"/>
+        </div>
+    </div>
+</form>
+<br />
 
 <h3>Notification Message</h3> <br/>
 

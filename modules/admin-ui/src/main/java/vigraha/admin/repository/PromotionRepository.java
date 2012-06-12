@@ -27,7 +27,8 @@ public class PromotionRepository {
     public boolean isSuccessfullSavePromotion(int id,String companyCode,String promotionName,String startDate,
                                               String startTime,String endDate,String endTime,String basedOnMessage,
                                               String promotionNumber,String cycleTimeName,String cycleTimeValue,
-                                              String processRestriction,String selectMechanismName,String selectMechanismValue,String smsMessage)
+                                              String processRestriction,String selectMechanismName,
+                                              String selectMechanismValue,String age1,String age2,String smsMessage)
     {
 
 //        String date = "20" + "3";
@@ -38,11 +39,11 @@ public class PromotionRepository {
 
        String end_date_time = endDate + " " + endTime;
 
-       //String age = agerestriction1 + "," + agerestriction2;
+       String age = age1 + "," + age2;
 
-        int row = jdbcTemplate.update("insert into `promotion` values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" , id ,companyCode,promotionName,
+        int row = jdbcTemplate.update("insert into `promotion` values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" , id ,companyCode,promotionName,
                start_date_time,end_date_time,basedOnMessage,promotionNumber,cycleTimeName,cycleTimeValue,
-                processRestriction,selectMechanismName,selectMechanismValue,smsMessage,"admin","ADD");
+                processRestriction,selectMechanismName,selectMechanismValue,age,smsMessage,"admin","ADD");
 
         System.out.println("************" + row);
 

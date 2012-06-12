@@ -74,8 +74,8 @@ CREATE TABLE IF NOT EXISTS `promotion` (
 `promotion_id` INT NOT NULL AUTO_INCREMENT ,
 `company_code` VARCHAR(50) NOT NULL ,
 `promotion_name` VARCHAR(30) NOT NULL ,
-`start_date_time` DATETIME NOT NULL ,
-`end_date_time` DATETIME NOT NULL ,
+`start_date_time` VARCHAR(30) NOT NULL ,
+`end_date_time` VARCHAR(30) NOT NULL ,
 `based_on` VARCHAR(50) NOT NULL ,
 `promotion_number` VARCHAR(10) NOT NULL ,
 `cycle_type` VARCHAR(50) NOT NULL ,
@@ -83,10 +83,10 @@ CREATE TABLE IF NOT EXISTS `promotion` (
 `restriction` VARCHAR(50) NOT NULL ,
 `selection_type` VARCHAR (50) NOT NULL ,
 `selection_value` VARCHAR(50) NOT NULL ,
-/*`age_restriction` VARCHAR(20) , */
+`age_restriction` VARCHAR(20) ,
 `sms_message` VARCHAR (200) NOT NULL,
 `program_owner` VARCHAR (30) NOT NULL ,
-`add` VARCHAR (30) NOT NULL ,
+`promotion_status` VARCHAR (30) NOT NULL ,
 PRIMARY KEY (promotion_id)
 )
 ENGINE= InnoDB;
