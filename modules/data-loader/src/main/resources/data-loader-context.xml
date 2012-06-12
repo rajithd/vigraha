@@ -98,6 +98,7 @@
                 <ref bean="lbsUploadManagerServiceTrigger"/>
                 <ref bean="ussdUploadManagerServiceTrigger"/>
                 <ref bean="custUploadManagerServiceTrigger"/>
+                <ref bean="summeryProcudureCallTrigger" />
             </list>
         </property>
     </bean>
@@ -134,6 +135,7 @@
     </bean>
     
     <bean id="summeryProcudureCallTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="summeryTransactionManager"/>
         <property name="cronExpression" value="${summery.upload.cron.expression}"/>
     </bean>
 
@@ -203,7 +205,7 @@
             <ref bean="summeryUploadObjectTarget"/>
         </property>
         <property name="targetMethod">
-            <value>upload</value>
+            <value>save</value>
         </property>
     </bean>
 
@@ -354,12 +356,6 @@
 
     </bean>
 
-    <bean id="summeryUploadObjectTarget" class="vigraha.dataloader.service.impl.CustomerUploadManagerServiceImpl">
-        <property name="transactionRepository" ref="summeryTransactionRepository" />
-        <property name="jsonDecoderService" ref="jsonDecoderService"/>
-
-    </bean>
-
     <bean id="voiceCallTransactionRepository" class="vigraha.dataloader.repository.impl.VoiceCallTransactionRepositoryImpl">
         <property name="jdbcTemplate">
             <ref bean="jdbcTemplate"/>
@@ -396,7 +392,7 @@
         </property>
     </bean>
 
-    <bean id="summeryTransactionRepository" class="vigraha.dataloader.repository.impl.SummeryProcedureCall">
+    <bean id="summeryUploadObjectTarget" class="vigraha.dataloader.repository.impl.SummeryProcedureCall">
         <property name="jdbcTemplate">
             <ref bean="jdbcTemplate"/>
         </property>
