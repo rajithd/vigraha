@@ -65,11 +65,13 @@ public class PromotionController {
         String processRestriction = getProcessRestriction(promotion); // do not repeate subscribers , repeate subscribers
         String selectMechanismName = getSelectionMechanismName(promotion); // random , 1st subscriber , all
         String selectMechanismValue = getSelectionMechanismValue(promotion); //take values for Selection Mechanism
+        String age1 = promotion.getAge1();
+        String age2 = promotion.getAge2();
         String smsMessage = promotion.getSmsMessage();
 
         if(promotionRepository.isSuccessfullSavePromotion(id,companyCode,promotionName,startDate,startTime,endDate,endTime,
                                 basedOnMessage,promotionNumber,cycleTimeName,cycleTimeValue,processRestriction,selectMechanismName,
-                                 selectMechanismValue,smsMessage))
+                                 selectMechanismValue,age1,age2,smsMessage))
         {
             logger.info("Successfully registered promotion");
             return "promotion";
