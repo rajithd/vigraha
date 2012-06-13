@@ -35,25 +35,23 @@ public class PromotionRuleExecutorImpl implements RuleExecutor, TableHandler {
         if (promotionRuleExecutorRepository.isPendingRuleExistsInPromotionExecutor()) {
             logger.info("Starting to execute PENDING rules in [{}]", TABLE_PROMOTION_RULE_EXECUTOR);
             PromotionExecutor promotionExecutor = promotionRuleExecutorRepository.getPendingRuleFromPromotionRuleExecutor();
-            logger.info(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,," + promotionExecutor.getBasedOn());
+            logger.info("Get Execution time : [{}]" , promotionExecutor.getExecuteTime());
             try {
-                logger.info("=======================>>>>");
                 Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
                 PromotionJobDetail promotionJobDetail = new PromotionJobDetail("promotion",null, PromotionJob.class);
 
-                Calendar cal = Calendar.getInstance();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
                 Date fireTime = simpleDateFormat.parse(promotionExecutor.getExecuteTime());
-                logger.info("=======================>>>>");
-                logger.info(fireTime.toString());
-                Trigger trigger = new SimpleTrigger("promtoionjob","promo group",fireTime);
+                logger.info("Setting fire time : [{}]" , fireTime.toString());
+                logger.info("Job Event will fire on [{}]" , fireTime.toString());
+                Trigger trigger = new SimpleTrigger("promotoionJob","promo group",fireTime);
                 promotionJobDetail.setJobId(++id);
                 scheduler.start();
                 scheduler.scheduleJob(promotionJobDetail,trigger);
             } catch (SchedulerException e) {
-                logger.info("e======================xeption");
+                logger.error("Error occur while executing the Job scheduler");
             } catch (ParseException e) {
-                logger.info("dateeeeeeeeeeeeeeeeeeeee");
+                logger.error("Error occur while parsing the date");
             }
 
         } else {
