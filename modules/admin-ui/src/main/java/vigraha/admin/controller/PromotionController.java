@@ -108,7 +108,7 @@ public class PromotionController {
         } else if(promotion.getCycleTime().equals("specificTime")) {
             message = "SPECIFIC_TIME";
         }  else {
-            message = "PROMOTIO_END";
+            message = "PROMOTION_END";
         }
         return message;
     }

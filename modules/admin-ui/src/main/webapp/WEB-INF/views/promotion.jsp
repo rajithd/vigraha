@@ -448,7 +448,7 @@ accordian css
     </div>
 </div>
 
-<h3>Promotion Informations</h3> <br/>
+<h3>Promotion Information</h3> <br/>
 
 
 <div class="control-group">

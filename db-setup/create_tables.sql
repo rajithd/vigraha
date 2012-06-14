@@ -83,8 +83,8 @@ ENGINE= InnoDB;
 CREATE TABLE IF NOT EXISTS `promotion` (
 `promotion_id` INT NOT NULL AUTO_INCREMENT ,
 `company_code` VARCHAR(50) NOT NULL ,
-`promotion_name` VARCHAR(30) NOT NULL ,
-`start_date_time` VARCHAR(30) NOT NULL ,
+`promotion_name` DATETIME NOT NULL ,
+`start_date_time` DATETIME NOT NULL ,
 `end_date_time` VARCHAR(30) NOT NULL ,
 `based_on` VARCHAR(50) NOT NULL ,
 `promotion_number` VARCHAR(10) NOT NULL ,
@@ -130,7 +130,8 @@ ENGINE= InnoDB;
 CREATE TABLE IF NOT EXISTS `promotion_send_msisdn`(
   `rule_id` INT,
   `promotion_rule_id` INT,
-  `msisdn` VARCHAR(20)
+  `msisdn` VARCHAR(20),
+  `delivery_status` VARCHAR(20)
 )
 ENGINE= InnoDB;
 

@@ -18,27 +18,37 @@ public class PromotionJob implements Job{
 
     private static final Logger logger = LoggerFactory.getLogger(PromotionJob.class);
 
-    @Autowired
     private PromotionRuleExecutorRepository promotionRuleExecutorRepository;
 
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
+        promotionRuleExecutorRepository = new PromotionRuleExecutorRepository();
         printHeader();
         logger.info("============== MAIN RULE JOB STARTED =================");
-        if(promotionRuleExecutorRepository.isPendingRuleExistsInPromotionExecutor()){
+        logger.info("<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>.");
+//        logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>><<<<<" + promotionRuleExecutorRepository.isPendingRuleExistsInPromotionExecutor());
+//        if(promotionRuleExecutorRepository.isPendingRuleExistsInPromotionExecutor()){
             logger.info("Find rule to execute");
+        try {
             PromotionExecutor promotionExecutor = promotionRuleExecutorRepository.getPendingRuleFromPromotionRuleExecutor();
-            List<VoiceCall> voiceCallList = promotionRuleExecutorRepository.getResultsBasedOnPromotionNumber(promotionExecutor.getPromotionNumber());
-            List<Customer> customerList = new ArrayList<Customer>();
-            for(VoiceCall voiceCall : voiceCallList){
-                Customer customer = new Customer();
-                customer = promotionRuleExecutorRepository.getCustomerBasedOnVoiceCall(voiceCall.getNumberMakingCall());
-                customerList.add(customer);
-            }
-
-
-
         }
+        catch (Exception e){
+            logger.info("??????????" + e);
+        }
+
+//            List<VoiceCall> voiceCallList = promotionRuleExecutorRepository.getResultsBasedOnPromotionNumber(promotionExecutor.getPromotionNumber());
+//            List<Customer> customerList = new ArrayList<Customer>();
+//            for(VoiceCall voiceCall : voiceCallList){
+//                Customer customer = new Customer();
+//                customer = promotionRuleExecutorRepository.getCustomerBasedOnVoiceCall(voiceCall.getNumberMakingCall());
+//                customerList.add(customer);
+//            }
+//
+//            logger.info("=================>>>" + customerList.size());
+
+
+
+//        }
 
 
     }
@@ -53,4 +63,8 @@ public class PromotionJob implements Job{
                 "                                                                                    \n" +
                 "                                                                                    ");
     }
+
+//    public void setPromotionRuleExecutorRepository(PromotionRuleExecutorRepository promotionRuleExecutorRepository) {
+//        this.promotionRuleExecutorRepository = promotionRuleExecutorRepository;
+//    }
 }

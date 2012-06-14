@@ -51,7 +51,9 @@ public class PromotionRuleExecutorRepository implements TableHandler {
     }
 
     public List<VoiceCall> getResultsBasedOnPromotionNumber(String promotionNumber){
+        logger.info("Getting results in voice call. Promotion number is  : [{}] " , promotionNumber);
         String sql = "select number_make_call,call_result from voice_call where number_receive_call = ?;";
+        logger.info("getResultsBasedOnPromotionNumber SQL : [{}]" , sql);
         List<VoiceCall> voiceCallList = jdbcTemplate.query(sql, new RowMapper<VoiceCall>() {
             @Override
             public VoiceCall mapRow(ResultSet resultSet, int i) throws SQLException {
@@ -64,9 +66,11 @@ public class PromotionRuleExecutorRepository implements TableHandler {
 
         return voiceCallList;
     }
-    
+
     public Customer getCustomerBasedOnVoiceCall(String numberMakingCall){
+        logger.info("Getting customers based on number that make call : [{}]" , numberMakingCall);
         String sql = "select id,msisdn,name,city from customer where msisdn = ? ;";
+        logger.info("getCustomerBasedOnVoiceCall SQL: [{}]", sql);
         return jdbcTemplate.queryForObject(sql, new RowMapper<Customer>() {
             @Override
             public Customer mapRow(ResultSet resultSet, int i) throws SQLException {
@@ -80,7 +84,30 @@ public class PromotionRuleExecutorRepository implements TableHandler {
         }, numberMakingCall);
     }
 
+    public boolean isOverPassTime(){
+        logger.info("Checking is there any rule to execute");
+        String sql = "select count(*) from " + TABLE_PROMOTION_RULE_EXECUTOR + " where execute_time <= now() and status=? order by execute_time limit 1;";
+        int count = jdbcTemplate.queryForInt(sql, ExecutorStatus.PENDING.toString());
+        logger.info("Number of rules to execute : [{}]", count);
+        if (count > 0) return true;
+        else return false;
+    }
+
+    public void insertMsisdnToPromotionSendMsisdnTable(PromotionExecutor promotionExecutor, String msisdn, String status){
+        logger.info("Inserting values to promotion send msisdn table");
+        String sql = "insert into promotion_send_msisdn values(?,?,?,?);";
+        jdbcTemplate.update(sql,promotionExecutor.getId(),promotionExecutor.getPromotionRuleId(),msisdn,status);
+        logger.info("Insert successfull to promotion_send_msisdn table");
+
+    }
+
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
+    }
+
+    public void updatePromotionRuleExecutorStatus(int id,String success) {
+        String sql = "update " + TABLE_PROMOTION_RULE_EXECUTOR + " set status= ? where rule_id=?";
+        jdbcTemplate.update(sql,success,id);
+        logger.info("Rule status updated successfull");
     }
 }

@@ -136,6 +136,10 @@
     <bean id="promotionRuleExecutorRepository" class="vigraha.rule.repository.impl.PromotionRuleExecutorRepository">
         <property name="jdbcTemplate"  ref="jdbcTemplate"/>
     </bean>
+    
+    <!--<bean id="promotionJob" class="vigraha.rule.job.PromotionJob">-->
+        <!--<property name="promotionRuleExecutorRepository" ref="promotionRuleExecutorRepository"/>-->
+    <!--</bean>-->
 
 
 </beans>
