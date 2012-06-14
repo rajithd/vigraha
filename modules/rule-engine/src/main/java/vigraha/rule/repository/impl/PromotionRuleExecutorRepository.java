@@ -65,7 +65,7 @@ public class PromotionRuleExecutorRepository implements TableHandler {
         return voiceCallList;
     }
     
-    public Customer getCustomerBasedOnVoiceCall(VoiceCall voiceCall){
+    public Customer getCustomerBasedOnVoiceCall(String numberMakingCall){
         String sql = "select id,msisdn,name,city from customer where msisdn = ? ;";
         return jdbcTemplate.queryForObject(sql, new RowMapper<Customer>() {
             @Override
@@ -77,7 +77,7 @@ public class PromotionRuleExecutorRepository implements TableHandler {
                 customer.setCity(resultSet.getString("city"));
                 return customer;
             }
-        }, voiceCall.getNumberMakingCall());
+        }, numberMakingCall);
     }
 
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {

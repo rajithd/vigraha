@@ -6,8 +6,13 @@ import org.quartz.JobExecutionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import vigraha.rule.domain.Customer;
 import vigraha.rule.domain.PromotionExecutor;
+import vigraha.rule.domain.VoiceCall;
 import vigraha.rule.repository.impl.PromotionRuleExecutorRepository;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PromotionJob implements Job{
 
@@ -23,6 +28,14 @@ public class PromotionJob implements Job{
         if(promotionRuleExecutorRepository.isPendingRuleExistsInPromotionExecutor()){
             logger.info("Find rule to execute");
             PromotionExecutor promotionExecutor = promotionRuleExecutorRepository.getPendingRuleFromPromotionRuleExecutor();
+            List<VoiceCall> voiceCallList = promotionRuleExecutorRepository.getResultsBasedOnPromotionNumber(promotionExecutor.getPromotionNumber());
+            List<Customer> customerList = new ArrayList<Customer>();
+            for(VoiceCall voiceCall : voiceCallList){
+                Customer customer = new Customer();
+                customer = promotionRuleExecutorRepository.getCustomerBasedOnVoiceCall(voiceCall.getNumberMakingCall());
+                customerList.add(customer);
+            }
+
 
 
         }
