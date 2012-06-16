@@ -23,6 +23,7 @@ public class CustomerTranactionRepository implements TransactionRepository{
     public void save(String record, String columnSeparator) throws SQLException {
         String[] columnValues = record.split(columnSeparator , -1);
         logger.info("Inserting record [{}] to customer table",record);
+        System.out.println(columnValues[0]);
         jdbcTemplate.update(SAVE_SQL_STATEMENT, columnValues[0],columnValues[1],columnValues[2],columnValues[3]);
     }
 }

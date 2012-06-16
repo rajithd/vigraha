@@ -1,7 +1,5 @@
 package vigraha.dataloader.service.impl;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import vigraha.dataloader.domain.Customer;
@@ -10,9 +8,8 @@ import vigraha.dataloader.service.JsonDecoderService;
 import vigraha.dataloader.service.UploadManagerService;
 import vigraha.dataloader.util.FileHandler;
 
-import java.io.*;
+import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Map;
 
 public class CustomerUploadManagerServiceImpl implements UploadManagerService {
 
@@ -37,7 +34,6 @@ public class CustomerUploadManagerServiceImpl implements UploadManagerService {
         fileHandler = new FileHandler();
         String[] files = getFiles();
         logger.info("Total of [{}] customer logs found", files.length);
-        String fullPath;
         for (String file : files) {
             try {
                 logger.info("Started to process [{}] file", file);
@@ -58,20 +54,20 @@ public class CustomerUploadManagerServiceImpl implements UploadManagerService {
     private void readFile(String file) throws SQLException, IOException {
         String fullPath = sourceDirectoryPath + file;
         String fileContent = fileHandler.getDataOfFile(fullPath);
-        String[] rows = new String[0];
+
         if (fileContent != null) {
+            String[] rows;
             rows = fileContent.split(rowBreaker);
             for (String row : rows) {
                 Customer customer = jsonDecoderService.decodeCustomer(row, columnSeparator, jsonIndex);
-                appendCustomerToRecord(customer, row);
+                appendCustomerToRecord(customer);
                 transactionRepository.save(record, columnSeparator);
             }
         }
     }
 
-    private void appendCustomerToRecord(Customer customer, String row) {
-        this.record = record;
-        appendStringToRecord(customer.getId());
+    private void appendCustomerToRecord(Customer customer) {
+        record = customer.getId();
         appendStringToRecord(customer.getMsisdn());
         appendStringToRecord(customer.getName());
         appendStringToRecord(customer.getCity());
