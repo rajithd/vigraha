@@ -1,8 +1,174 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
-    <property name="createdBy">Eclipse BIRT Designer Version 3.7.1.v20110905 Build &lt;3.7.1.v20110905-1820></property>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 3.7.2.v20120213 Build &lt;3.7.2.v20120214-1408></property>
     <property name="units">in</property>
     <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="233">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://127.0.0.1:3306/vigraha</property>
+            <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">MTIz</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="234">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">record_id</property>
+                    <text-property name="displayName">record_id</text-property>
+                    <text-property name="heading">record_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">number</property>
+                    <text-property name="displayName">number</text-property>
+                    <text-property name="heading">number</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">navigation</property>
+                    <text-property name="displayName">navigation</text-property>
+                    <text-property name="heading">navigation</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">record_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">number</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">navigation</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">record_id</property>
+                    <property name="nativeName">record_id</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">number</property>
+                    <property name="nativeName">number</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">navigation</property>
+                    <property name="nativeName">navigation</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select gprs.record_id,gprs.number,gprs.navigation
+from gprs]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>record_id</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>11</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>record_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>record_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>number</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>11</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>number</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>number</design:label>
+            <design:formattingHints>
+              <design:displaySize>11</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>navigation</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>65535</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>navigation</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>navigation</design:label>
+            <design:formattingHints>
+              <design:displaySize>65535</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
     <styles>
         <style name="button-description-text" id="128">
             <property name="fontFamily">"Arial", "Helvetica", sans-serif</property>
@@ -46,6 +212,34 @@
             <property name="paddingTop">8px</property>
             <property name="paddingBottom">8px</property>
         </style>
+        <style name="crosstab-cell" id="231">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="232">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
     </styles>
     <page-setup>
         <simple-master-page name="Simple MasterPage" id="2">
@@ -74,10 +268,10 @@
                 <cell id="12">
                     <property name="textAlign">left</property>
                     <image id="230">
-                        <property name="height">62px</property>
-                        <property name="width">162px</property>
+                        <property name="height">104px</property>
+                        <property name="width">242px</property>
                         <property name="source">file</property>
-                        <expression name="uri" type="constant">Vigraha Logo final.png</expression>
+                        <expression name="uri" type="constant">reports/report-design/Vigraha Logo final.png</expression>
                     </image>
                 </cell>
                 <cell id="13">
@@ -131,6 +325,27 @@
                     <table id="47">
                         <property name="borderBottomStyle">none</property>
                         <property name="width">100%</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">record_id</property>
+                                <text-property name="displayName">record_id</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["record_id"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">number</property>
+                                <text-property name="displayName">number</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["number"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">navigation</property>
+                                <text-property name="displayName">navigation</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["navigation"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
                         <column id="68"/>
                         <column id="69"/>
                         <column id="70"/>
@@ -149,6 +364,9 @@
                                     <property name="borderTopColor">#FFFFFF</property>
                                     <property name="borderTopStyle">solid</property>
                                     <property name="textAlign">center</property>
+                                    <label id="235">
+                                        <text-property name="text">record_id</text-property>
+                                    </label>
                                 </cell>
                                 <cell id="50">
                                     <property name="borderBottomColor">#FFFFFF</property>
@@ -160,6 +378,9 @@
                                     <property name="borderTopColor">#FFFFFF</property>
                                     <property name="borderTopStyle">solid</property>
                                     <property name="textAlign">center</property>
+                                    <label id="237">
+                                        <text-property name="text">number</text-property>
+                                    </label>
                                 </cell>
                                 <cell id="51">
                                     <property name="borderBottomColor">#FFFFFF</property>
@@ -171,6 +392,9 @@
                                     <property name="borderTopColor">#FFFFFF</property>
                                     <property name="borderTopStyle">solid</property>
                                     <property name="textAlign">center</property>
+                                    <label id="239">
+                                        <text-property name="text">navigation</text-property>
+                                    </label>
                                 </cell>
                             </row>
                         </header>
@@ -189,6 +413,9 @@
                                     <property name="borderTopColor">#FFFFFF</property>
                                     <property name="borderTopStyle">solid</property>
                                     <property name="textAlign">center</property>
+                                    <data id="236">
+                                        <property name="resultSetColumn">record_id</property>
+                                    </data>
                                 </cell>
                                 <cell id="54">
                                     <property name="borderBottomColor">#FFFFFF</property>
@@ -200,6 +427,9 @@
                                     <property name="borderTopColor">#FFFFFF</property>
                                     <property name="borderTopStyle">solid</property>
                                     <property name="textAlign">center</property>
+                                    <data id="238">
+                                        <property name="resultSetColumn">number</property>
+                                    </data>
                                 </cell>
                                 <cell id="55">
                                     <property name="borderBottomColor">#FFFFFF</property>
@@ -211,6 +441,9 @@
                                     <property name="borderTopColor">#FFFFFF</property>
                                     <property name="borderTopStyle">solid</property>
                                     <property name="textAlign">center</property>
+                                    <data id="240">
+                                        <property name="resultSetColumn">navigation</property>
+                                    </data>
                                 </cell>
                             </row>
                         </detail>

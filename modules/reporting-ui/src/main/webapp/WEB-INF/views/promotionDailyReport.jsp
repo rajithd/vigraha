@@ -344,7 +344,7 @@ display: block;
                                         <fieldset>
 
                                             <br/>
-                                            <input type='hidden' name='__report' value="report/sample.rptdesign">
+                                            <input type='hidden' name='__report' value="report/promotion_daily_summery_report.rptdesign">
                                             <input type='hidden' name='promotion_id' value="">
 
 

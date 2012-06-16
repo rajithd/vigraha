@@ -48,16 +48,46 @@ public class PromotionController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String submitForm(Promotion promotion){
-        String cycleTime = getCycleTime(promotion);
-        String processRestriction = getProcessRestriction(promotion);
-        String selectMechanism = getSelectionMechanismValue(promotion);
-        List<String> basedOnList = getBasedOnValues(promotion);
-        String basedOnMessage = formatMessage(basedOnList);
+        int id = 0;
+        String companyCode = promotion.getCompanyCode();
         String promotionName = promotion.getPromotionName();
-        return "promotion";
+        String startDate = promotion.getStartDate();
+        String startTime = promotion.getStartTime();
+        String endDate = promotion.getEndDate();
+        String endTime = promotion.getEndTime();
+
+        List<String> basedOnList = getBasedOnValues(promotion); // sms , lbs , voice call , gprs , ussd
+        String basedOnMessage = formatMessage(basedOnList);
+
+        String promotionNumber = promotion.getPromotionNumber();
+        String cycleTimeName = getCycleTimeName(promotion); // execute every , promotion end , specific time
+        String cycleTimeValue = getCycleTimeValue(promotion); // take values for cycle time
+        String processRestriction = getProcessRestriction(promotion); // do not repeate subscribers , repeate subscribers
+        String selectMechanismName = getSelectionMechanismName(promotion); // random , 1st subscriber , all
+        String selectMechanismValue = getSelectionMechanismValue(promotion); //take values for Selection Mechanism
+        String age1 = promotion.getAge1();
+        String age2 = promotion.getAge2();
+        String smsMessage = promotion.getSmsMessage();
+
+        if(promotionRepository.isSuccessfullSavePromotion(id,companyCode,promotionName,startDate,startTime,endDate,endTime,
+                                basedOnMessage,promotionNumber,cycleTimeName,cycleTimeValue,processRestriction,selectMechanismName,
+                                 selectMechanismValue,age1,age2,smsMessage))
+        {
+            logger.info("Successfully registered promotion");
+            return "promotion";
+        }
+
+        else
+        {
+            logger.info("Company register not success");
+            return "redirect:/loginerror";
+        }
+
+
+        //return "promotion";
     }
 
-    private String formatMessage(List<String> basedOnList) {
+    private String formatMessage(List<String> basedOnList) {   // use to check whether user select more options
         boolean isFirst = true;
         String message ="";
         for (String s : basedOnList){
@@ -71,7 +101,19 @@ public class PromotionController {
         return message;
     }
 
-    private String getCycleTime(Promotion promotion) {
+    private String getCycleTimeName(Promotion promotion){
+        String message = null;
+        if(promotion.getCycleTime().equals("executeEvery")){
+            message = "EXECUTE_EVERY";
+        } else if(promotion.getCycleTime().equals("specificTime")) {
+            message = "SPECIFIC_TIME";
+        }  else {
+            message = "PROMOTION_END";
+        }
+        return message;
+    }
+
+    private String getCycleTimeValue(Promotion promotion) {
         String cycleTime = null;
         if(promotion.getCycleTime().equals("executeEvery")){
             cycleTime = promotion.getHours();
@@ -93,7 +135,7 @@ public class PromotionController {
         return message;
     }
     
-    private String getSelectionMechanismValue(Promotion promotion){
+    private String getSelectionMechanismName(Promotion promotion){
         String message = null;
         if(promotion.getSelectMechanism().equals("random")){
             message = "RANDOM";
@@ -104,6 +146,18 @@ public class PromotionController {
         }
 
         return message;
+    }
+
+    private String getSelectionMechanismValue(Promotion promotion) {
+        String selectMechanism = null;
+        if(promotion.getSelectMechanism().equals("random")){
+            selectMechanism = promotion.getRandomCount();
+        } else if(promotion.getSelectMechanism().equals("firstSubscribers")) {
+            selectMechanism = promotion.getRandomCount1();
+        } else {
+            selectMechanism = "none";
+        }
+        return selectMechanism;
     }
 
     private List<String> getBasedOnValues(Promotion promotion){
