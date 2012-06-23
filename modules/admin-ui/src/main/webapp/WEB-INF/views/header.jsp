@@ -17,9 +17,9 @@
                 <li><a href="admin-registration">Register</a></li>
                 <li><a href="home">Sign In</a></li>
             </ul>
-            <form:form class="navbar-search pull-right">
+            <form class="navbar-search pull-right">
                 <input type="text" class="search-query" placeholder="Search">
-            </form:form>
+            </form>
 
             <ul class="nav">
                 <li class="dropdown">
