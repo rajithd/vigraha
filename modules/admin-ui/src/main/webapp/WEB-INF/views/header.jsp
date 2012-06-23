@@ -1,14 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link href="resources/Style/style.css" type="text/css" rel="stylesheet" />
-    <link href="resources/Style/bootstrap.css" type="text/css" rel="stylesheet" />
-    <link href="resources/Style/bootstrap.min.css" type="text/css" rel="stylesheet" />
-    <link href="resources/Style/bootstrap-responsive.css" type="text/css" rel="stylesheet" />
-    <link href="resources/Style/bootstrap.min.css" type="text/css" rel="stylesheet" />
-    <link href="resources/Style/bootstrap-responsive.min.css" type="text/css" rel="stylesheet" />
-
-
 </head>
 <body>
 <div class="navbar">											 <!----------------------- Navigation Bar -------------------------------->
