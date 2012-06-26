@@ -41,6 +41,7 @@ public class FileHandler {
         if (data.equalsIgnoreCase("")) {
             return null;
         }
+        bufferedReader.close();
         return data;
     }
 
