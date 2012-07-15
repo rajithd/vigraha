@@ -385,7 +385,7 @@ accordian css
         <ul class="submenu">
             <li><a href="#">Promotion Programe report - Yearly</a></li>
             <li><a href="#">Promotion Programe report - Monthly</a></li>
-            <li><a href="#">Promotion Programe report - Daily</a></li>
+            <li><a href="http://localhost:8080/reporting-ui/promotionDailyReport" target="_blank">Promotion Programe report - Daily</a></li>
         </ul>
 
         <h3 class="headerbar"><a href="#">Loyality Program</a></h3>

@@ -7,9 +7,9 @@
 <head>
     <!--<script type="text/javascript"; src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>-->  <!----- accordion js -------->
 
-    <script type="text/javascript" src="../resources/java_scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/java_scripts/jquery.min.js"></script>
 
-    <script type="text/javascript" src="../resources/java_scripts/ddaccordion.js"></script>
+    <script type="text/javascript" src="resources/java_scripts/ddaccordion.js"></script>
 
     <script type="text/javascript">
 
@@ -38,7 +38,7 @@
 
     <script src="http://code.jquery.com/jquery-1.7.min.js"></script>	<!------------------------ datepicker js ----------------------------->
 
-    <script type="text/javascript" src="../resources/java_scripts/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="resources/java_scripts/bootstrap-datepicker.js"></script>
 
     <script>
     $(function(){
@@ -78,22 +78,22 @@
     </script>
 
 
-    <script type="text/javascript" src="../resources/java_scripts/bootstrap-typeahead.js"></script>	<!---------------- Auto complete text js --------------->
+    <script type="text/javascript" src="resources/java_scripts/bootstrap-typeahead.js"></script>	<!---------------- Auto complete text js --------------->
 
-<script src="../resources/java_scripts/bootstrap-dropdown.js"></script>		<!------------------- DropDown Menu js ----------------------------------------->
+<script src="resources/java_scripts/bootstrap-dropdown.js"></script>		<!------------------- DropDown Menu js ----------------------------------------->
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <title>
-        <fmt:message key="companyregister.title"/>
+        <fmt:message key="company.register.title"/>
     </title>
 
-    <link href="../resources/Style/style.css" type="text/css" rel="stylesheet" />
-    <link href="../resources/Style/bootstrap.css" type="text/css" rel="stylesheet" />
-    <link href="../resources/Style/bootstrap.min.css" type="text/css" rel="stylesheet" />
-    <link href="../resources/Style/bootstrap-responsive.css" type="text/css" rel="stylesheet" />
-    <link href="../resources/Style/jquery.datepick.css" type="text/css" rel="stylesheet" />
-    <link href="../resources/Style/datepicker.less" type="text/css" rel="stylesheet" />
+    <link href="resources/Style/style.css" type="text/css" rel="stylesheet" />
+    <link href="resources/Style/bootstrap.css" type="text/css" rel="stylesheet" />
+    <link href="resources/Style/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="resources/Style/bootstrap-responsive.css" type="text/css" rel="stylesheet" />
+    <link href="resources/Style/jquery.datepick.css" type="text/css" rel="stylesheet" />
+    <link href="resources/Style/datepicker.less" type="text/css" rel="stylesheet" />
 
     <style type="text/css">
         <!--
@@ -200,7 +200,7 @@
 </div>
 
 <div id="header-bar">					<!------------------------- Header Bar ---------------------------------->
-    <img src="../resources/Images/28.png" />
+    <img src="resources/Images/28.png" />
 </div>
 
 <br />
@@ -253,7 +253,7 @@
                             <li><a href="#">Tenure Program report - Daily</a></li>
                         </ul>
 
-                        <h3 class="headerbar"><a href="#">Subscriber Details User Management</a></h3>
+                        <h3 class="headerbar"><a href="#"><fmt:message key="company.register.subscriber.detail.user.mgt.header"></a></h3>
                         <ul class="submenu">
                             <li><a href="#" >Tenure Program report - Yearly</a></li>
                             <li><a href="#">Tenure Program report - Monthly</a></li>

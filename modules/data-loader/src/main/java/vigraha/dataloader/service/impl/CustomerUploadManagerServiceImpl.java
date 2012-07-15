@@ -70,7 +70,7 @@ public class CustomerUploadManagerServiceImpl implements UploadManagerService {
     }
 
     private void appendCustomerToRecord(Customer customer, String row) {
-        this.record = record;
+        this.record = row;
         appendStringToRecord(customer.getId());
         appendStringToRecord(customer.getMsisdn());
         appendStringToRecord(customer.getName());

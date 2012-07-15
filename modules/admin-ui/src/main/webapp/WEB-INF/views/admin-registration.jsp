@@ -7,9 +7,9 @@
 <head>
     <!--<script type="text/javascript"; src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>-->  <!----- accordion js -------->
 
-    <script type="text/javascript" src="../resources/java_scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/java_scripts/jquery.min.js"></script>
 
-    <script type="text/javascript" src="../resources/java_scripts/ddaccordion.js"></script>
+    <script type="text/javascript" src="resources/java_scripts/ddaccordion.js"></script>
 
     <script type="text/javascript">
 
@@ -36,9 +36,9 @@
 
     </script>
 
-    <script src="../resources/java_scripts/jquery-1.7.min.js"></script>	<!------------------------ datepicker js ----------------------------->
+    <script src="resources/java_scripts/jquery-1.7.min.js"></script>	<!------------------------ datepicker js ----------------------------->
 
-    <script type="text/javascript" src="../resources/java_scripts/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="resources/java_scripts/bootstrap-datepicker.js"></script>
 
     <script>
     $(function(){
@@ -78,21 +78,21 @@
     </script>
 
 
-    <script type="text/javascript" src="../resources/java_scripts/bootstrap-typeahead.js"></script>	<!---------------- Auto complete text js --------------->
+    <script type="text/javascript" src="resources/java_scripts/bootstrap-typeahead.js"></script>	<!---------------- Auto complete text js --------------->
 
-<script src="../resources/java_scripts/bootstrap-dropdown.js"></script>		<!------------------- DropDown Menu js ----------------------------------------->
+<script src="resources/java_scripts/bootstrap-dropdown.js"></script>		<!------------------- DropDown Menu js ----------------------------------------->
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>
        <fmt:message key="registration.title"/>
     </title>
 
-    <link href="../resources/Style/style.css" type="text/css" rel="stylesheet" />
-    <link href="../resources/Style/bootstrap.css" type="text/css" rel="stylesheet" />
-    <link href="../resources/Style/bootstrap.min.css" type="text/css" rel="stylesheet" />
-    <link href="../resources/Style/bootstrap-responsive.css" type="text/css" rel="stylesheet" />
-    <link href="../resources/Style/jquery.datepick.css" type="text/css" rel="stylesheet" />
-    <link href="../resources/Style/datepicker.less" type="text/css" rel="stylesheet" />
+    <link href="resources/Style/style.css" type="text/css" rel="stylesheet" />
+    <link href="resources/Style/bootstrap.css" type="text/css" rel="stylesheet" />
+    <link href="resources/Style/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="resources/Style/bootstrap-responsive.css" type="text/css" rel="stylesheet" />
+    <link href="resources/Style/jquery.datepick.css" type="text/css" rel="stylesheet" />
+    <link href="resources/Style/datepicker.less" type="text/css" rel="stylesheet" />
 
     <style type="text/css">
         <!--
@@ -200,7 +200,7 @@
 </div>
 
 <div id="header-bar">					<!------------------------- Header Bar ---------------------------------->
-    <img src="../resources/Images/28.png" />
+    <img src="resources/Images/28.png" />
 </div>
 
 <br />
