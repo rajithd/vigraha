@@ -308,53 +308,7 @@ accordian css
 </head>
 
 <body>
-<div class="navbar">
-    <!------------------------------- Navigation Bar ------------------------------------->
-
-    <div class="navbar-inner">
-
-        <div class="container">
-
-            <ul class="nav">
-
-                <a class="brand" href="#">Vigraha</a>
-                <li class="active">
-
-                    <a href="#">Home</a>
-                </li>
-                <li><a href="admin-registration">Register</a></li>
-                <li><a href="home">Sign In</a></li>
-            </ul>
-            <form:form class="navbar-search pull-right">
-                <input type="text" class="search-query" placeholder="Search">
-            </form:form>
-
-            <ul class="nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrator <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">User Privilages</a></li>
-                        <li><a href="#">Authuntication</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
-                </li>
-
-            </ul>
-
-        </div>
-    </div>
-</div>
-
-<div id="header-bar">                <!------------------------- Header Bar ---------------------------------->
-
-    <img src="resources/Images/66.png"/>
-</div>
-
-<br/>
-<br/>
-<br/>
+<jsp:include page="header.jsp"/>
 
 <div class="container">            <!------------------------- Container ---------------------------->
 
@@ -443,7 +397,8 @@ accordian css
     <label for="companycode" class="control-label">Company Code *</label>
 
     <div class="controls docs-input-sizes">
-        <form:select id="companycode" path="companyCode" items="${companyTypes}" itemValue="companyCode" itemLabel="displayName">
+        <form:select id="companycode" path="companyCode" items="${companyTypes}" itemValue="companyCode"
+                     itemLabel="displayName">
         </form:select>
     </div>
 </div>
@@ -455,7 +410,8 @@ accordian css
     <label for="promotionname" class="control-label">Promotion Name *</label>
 
     <div class="controls docs-input-sizes">
-        <form:input path="promotionName" class="span3" id="promotionname" type="text" placeholder="Enter Programme Name"/>
+        <form:input path="promotionName" class="span3" id="promotionname" type="text"
+                    placeholder="Enter Programme Name"/>
     </div>
 </div>
 
@@ -469,7 +425,8 @@ accordian css
     <div class="controls docs-input-sizes">
 
         <div class="input-append date" id="dp1" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-            <form:input path="startDate" class="dropdown-datepicker" id="startdate" name="startdate" size="16" type="text" value="12-02-2012"
+            <form:input path="startDate" class="dropdown-datepicker" id="startdate" name="startdate" size="16"
+                        type="text" value="12-02-2012"
                         readonly=""/>
             <span class="add-on"><i class="icon-th"></i><!--<img src="Images/calendar.png" width="16"; height="18";/>--></span>
 
@@ -482,7 +439,7 @@ accordian css
     <label for="starttime" class="control-label">Start Time *</label>
 
     <div class="controls docs-input-sizes">
-        <%--<span class="help-inline">Select Time</span>-->--%>
+            <%--<span class="help-inline">Select Time</span>-->--%>
         <div class="input-append time" id="dp1">
             <form:input path="startTime" size="16" id="starttime" name="starttime"
                         type="text"/>
@@ -501,7 +458,8 @@ accordian css
     <div class="controls docs-input-sizes">
 
         <div class="input-append date" id="dp2" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-            <form:input path="endDate" class="dropdown-datepicker" id="enddate" name="enddate" size="16" type="text" value="12-02-2012"
+            <form:input path="endDate" class="dropdown-datepicker" id="enddate" name="enddate" size="16" type="text"
+                        value="12-02-2012"
                         readonly=""/>
             <span class="add-on"><i class="icon-th"></i><!--<img src="Images/calendar.png" width="16"; height="18";/>--></span>
         </div>
@@ -514,7 +472,7 @@ accordian css
     <label for="endtime" class="control-label">End Time *</label>
 
     <div class="controls docs-input-sizes">
-        <%--<span class="help-inline">Select Time</span>-->--%>
+            <%--<span class="help-inline">Select Time</span>-->--%>
 
         <div class="input-append time" id="dp1">
             <form:input path="endTime" size="16" id="endtime" name="endtime"
@@ -534,19 +492,19 @@ accordian css
     <div class="controls">
 
         <label for="sms" class="checkbox">SMS *
-            <form:checkbox id="sms" path="basedOn[sms]" value="sms" />
+            <form:checkbox id="sms" path="basedOn[sms]" value="sms"/>
         </label>
         <label for="lbs" class="checkbox">LBS *
-            <form:checkbox id="lbs" path="basedOn[lbs]" value="lbs" />
+            <form:checkbox id="lbs" path="basedOn[lbs]" value="lbs"/>
         </label>
         <label for="voicecall" class="checkbox">Voice Call *
-            <form:checkbox id="voicecall" path="basedOn[voicecall]" value="voicecall" />
+            <form:checkbox id="voicecall" path="basedOn[voicecall]" value="voicecall"/>
         </label>
         <label for="gprs" class="checkbox">GPRS *
-            <form:checkbox id="gprs" path="basedOn[gprs]" value="gprs" />
+            <form:checkbox id="gprs" path="basedOn[gprs]" value="gprs"/>
         </label>
         <label for="ussd" class="checkbox">USSD *
-            <form:checkbox id="ussd" path="basedOn[ussd]" value="ussd" />
+            <form:checkbox id="ussd" path="basedOn[ussd]" value="ussd"/>
         </label>
 
     </div>
@@ -571,14 +529,14 @@ accordian css
     <div class="controls">
 
         <label for="executeevery" class="radio">
-            <form:radiobutton id="executeevery" path="cycleTime" value="executeEvery" />
+            <form:radiobutton id="executeevery" path="cycleTime" value="executeEvery"/>
             &nbsp;&nbsp;&nbsp;
             Execute every &nbsp;
-            <form:input path="hours" class="span2" type="text" placeholder="Hours" /> </label> <br/>
+            <form:input path="hours" class="span2" type="text" placeholder="Hours"/> </label> <br/>
 
 
         <label for="specifictime" class="radio">
-            <form:radiobutton id="specifictime" path="cycleTime" value="specificTime" />
+            <form:radiobutton id="specifictime" path="cycleTime" value="specificTime"/>
             &nbsp;&nbsp;&nbsp;
             Execute at Specific Time&nbsp;&nbsp;
             <form:input size="16" type="text" path="specificTime"/>
@@ -586,7 +544,7 @@ accordian css
         </label> <br/>
 
         <label for="promotionend" class="radio">
-            <form:radiobutton id="promotionend" path="cycleTime" value="promotionEnd" />
+            <form:radiobutton id="promotionend" path="cycleTime" value="promotionEnd"/>
             &nbsp;&nbsp;&nbsp;
             Execute at the end of the Promotion Period</label>
 
@@ -598,17 +556,16 @@ accordian css
 <h3>Processing Restirction</h3>  <br/>
 
 
-
 <div class="control-group">
     <div class="controls">
 
         <label for="donotrepeate" class="radio">
-            <form:radiobutton id="donotrepeate" path="processingRestriction" value="doNotRepeat" />
+            <form:radiobutton id="donotrepeate" path="processingRestriction" value="doNotRepeat"/>
             &nbsp;&nbsp;&nbsp;
             Do not Repeat Subscribers</label>
 
         <label for="repeate" class="radio">
-            <form:radiobutton id="repeate" path="processingRestriction" value="repeat" />
+            <form:radiobutton id="repeate" path="processingRestriction" value="repeat"/>
             &nbsp;&nbsp;&nbsp;
             Repeat Subcriberss</label>
 
@@ -625,19 +582,19 @@ accordian css
     <div class="controls">
 
         <label for="random" class="radio">
-            <form:radiobutton id="random" path="selectMechanism" value="random" />
+            <form:radiobutton id="random" path="selectMechanism" value="random"/>
             &nbsp;&nbsp;&nbsp;
             Randomly Select</label>
-        <form:input path="randomCount" class="span2" type="text" placeholder="Value" /> </label> <br/>
+        <form:input path="randomCount" class="span2" type="text" placeholder="Value"/> </label> <br/>
 
         <label for="firstsub" class="radio">
-            <form:radiobutton id="firstsub" path="selectMechanism" value="firstSubscribers" />
+            <form:radiobutton id="firstsub" path="selectMechanism" value="firstSubscribers"/>
             &nbsp;&nbsp;&nbsp;
             Number of First Subscribers</label>
-        <form:input path="randomCount1" class="span2" type="text" placeholder="Value" /> </label> <br/>
+        <form:input path="randomCount1" class="span2" type="text" placeholder="Value"/> </label> <br/>
 
         <label for="all" class="radio">
-            <form:radiobutton id="all" path="selectMechanism" value="all" />
+            <form:radiobutton id="all" path="selectMechanism" value="all"/>
             &nbsp;&nbsp;&nbsp;
             All Subscribers</label>
 
@@ -646,7 +603,7 @@ accordian css
 
 <br/>
 
-<h3>Restriction</h3> <br />
+<h3>Restriction</h3> <br/>
 
 <form>
 
@@ -660,7 +617,7 @@ accordian css
         </div>
     </div>
 </form>
-<br />
+<br/>
 
 <h3>Notification Message</h3> <br/>
 
@@ -696,18 +653,7 @@ accordian css
 <hr/>
 <!------------------------ footer ------------------------------------------->
 
-<footer class="container">
-
-
-    <p class="pull-right"><a href="#">Back to top</a></p>
-
-    <p>&copy; 2012 by <a href="#">Vigraha</a>
-        • Powered by <a href="#">SLIIT</a>
-        • <a href="#">Alright reserved</a> by <a href="#">Vigraha</a>
-
-    <p></p>
-
-</footer>
+<jsp:include page="footer.jsp"/>
 
 </body>
 </html>
