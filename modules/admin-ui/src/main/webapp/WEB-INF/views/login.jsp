@@ -68,9 +68,11 @@
     </div>
 </div>
 
-<script src="Javascripts/jquery.min.js" type="text/javascript"></script>
-<script src="Javascripts/jquery.validate.min.js" type="text/javascript"></script>
-<script src="Javascripts/form.js" type="text/javascript"></script>
+<jsp:include page="common/footer.jsp"/>
+
+<script src="../../resources/java_scripts/jquery.min.js" type="text/javascript"></script>
+<script src="../../resources/java_scripts/jquery.validate.min.js" type="text/javascript"></script>
+<script src="../../resources/java_scripts/form.js" type="text/javascript"></script>
 
 </body>
 </html>
