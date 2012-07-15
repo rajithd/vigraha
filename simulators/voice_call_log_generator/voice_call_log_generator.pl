@@ -2,9 +2,9 @@
 
 use feature "switch";
 
-our @possibleValues=(["94779000001","94779000002","94779000003"], #number making the call
-["94779000010","94779000011","94779000012"],  #number receiving the call
-["94779000001","94779000002","94779000003"],  #number charged for the call
+our @possibleValues=(["0779545015","0775568798","0778391747","0778391722","0778391723","0778391724","0778391726","0778391729"], #number making the call
+["0112729729","94779000011"],  #number receiving the call
+["0779545015","0775568798","0778391747"],  #number charged for the call
 ["answer","busy","divert","waiting"], #result of the call
 ["voice"]);   #call type
 
@@ -41,8 +41,8 @@ sub selectfield{
 	my $val = $_[0];
 
 	given ($val){
-		when(1)     { push(@datarow,$possibleValues[0][int(rand(3))])}  #Number making the call
-		when(2)     { push(@datarow,$possibleValues[1][int(rand(3))])}  #Number receiving the call
+		when(1)     { push(@datarow,$possibleValues[0][int(rand(8))])}  #Number making the call
+		when(2)     { push(@datarow,$possibleValues[1][int(rand(2))])}  #Number receiving the call
 		when(3)		{ &datetime() }  #when the call start
 		when(4)		{ &duration_time() }  #duration
 	   	when(5) 	{ push(@datarow,$possibleValues[0][int(rand(3))]) } #Number charged call

@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import vigraha.admin.repository.LoginRepository;
 
-import java.util.Date;
-
 @Controller
-@RequestMapping("/home")
+@RequestMapping("/login")
 public class HomeController {
 
     private final static Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -31,23 +29,7 @@ public class HomeController {
     public String home(Model model){
         System.out.println("======================================");
        logger.info("=============== Retrieving Home page ===============");
-        return "home";
+        return "login";
     }
-
-    @RequestMapping(method = RequestMethod.POST)
-    public String submitForm(@RequestParam("username") String username, @RequestParam("password") String password)
-    {
-        System.out.println("=====================================================================");
-        System.out.println("==========" + loginRepository.isSuccessfulAuthentication(username,password));
-        logger.info("Checking username [{}] and with entered password", username);
-        if(loginRepository.isSuccessfulAuthentication(username,password)){
-            logger.info("Login successful. Displaying home page");
-            return "redirect:/welcome";
-        } else {
-            logger.info("Login unsuccessful. Redirect to login error page");
-            return "redirect:/login-error";
-        }
-    }
-
 
 }

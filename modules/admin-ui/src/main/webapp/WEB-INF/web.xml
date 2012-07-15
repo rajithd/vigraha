@@ -6,7 +6,12 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/admin-service.xml</param-value>
+        <param-value>
+            /WEB-INF/admin-servlet.xml,
+            /WEB-INF/admin-service.xml,
+            /WEB-INF/admin-security.xml
+
+        </param-value>
     </context-param>
 
     <listener>
@@ -23,5 +28,15 @@
         <servlet-name>admin</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
 </web-app>

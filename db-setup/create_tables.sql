@@ -80,6 +80,21 @@ PRIMARY KEY (id)
 )
 ENGINE= InnoDB;
 
+-- add admin and customer login details--
+CREATE TABLE IF NOT EXISTS `login` (
+`id` VARCHAR (20) NOT NULL ,
+`username` VARCHAR (20) NOT NULL ,
+`password` VARCHAR (20) NOT NULL ,
+PRIMARY KEY (id)
+)
+ENGINE= InnoDB;
+
+CREATE TABLE IF NOT EXISTS `authority` (
+`id` VARCHAR (20) NOT NULL ,
+`role` VARCHAR (20) NOT NULL
+)
+ENGINE= InnoDB;
+
 CREATE TABLE IF NOT EXISTS `promotion` (
 `promotion_id` INT NOT NULL AUTO_INCREMENT ,
 `company_code` VARCHAR(50) NOT NULL ,

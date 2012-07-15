@@ -87,7 +87,7 @@
 
                                 <h4 style="color:#F00">Login Not Successful.......!</h4>
 
-                                <a href="home">
+                                <a href="login">
                                     <fieldset class="form-actions"><input class="btn create" id="web_user_submit" name="commit" type="submit" value="Sign in" />
 
 
@@ -118,42 +118,6 @@
 
 <script src="../resources/java_scripts/tracking.js" type="text/javascript"></script>
 <script src="../resources/java_scripts/s_code.js" type="text/javascript"></script>
-<script language="JavaScript" type="text/javascript">
-    <!--
-    s.pageName="openshift | login | show"
-    s.server=""
-    s.channel=""
-    s.heir1=""
-    s.pageType=""
-    s.prop1=""
-    s.prop2=""
-    s.prop3=""
-    s.prop4=""
-    s.prop5=""
-    /* Conversion Variables */
-    s.campaign=""
-    s.state=""
-    s.zip=""
-    s.events=""
-    s.products=""
-    s.purchaseID=""
-    s.eVar1=""
-    s.eVar2=""
-    s.eVar3=""
-    s.eVar4=""
-    s.eVar5=""
-    s.eVar8=""
-    s.eVar51=""
-    s.eVar27=""
-    s.eVar28=""
-    s.eVar29=""
-    /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
-    var s_code=s.t();if(s_code)document.write(s_code)//--></script>
-<script language="JavaScript" type="text/javascript"><!--
-if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
-//--></script><noscript><img src="http://redhat.122.2o7.net/b/ss/redhatopenshift/1/H.23.3--NS/0"
-                             height="1" width="1" border="0" alt="" /></noscript><!--/DO NOT REMOVE/-->
-<!-- End SiteCatalyst code version: H.23.3. -->
 
 </body>
 </html>
