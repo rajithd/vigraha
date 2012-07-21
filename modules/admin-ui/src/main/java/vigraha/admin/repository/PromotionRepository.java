@@ -58,18 +58,18 @@ public class PromotionRepository {
 
     }
 
-    public List<Promotion> getAllCompanyList() {
-        List<Promotion> promotionList = jdbcTemplate.query("select * from company", new RowMapper<Promotion>() {
+    public List<Company> getAllCompanyList() {
+        List<Company> companyList = jdbcTemplate.query("select * from company", new RowMapper<Company>() {
             @Override
-            public Promotion mapRow(ResultSet resultSet, int i) throws SQLException {
-                Promotion promotion = new Promotion();
-                promotion.setCompanyCode(resultSet.getString("company_reg_no"));
-                promotion.setCompanyName(resultSet.getString("company_name"));
-                return promotion;
+            public Company mapRow(ResultSet resultSet, int i) throws SQLException {
+                Company company = new Company();
+                company.setCompanyName(resultSet.getString("company_name"));
+                company.setRegNo(resultSet.getString("company_reg_no"));
+                return company;
             }
         });
 
-        return promotionList;
+        return companyList;
 
     }
 

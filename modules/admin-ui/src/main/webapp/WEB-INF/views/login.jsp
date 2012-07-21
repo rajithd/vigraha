@@ -6,10 +6,10 @@
 <head>
     <title><fmt:message key="login.title"/></title>
 
-    <link href="../../resources/Style/common.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="../../resources/Style/site.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="../../resources/Style/bootstrap.css" rel="stylesheet" type="text/css"/>
-    <link href="../../resources/Style/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="resources/Style/common.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="resources/Style/site.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="resources/Style/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="resources/Style/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
 
 </head>
 <body class='simple login show'>
@@ -22,7 +22,7 @@
             <div class='container'>
                 <div class='brand'>
                     <div class='brand-image'>
-                        <img src="../../resources/Images/logo.png" width="400px" style="position:relative"/>
+                        <img src="resources/images/logo.png" width="400px" style="position:relative"/>
                     </div>
                 </div>
             </div>
@@ -70,9 +70,9 @@
 
 <jsp:include page="common/footer.jsp"/>
 
-<script src="../../resources/java_scripts/jquery.min.js" type="text/javascript"></script>
-<script src="../../resources/java_scripts/jquery.validate.min.js" type="text/javascript"></script>
-<script src="../../resources/java_scripts/form.js" type="text/javascript"></script>
+<script src="resources/java_scripts/jquery.min.js" type="text/javascript"></script>
+<script src="resources/java_scripts/jquery.validate.min.js" type="text/javascript"></script>
+<script src="resources/java_scripts/form.js" type="text/javascript"></script>
 
 </body>
 </html>

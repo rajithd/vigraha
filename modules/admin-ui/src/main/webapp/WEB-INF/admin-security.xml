@@ -10,9 +10,8 @@ http://www.springframework.org/schema/security/spring-security-3.0.xsd">
     <beans:import resource="db.xml"/>
     <http>
         <form-login login-page="/login" default-target-url="/welcome" authentication-failure-url="/login-error"/>
-        <logout logout-success-url="/login.jsp"/>
+        <logout logout-success-url="/login"/>
 
-        <remember-me/>
     </http>
 
     <authentication-manager>
