@@ -5,31 +5,15 @@
 
 <html>
 <head>
-    <meta charset='utf-8'>
-    <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
     <title>
         <fmt:message key="login-error.title"/>
     </title>
-    <meta content='' name='description'>
-    <meta content='' name='author'>
-    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
-    <link href='/app/images/favicon-32.png' rel='shortcut icon' type='image/png'>
-    <link href="../resources/Style/overpass.css" media="all" rel="stylesheet" type="text/css" />
-    <script src="../resources/java_scripts/modernizr.min.js" type="text/javascript"></script>
-    <meta name="csrf-param" content="authenticity_token"/>
-    <meta name="csrf-token" content="iclzi38MWARQHg3by4BybNaR9+9gjN&#x2F;dhQGqSW2gYt4="/>
-
-    <link href="../resources/Style/common.css" media="all" rel="stylesheet" type="text/css" />
-    <link href="../resources/Style/site.css" media="all" rel="stylesheet" type="text/css" />
-    <link href="../resources/Style/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="../resources/Style/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="resources/Style/common.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="resources/Style/site.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="resources/Style/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="resources/Style/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
 
 
-    <style type="text/css">
-        <!--
-        .style1 {color: #7C1099}
-        -->
-    </style>
 </head>
 <body class='simple login show'>
 <header>
@@ -42,7 +26,7 @@
                 <div class='brand'>
                     <a href="/app/">
                         <div class='brand-image'>
-                            <img src="../resources/Images/logo.png" width="400px" style="position:relative" />
+                            <img src="resources/images/logo.png" width="400px" style="position:relative" />
                         </div>
                         <!--<div class='brand-text'><strong>Vigraha</strong>
                         </div>-->
@@ -71,20 +55,6 @@
                                 <input name='redirectUrl' type='hidden' value='/app/console'>
 
 
-                                <!--<div class="string optional control-group" id="web_user_rhlogin_input">
-                                    <label for="web_user_rhlogin" class="control-label style1">Login</label>
-                                        <div class="controls"> <input autofocus="autofocus" class="" id="web_user_rhlogin" name="web_user[rhlogin]" placeholder=""
-                                        type="text" />
-                                        </div>
-                                </div>-->
-
-                                <!--<div class="password optional control-group" id="web_user_password_input">
-                                    <label for="web_user_password" class="control-label style1">Password</label>
-                                        <div class="controls"><input class="" id="web_user_password" name="web_user[password]" type="password" />
-                                            <p class="help-block"><a href="/app/account/password/new" class="style1">Forgot your password?</a></p>
-                                        </div>
-                                </div>-->
-
                                 <h4 style="color:#F00">Login Not Successful.......!</h4>
 
                                 <a href="login">
@@ -108,16 +78,9 @@
 
 <!--java scripts-->
 
-<script src="../resources/java_scripts/jquery.min.js" type="text/javascript"></script>
-<script src="../resources/java_scripts/rails.js" type="text/javascript"></script>
-<script src="../resources/java_scripts/plugins.js" type="text/javascript"></script>
-<script src="../resources/java_scripts/jquery.cookie.js" type="text/javascript"></script>
-<script src="../resources/java_scripts/jquery.validate.min.js" type="text/javascript"></script>
-<script src="../resources/java_scripts/form.js" type="text/javascript"></script>
-
-
-<script src="../resources/java_scripts/tracking.js" type="text/javascript"></script>
-<script src="../resources/java_scripts/s_code.js" type="text/javascript"></script>
+<script src="resources/java_scripts/jquery.min.js" type="text/javascript"></script>
+<script src="resources/java_scripts/jquery.validate.min.js" type="text/javascript"></script>
+<script src="resources/java_scripts/form.js" type="text/javascript"></script>
 
 </body>
 </html>

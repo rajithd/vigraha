@@ -403,7 +403,7 @@
 
 <div class="well">
 
-    <button type="submit" class="btn btn-primary" rel="popover" title="Save Administrator">Save Changes</button>
+    <button type="submit" class="btn btn-primary" rel="popover" title="Save Administrator">Submit</button>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <button class="btn" rel="popover" title="Cancel Registration">Cancel</button>
 
