@@ -28,20 +28,17 @@ public class PromotionRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public boolean isSuccessfullSavePromotion(int id, String companyCode, String promotionName, String startDate,
+    public boolean savePromotion(int id, String companyCode, String promotionName, String startDate,
                                               String startTime, String endDate, String endTime, String basedOnMessage,
                                               String promotionNumber, String cycleTimeName, String cycleTimeValue,
                                               String processRestriction, String selectMechanismName,
                                               String selectMechanismValue, String age1, String age2, String smsMessage) {
 
-//        String date = "20" + "3";
-//         logger.info("date [{}]" , date);
-
-
-        String start_date_time = startDate + " " + startTime.concat(":00");
+        String start_date_time = startDate + " " + startTime + ":00";
         String new_start = stringToDate(start_date_time);
-        String end_date_time = endDate + " " + endTime.concat(":00");
+        String end_date_time = endDate + " " + endTime + ":00";
         String new_end = stringToDate(end_date_time);
+        cycleTimeValue = new_end;
 
         String age = age1 + "," + age2;
 
@@ -49,13 +46,11 @@ public class PromotionRepository {
                 new_start, new_end, basedOnMessage, promotionNumber, cycleTimeName, cycleTimeValue,
                 processRestriction, selectMechanismName, selectMechanismValue, age, smsMessage, "admin", "CREATE");
 
-        System.out.println("************" + row);
 
         if (row > 0)
             return true;
         else
             return false;
-
     }
 
     public List<Company> getAllCompanyList() {
@@ -74,18 +69,14 @@ public class PromotionRepository {
     }
 
     private String stringToDate(String value) {
-        String[] dateTime = value.split(" ");
-        String dateArr[] = dateTime[0].split("-");
-        String newValue = dateArr[2] + "-" + dateArr[0] + "-" + dateArr[1] + " " + dateTime[1];
         String newDate = null;
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
-            Date date = (Date)formatter.parse(newValue);
-            newDate = formatter.format(date);
+            Date date1 = (Date)formatter.parse(value);
+            newDate = formatter.format(date1);
         } catch (ParseException e) {
-
+            logger.error("Error while converting string to date");
         }
-
         return newDate;
     }
 }

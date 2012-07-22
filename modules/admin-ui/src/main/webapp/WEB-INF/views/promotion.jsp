@@ -7,16 +7,17 @@
 <head>
     <script src="resources/java_scripts/jquery-1.7.min.js"></script>
     <script src="resources/java_scripts/bootstrap-dropdown.js"></script>
-    <!-- DropDown Menu -->
     <script src="resources/java_scripts/bootstrap-datepicker.js"></script>
-    <!-- Date Picker -->
     <script src="resources/java_scripts/bootstrap_datepicker_format.js"></script>
     <script type="text/javascript" src="resources/java_scripts/bootstrap-timepicker-0.3.js"></script>
-    <!-- Time Picker -->
     <script src="resources/java_scripts/bootstrap-timepicker-format.js"></script>
     <script src="resources/java_scripts/bootstrap-popover.js"></script>
-    <!-- Button PopUp msg -->
+    <script type="text/javascript" src="resources/java_scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/java_scripts/jquery.ui.core.js"></script>
+    <script type="text/javascript" src="resources/java_scripts/jquery.ui.datepicker.js"></script>
+    <script type="text/javascript" src="resources/java_scripts/customjs.js"></script>
 
+    <link href="resources/Style/jquery.ui.all.css" rel="stylesheet" type="text/css"/>
     <link href="resources/Style/global.css" rel="stylesheet" type="text/css" media="all"/>
     <link href="resources/Style/bootstrap.css" type="text/css" rel="stylesheet"/>
     <link href="resources/Style/bootstrap-responsive.css" type="text/css" rel="stylesheet"/>
@@ -26,7 +27,7 @@
     <link href="resources/Style/datepicker.less" type="text/css" rel="stylesheet"/>
     <link href="resources/Style/timepicker.css" type="text/css" rel="stylesheet"/>
 
-    <title>Vigraha</title>
+    <title>Promotion</title>
 </head>
 
 <body data-spy="scroll" data-target=".subnav" data-offset="50">
@@ -62,8 +63,6 @@
 </div>
 
 <div class="span8" style="background-color:#FFF">
-<!--<div class="offset1">-->
-<!--<br />-->
 
 <form class="form-horizontal" method="post">
 <fieldset>
@@ -79,8 +78,6 @@
     </div>
 
     <div class="span6" align="right">
-
-
         <span style="color: #a9a9a9; margin-left:20px; font-size:10px;">Note:</span>
         <span style="color: red; font-size:12px;"> * </span>
         <span style="color: #a9a9a9; font-size:10px;">Indicates a required field</span>
@@ -151,11 +148,9 @@
 
             <div class="controls docs-input-sizes">
 
-                <div class="input-append date" id="dp1" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                    <input class="span2" size="25" type="text" value="12-02-2012" readonly="" name="startDate">
+                    <input type="text" name="startDate" id="datepicker1" onchange="datePickAlertNeutralize()">
                     <span class="add-on"><i class="icon-calendar"></i></span>
 
-                </div>
 
             </div>
         </div>
@@ -169,11 +164,8 @@
 
             <div class="controls docs-input-sizes">
 
-                <div class="input-append time" id="dp1">
-                    <input class="dropdown-timepicker" size="16" style="width:100px" placeholder="Show as dropdown"
+                    <input class="dropdown-timepicker" size="16" style="width:100px" placeholder="HH:MM"
                            type="text" name="startTime"/>
-                    <span class="add-on"><i class="icon-time"></i><!--<img src="Images/clock.png"; width="16"; height="18";/>--></span>
-                </div>
             </div>
         </div>
 
@@ -187,12 +179,7 @@
             <label class="control-label">End Date <span style="color: red;"> * </span> :</label>
 
             <div class="controls docs-input-sizes">
-
-                <div class="input-append date" id="dp2" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                    <input class="span2" size="25" type="text" value="12-02-2012" readonly="" name="endDate">
-                    <span class="add-on"><i class="icon-calendar"></i><!--<img src="Images/calendar.png" width="16"; height="18";/>--></span>
-                </div>
-
+                <input type="text" name="endDate" id="datepicker2" onchange="datePickAlertNeutralize()">
             </div>
         </div>
 
@@ -204,11 +191,8 @@
             <label class="control-label">End Time <span style="color: red;"> * </span> :</label>
 
             <div class="controls docs-input-sizes">
-                <div class="input-append time" id="dp1">
-                    <input size="16" placeholder="Show as dropdown" style="width:100px" class="dropdown-timepicker"
+                    <input size="16" placeholder="HH:MM" style="width:100px" class="dropdown-timepicker"
                            type="text" name="endTime"/>
-                    <span class="add-on"><i class="icon-time"></i></span>
-                </div>
             </div>
         </div>
 

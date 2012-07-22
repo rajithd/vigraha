@@ -64,41 +64,21 @@ public class PromotionController {
         String cycleTimeValue = getCycleTimeValue(promotion); // take values for cycle time
         String processRestriction = getProcessRestriction(promotion); // do not repeate subscribers , repeate subscribers
 
-        logger.info("=============================================");
-        logger.info("companyCode = [{}]", companyCode );
-        logger.info("promotionName = [{}]" ,  promotionName);
-        logger.info("startDate = [{}]" ,  startDate);
-        logger.info("startTime = [{}]" ,  startTime);
-        logger.info("endDate = [{}]" ,  endDate);
-        logger.info("endTime = [{}]" ,  endTime);
-        logger.info("basedOnMessage = [{}]" ,  basedOnMessage);
-        logger.info("promotionNumber = [{}]" ,  promotionNumber);
-        logger.info("cycleTimeName = [{}]" ,  cycleTimeName);
-        logger.info("cycleTimeValue = [{}]" ,  cycleTimeValue);
-        logger.info("processRestriction = [{}]" ,  processRestriction);
-
         String selectMechanismName = getSelectionMechanismName(promotion); // random , 1st subscriber , all
-//        String selectMechanismValue = getSelectionMechanismValue(promotion); //take values for Selection Mechanism
-//        String age1 = promotion.getAge1();
-//        String age2 = promotion.getAge2();
-//        String smsMessage = promotion.getSmsMessage();
+        String smsMessage = promotion.getSmsMessage();
 //
-//        if(promotionRepository.isSuccessfullSavePromotion(id,companyCode,promotionName,startDate,startTime,endDate,endTime,
-//                                basedOnMessage,promotionNumber,cycleTimeName,cycleTimeValue,processRestriction,selectMechanismName,
-//                                 selectMechanismValue,age1,age2,smsMessage))
-//        {
-//            logger.info("Successfully registered promotion");
-//            return "promotion";
-//        }
+        if(promotionRepository.savePromotion(id,companyCode,promotionName,startDate,startTime,endDate,endTime,
+                                basedOnMessage,promotionNumber,cycleTimeName,cycleTimeValue,processRestriction,selectMechanismName,
+                                 "ALL","","",smsMessage)) {
+            logger.info("Successfully registered promotion");
+            return "promotion";
+        }
 //
-//        else
-//        {
-//            logger.info("Company register not success");
-//            return "redirect:/loginerror";
-//        }
-//
-//
-        return "promotion";
+        else {
+            logger.info("Company register not success");
+            return "redirect:/promotion";
+        }
+
     }
 
     private String formatMessage(List<String> basedOnList) {   // use to check whether user select more options
@@ -161,18 +141,6 @@ public class PromotionController {
 
         return message;
     }
-
-//    private String getSelectionMechanismValue(Promotion promotion) {
-//        String selectMechanism = null;
-//        if(promotion.getSelectMechanism().equals("random")){
-//            selectMechanism = promotion.getRandomCount();
-//        } else if(promotion.getSelectMechanism().equals("firstSubscribers")) {
-//            selectMechanism = promotion.getRandomCount1();
-//        } else {
-//            selectMechanism = "none";
-//        }
-//        return selectMechanism;
-//    }
 
     private List<String> getBasedOnValues(Promotion promotion){
         List<String> messageList = new ArrayList<String>();
