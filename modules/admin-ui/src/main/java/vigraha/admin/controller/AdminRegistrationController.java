@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import vigraha.admin.domain.AdminRegister;
 import vigraha.admin.repository.AdminRegisterRepository;
 
 @Controller
@@ -29,17 +30,21 @@ public class AdminRegistrationController {
     @RequestMapping(method = RequestMethod.GET)
     public String admin_registration(Model model)
     {
-        logger.info("=========Retrieving admin registration==================");
+        AdminRegister admin = new AdminRegister();
+        model.addAttribute("admin", admin);
         return "admin-registration";
     }
 
      @RequestMapping(method = RequestMethod.POST)
-     public String submitForm(@RequestParam("fullname") String fullname , @RequestParam("mobileno") String mobileno,
-                              @RequestParam("id") String id , @RequestParam("username") String username ,
-                              @RequestParam("password") String password)
+     public String submitForm(AdminRegister adminRegister)
        {
-           logger.info("=========================admin register===========================");
-           if(adminRegisterRepository.isSuccessfulSave(fullname,mobileno,id,username,password))
+           String fullName = adminRegister.getFullName();
+           String mobileNo = adminRegister.getMobileNo();
+           String id = adminRegister.getId();
+           String userName = adminRegister.getUsername();
+           String passWord = adminRegister.getPassword();
+
+           if(adminRegisterRepository.isSuccessfulSave(fullName,mobileNo,id,userName,passWord))
            {
                logger.info("Successfully registered admin");
                return "admin-registration";
@@ -47,7 +52,7 @@ public class AdminRegistrationController {
            else
            {
                logger.info("Admin register not success");
-               return "redirect:/loginerror";
+               return "redirect:/login-error";
            }
 
        }

@@ -45,16 +45,16 @@
                             <form action="<c:url value="/j_spring_security_check" />" class="form-horizontal formtastic web_user" id="new_web_user" method="post">
 
                                 <div class="string optional control-group" id="web_user_rhlogin_input">
-                                    <label for="web_user_rhlogin" class="control-label style1">Login</label>
+                                    <label for="web_user_rhlogin" class="control-label style1"><fmt:message key="login.login.label"/> </label>
                                     <div class="controls"> <input autofocus="autofocus" class="" id="web_user_rhlogin" name="j_username" placeholder=""
                                                                   type="text" />
                                     </div>
                                 </div>
 
                                 <div class="password optional control-group" id="web_user_password_input">
-                                    <label for="web_user_password" class="control-label style1">Password</label>
+                                    <label for="web_user_password" class="control-label style1"><fmt:message key="login.password.label"/> </label>
                                     <div class="controls"><input class="" id="web_user_password" name="j_password" type="password" />
-                                        <p class="help-block"><a href="forget-password" class="style1">Forgot your password?</a></p>
+                                        <p class="help-block"><a href="forget-password" class="style1"><fmt:message key="login.forget.your.password.text"/> </a></p>
                                     </div>
                                 </div>
                                 <fieldset class="form-actions"><input class="btn create" id="web_user_submit" name="commit" type="submit" value="Sign in"/>

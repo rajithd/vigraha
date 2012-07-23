@@ -27,7 +27,7 @@
     <link href="resources/Style/datepicker.less" type="text/css" rel="stylesheet"/>
     <link href="resources/Style/timepicker.css" type="text/css" rel="stylesheet"/>
 
-    <title>Promotion</title>
+    <title><fmt:message key="promotion.title"/></title>
 </head>
 
 <body data-spy="scroll" data-target=".subnav" data-offset="50">
@@ -41,11 +41,11 @@
 
 <ul class="breadcrumb">
     <li>
-        <a href="Welcome_Page.html">Home</a> <span class="divider">/</span>
+        <a href="welcome"><fmt:message key="promotion.home.path"/> </a> <span class="divider">/</span>
     </li>
-    <li class="active">Promotion Programme</li>
+    <li class="active"><fmt:message key="promotion.promotion.program.path"/> </li>
     <span class="divider">/</span>
-    <li class="active">Promotion Form</li>
+    <li class="active"><fmt:message key="promotion.promotion.form.path"/> </li>
 </ul>
 
 <div class="row">
@@ -57,7 +57,7 @@
 
 <div class="span8">
 
-    <h3 style="color:#858585" align="center">Promotion Form</h3>
+    <h3 style="color:#858585" align="center"><fmt:message key="promotion.promotion.form.header"/> </h3>
     <hr/>
 
 </div>
@@ -73,14 +73,14 @@
 <div class="row-fluid">
     <div class="span6">
 
-        <span style="margin-left:20px; color:#a9a9a9; font-size:18px">Company Information</span>
+        <span style="margin-left:20px; color:#a9a9a9; font-size:18px"><fmt:message key="promotion.company.infor.subheader"/> </span>
 
     </div>
 
     <div class="span6" align="right">
-        <span style="color: #a9a9a9; margin-left:20px; font-size:10px;">Note:</span>
+        <span style="color: #a9a9a9; margin-left:20px; font-size:10px;"><fmt:message key="promotion.note.text"/> </span>
         <span style="color: red; font-size:12px;"> * </span>
-        <span style="color: #a9a9a9; font-size:10px;">Indicates a required field</span>
+        <span style="color: #a9a9a9; font-size:10px;"><fmt:message key="promotion.indicate.a.required.field.msg"/> </span>
 
         <br/>
 
@@ -96,7 +96,7 @@
 
 
         <div class="control-group">
-            <label class="control-label">Company Code <span style="color: red;"> * </span> :</label>
+            <label class="control-label"><fmt:message key="promotion.company.code.label"/> <span style="color: red;"> * </span> :</label>
 
             <div class="controls docs-input-sizes">
                 <select name="companyCode">
@@ -115,7 +115,7 @@
 
 
 <hr/>
-<span style="margin-left:20px; color:#a9a9a9; font-size:18px">Promotion Information</span>
+<span style="margin-left:20px; color:#a9a9a9; font-size:18px"><fmt:message key="promotion.promotion.infor.subheader"/> </span>
 <hr/>
 
 <br/>
@@ -124,7 +124,7 @@
     <div class="span6">
 
         <div class="control-group">
-            <label class="control-label">Promotion Name <span style="color: red;"> * </span> :</label>
+            <label class="control-label"><fmt:message key="promotion.promotion.name.label"/> <span style="color: red;"> * </span> :</label>
 
             <div class="controls docs-input-sizes">
                 <input class="large" size="25" type="text" placeholder="Enter Programme Name" name="promotionName">
@@ -135,7 +135,7 @@
 </div>
 
 <hr/>
-<span style="margin-left:20px; color:#a9a9a9; font-size:18px">Promotion Period</span>
+<span style="margin-left:20px; color:#a9a9a9; font-size:18px"><fmt:message key="promotion.promotion.period.subheader"/> </span>
 <hr/>
 
 <br/>
@@ -144,7 +144,7 @@
     <div class="span6">
 
         <div class="control-group">
-            <label class="control-label">Start Date <span style="color: red;"> * </span> :</label>
+            <label class="control-label"><fmt:message key="promotion.start.date.label"/> <span style="color: red;"> * </span> :</label>
 
             <div class="controls docs-input-sizes">
 
@@ -160,7 +160,7 @@
     <div class="span6">
 
         <div class="control-group">
-            <label class="control-label">Start Time <span style="color: red;"> * </span> :</label>
+            <label class="control-label"><fmt:message key="promotion.start.time.label"/> <span style="color: red;"> * </span> :</label>
 
             <div class="controls docs-input-sizes">
 
@@ -176,7 +176,7 @@
     <div class="span6">
 
         <div class="control-group">
-            <label class="control-label">End Date <span style="color: red;"> * </span> :</label>
+            <label class="control-label"><fmt:message key="promotion.end.date.label"/> <span style="color: red;"> * </span> :</label>
 
             <div class="controls docs-input-sizes">
                 <input type="text" name="endDate" id="datepicker2" onchange="datePickAlertNeutralize()">
@@ -188,7 +188,7 @@
     <div class="span6">
 
         <div class="control-group">
-            <label class="control-label">End Time <span style="color: red;"> * </span> :</label>
+            <label class="control-label"><fmt:message key="promotion.end.time.label"/> <span style="color: red;"> * </span> :</label>
 
             <div class="controls docs-input-sizes">
                     <input size="16" placeholder="HH:MM" style="width:100px" class="dropdown-timepicker"
@@ -204,7 +204,7 @@
 <div class="row-fluid">
     <div class="span6">
 
-        <span style="margin-left:20px; color:#a9a9a9; font-size:18px">Promotion Based On</span>
+        <span style="margin-left:20px; color:#a9a9a9; font-size:18px"><fmt:message key="promotion.promotion.based.on.subheader"/> </span>
 
         <span style="float:right; color:#a9a9a9">|</span>
 
@@ -213,7 +213,7 @@
 
     <div class="span6">
 
-        <span style="margin-right:20px; color:#a9a9a9; font-size:18px">Promotion Number</span>
+        <span style="margin-right:20px; color:#a9a9a9; font-size:18px"><fmt:message key="promotion.promotion.number.subheader"/> </span>
 
     </div>
 </div>
@@ -226,20 +226,20 @@
         <div class="control-group">
             <div class="controls">
 
-                <label class="checkbox">SMS <span style="color: red;"> * </span><input type="checkbox"
+                <label class="checkbox"><fmt:message key="promotion.sms.label"/> <span style="color: red;"> * </span><input type="checkbox"
                                                                                        value="sms" name="basedOn[sms]"> </label>
 
-                <label class="checkbox">LBS <span style="color: red;"> * </span><input type="checkbox"
+                <label class="checkbox"><fmt:message key="promotion.lbs.label"/> <span style="color: red;"> * </span><input type="checkbox"
                                                                                        value="lbs" name="basedOn[lbs]"> </label>
 
-                <label class="checkbox">Voice Call <span style="color: red;"> * </span><input type="checkbox"
+                <label class="checkbox"><fmt:message key="promotion.voicecall.label"/> <span style="color: red;"> * </span><input type="checkbox"
                                                                                               value="voicecall" name="basedOn[voicecall]">
                 </label>
 
-                <label class="checkbox">GPRS <span style="color: red;"> * </span><input type="checkbox"
+                <label class="checkbox"><fmt:message key="promotion.gpra.label"/> <span style="color: red;"> * </span><input type="checkbox"
                                                                                         value="gprs" name="basedOn[gprs]"> </label>
 
-                <label class="checkbox">USSD <span style="color: red;"> * </span><input type="checkbox"
+                <label class="checkbox"><fmt:message key="promotion.ussd.label"/> <span style="color: red;"> * </span><input type="checkbox"
                                                                                         value="ussd" name="basedOn[ussd]"> </label>
 
             </div>
@@ -250,7 +250,7 @@
     <div class="span6">
 
         <div class="control-group">
-            <label class="control-label">Promotion Number <span style="color: red;"> * </span> :</label>
+            <label class="control-label"><fmt:message key="promotion.promotion.number.label"/> <span style="color: red;"> * </span> :</label>
 
             <div class="controls docs-input-sizes">
                 <input class="large" size="25" type="text" placeholder="Enter Promotion Number" name="promotionNumber">
@@ -265,7 +265,7 @@
 <div class="row-fluid">
     <div class="span6">
 
-        <span style="margin-left:20px; color:#a9a9a9; font-size:18px">Cycle Time</span>
+        <span style="margin-left:20px; color:#a9a9a9; font-size:18px"><fmt:message key="promotion.cycle.time.subheader"/> </span>
 
         <span style="float:right; color:#a9a9a9">|</span>
 
@@ -274,7 +274,7 @@
 
     <div class="span6">
 
-        <span style="margin-right:20px; color:#a9a9a9; font-size:18px">Processing Restriction</span>
+        <span style="margin-right:20px; color:#a9a9a9; font-size:18px"><fmt:message key="promotion.processing.restriction.subheader"/> </span>
 
     </div>
 </div>
@@ -290,14 +290,14 @@
                     <label class="radio">
                         <input type="radio" name="cycleType" value="option1" checked="">
                         &nbsp;&nbsp;&nbsp;
-                        Execute every &nbsp;
+                        <fmt:message key="promotion.execute.every.label"/> &nbsp;
                         <input size="10" style="width:50px" type="text" class="span2" placeholder="Hours" name="cycleTime"> </label>
                     <br/>
 
                     <label class="radio">
                         <input type="radio" name="cycleType" value="option1" checked="">
                         &nbsp;&nbsp;&nbsp;
-                        Execute at Specific Time&nbsp;&nbsp;
+                        <fmt:message key="promotion.execute.at.specific.time.label"/>&nbsp;&nbsp;
                         <input size="16" placeholder="Show as dropdown"
                                style="width:100px; margin-top:10px; margin-left:15px"
                                class="dropdown-timepicker" type="text" name="cycleTime"/>
@@ -307,7 +307,7 @@
                     <label class="radio">
                         <input type="radio" name="cycleType" value="option1" checked="">
                         &nbsp;&nbsp;&nbsp;
-                        Execute at the end of the </label><label style="margin-left:34px">Promotion Period</label>
+                        <fmt:message key="promotion.execute.at.the.end.of.the.label"/>  </label><label style="margin-left:34px"><fmt:message key="promotion.promotion.period.label"/> </label>
 
                 </div>
             </div>
@@ -320,12 +320,12 @@
                     <label class="radio">
                         <input type="radio" name="processingRestriction" value="doNotRepeat" >
                         &nbsp;&nbsp;&nbsp;
-                        Do not Repeat Subscribers</label> <br/>
+                        <fmt:message key="promotion.do.not.repeat.subscribers.label"/> </label> <br/>
 
                     <label class="radio" style="margin-top:10px">
                         <input type="radio" name="processingRestriction" value="repeat">
                         &nbsp;&nbsp;&nbsp;
-                        Repeat Subscribers</label>
+                        <fmt:message key="promotion.repeat.subscribers.label"/> </label>
 
                 </div>
             </div>
@@ -337,7 +337,7 @@
 <div class="row-fluid">
     <div class="span6">
 
-        <span style="margin-left:20px; color:#a9a9a9; font-size:18px">Selection Mechanism</span>
+        <span style="margin-left:20px; color:#a9a9a9; font-size:18px"><fmt:message key="promotion.selection.mechanism.subheader"/> </span>
 
     </div>
 </div>
@@ -352,17 +352,17 @@
                     <label class="radio">
                         <input type="radio" name="selectMechanism" value="random" checked="">
                         &nbsp;&nbsp;&nbsp;
-                        Randomly Select</label>
+                        <fmt:message key="promotion.randomly.select.label"/> </label>
 
                     <label class="radio">
                         <input type="radio" name="selectMechanism" value="firstSubscribers" checked="">
                         &nbsp;&nbsp;&nbsp;
-                        Number of First Subscribers</label>
+                        <fmt:message key="promotion.mumber.of.first.subscribers.label"/> </label>
 
                     <label class="radio">
                         <input type="radio" name="selectMechanism" value="all" checked="">
                         &nbsp;&nbsp;&nbsp;
-                        All Subscribers</label>
+                        <fmt:message key="promotion.all.subscribers.label"/> </label>
 
                 </div>
             </div>
@@ -377,7 +377,7 @@
 <div class="row-fluid">
     <div class="span6">
 
-        <span style="margin-left:20px; color:#a9a9a9; font-size:18px">Notification Message</span>
+        <span style="margin-left:20px; color:#a9a9a9; font-size:18px"><fmt:message key="promotion.msg.subheader"/> </span>
 
     </div>
 </div>
@@ -388,7 +388,7 @@
     <div class="span6">
 
         <div class="control-group">
-            <label class="control-label" for="textarea">SMS Message</label>
+            <label class="control-label" for="textarea"><fmt:message key="promotion.sms.msg.label"/> </label>
 
             <div class="controls">
                 <textarea class="input-xlarge" id="textarea" rows="4" name="smsMessage"></textarea>
@@ -403,9 +403,9 @@
 
 <div class="well">
 
-    <button type="submit" class="btn btn-primary" rel="popover" title="Save Administrator">Submit</button>
+    <button type="submit" class="btn btn-primary" rel="popover" title="Save Administrator"><fmt:message key="promotion.submit.button"/> </button>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button class="btn" rel="popover" title="Cancel Registration">Cancel</button>
+    <button class="btn" rel="popover" title="Cancel Registration"><fmt:message key="promotion.cancel.button"/> </button>
 
 </div>
 

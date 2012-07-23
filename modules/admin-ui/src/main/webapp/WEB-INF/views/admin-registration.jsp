@@ -1,375 +1,222 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
-<html>
-<head>
-    <!--<script type="text/javascript"; src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>-->  <!----- accordion js -------->
-
-    <script type="text/javascript" src="resources/java_scripts/jquery.min.js"></script>
-
-    <script type="text/javascript" src="resources/java_scripts/ddaccordion.js"></script>
-
-    <script type="text/javascript">
-
-        ddaccordion.init({
-            headerclass: "headerbar", //Shared CSS class name of headers group
-            contentclass: "submenu", //Shared CSS class name of contents group
-            revealtype: "mouseover", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
-            mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
-            collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
-            defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc] [] denotes no content
-            onemustopen: true, //Specify whether at least one header should be open always (so never all headers closed)
-            animatedefault: false, //Should contents open by default be animated into view?
-            persiststate: true, //persist state of opened contents within browser session?
-            toggleclass: ["", "selected"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
-            togglehtml: ["", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
-            animatespeed: "normal", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
-            oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
-                //do nothing
-            },
-            onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
-                //do nothing
-            }
-        })
-
-    </script>
-
-    <script src="resources/java_scripts/jquery-1.7.min.js"></script>	<!------------------------ datepicker js ----------------------------->
-
-    <script type="text/javascript" src="resources/java_scripts/bootstrap-datepicker.js"></script>
-
-    <script>
-    $(function(){
-        window.prettyPrint && prettyPrint();
-        $('#dp1').datepicker({
-            format: 'mm-dd-yyyy'
-        });
-        $('#dp2').datepicker();
-        $('#dp3').datepicker();
-
-
-        var startDate = new Date(2012,1,20);
-        var endDate = new Date(2012,1,25);
-        $('#dp4').datepicker()
-                .on('changeDate', function(ev){
-                    if (ev.date.valueOf() > endDate.valueOf()){
-                        $('#alert').show().find('strong').text('The start date can not be greater then the end date');
-                    } else {
-                        $('#alert').hide();
-                        startDate = new Date(ev.date);
-                        $('#startDate').text($('#dp4').data('date'));
-                    }
-                    $('#dp4').datepicker('hide');
-                });
-        $('#dp5').datepicker()
-                .on('changeDate', function(ev){
-                    if (ev.date.valueOf() < startDate.valueOf()){
-                        $('#alert').show().find('strong').text('The end date can not be less then the start date');
-                    } else {
-                        $('#alert').hide();
-                        endDate = new Date(ev.date);
-                        $('#endDate').text($('#dp5').data('date'));
-                    }
-                    $('#dp5').datepicker('hide');
-                });
-    });
-    </script>
-
-
-    <script type="text/javascript" src="resources/java_scripts/bootstrap-typeahead.js"></script>	<!---------------- Auto complete text js --------------->
-
-<script src="resources/java_scripts/bootstrap-dropdown.js"></script>		<!------------------- DropDown Menu js ----------------------------------------->
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>
-       <fmt:message key="registration.title"/>
-    </title>
-
-    <link href="resources/Style/style.css" type="text/css" rel="stylesheet" />
-    <link href="resources/Style/bootstrap.css" type="text/css" rel="stylesheet" />
-    <link href="resources/Style/bootstrap.min.css" type="text/css" rel="stylesheet" />
-    <link href="resources/Style/bootstrap-responsive.css" type="text/css" rel="stylesheet" />
-    <link href="resources/Style/jquery.datepick.css" type="text/css" rel="stylesheet" />
-    <link href="resources/Style/datepicker.less" type="text/css" rel="stylesheet" />
-
-    <style type="text/css">
-        <!--
-        .style1 {color: #7C1099}
-        .style2 {font-size: 36px}
-        .style4 {font-family: Arial, Helvetica, sans-serif}
-        -->
-    </style>
-
-    <style type="text/css"> <!----------------------- accordian css ------------------------------->
-
-    .urbangreymenu{
-        width: 190px; /*width of menu*/
-    }
-
-    .urbangreymenu .headerbar{
-        font: bold 13px Verdana;
-        color: white;
-        background: #606060 url(arrowstop.gif) no-repeat 8px 6px; /*last 2 values are the x and y coordinates of bullet image*/
-        margin-bottom: 5px; /*bottom spacing between header and rest of content*/
-        text-transform: uppercase;
-        padding: 7px 0 7px 31px; /*31px is left indentation of header text*/
-    }
 
-    .urbangreymenu .headerbar a{
-        text-decoration: none;
-        color: white;
-        display: block;
-    }
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+     <script src="resources/java_scripts/jquery-1.7.min.js"></script>
+     <script src="resources/java_scripts/bootstrap-dropdown.js"></script>
+     <script src="resources/java_scripts/bootstrap-carousel.js"></script>
+     <script src="resources/java_scripts/bootstrap-datepicker.js"></script>
+     <script src="resources/java_scripts/bootstrap_datepicker_format.js"></script>
+     <script src="resources/java_scripts/bootstrap-popover.js"></script>
 
-    .urbangreymenu ul{
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        margin-bottom: 0; /*bottom spacing between each UL and rest of content*/
-    }
+     <link href="resources/Style/global.css" rel="stylesheet" type="text/css" media="all" />
+     <link href="resources/Style/bootstrap.css" type="text/css" rel="stylesheet" />
+     <link href="resources/Style/bootstrap-responsive.css" type="text/css" rel="stylesheet" />
+     <link href="resources/Style/bootstrap.min.css" type="text/css" rel="stylesheet" />
+     <link href="resources/Style/bootstrap-responsive.min.css" type="text/css" rel="stylesheet" />
+     <link href="resources/Style/datepicker.css" type="text/css" rel="stylesheet" />
+     <link href="resources/Style/datepicker.less" type="text/css" rel="stylesheet" />
 
-    .urbangreymenu ul li{
-        padding-bottom: 2px; /*bottom spacing between menu items*/
-    }
+     <title>
+         <fmt:message key="admin.registration.title"/>
+     </title>
+ </head>
+ <body data-spy="scroll" data-target=".subnav" data-offset="50">
 
-    .urbangreymenu ul li a{
-        font: normal 12px Arial;
-        color: black;
-        background: #E9E9E9;
-        display: block;
-        padding: 5px 0;
-        line-height: 17px;
-        padding-left: 8px; /*link text is indented 8px*/
-        text-decoration: none;
-    }
-
-    .urbangreymenu ul li a:visited{
-        color: black;
-    }
-
-    .urbangreymenu ul li a:hover{ /*hover state CSS*/
-        color: white;
-        background: black;
-    }
-
-    </style>
-
-</head>
-<body>
-<div class="navbar">						<!------------------------------- Navigation Bar ------------------------------------->
-
-    <div class="navbar-inner">
-
-        <div class="container">
-
-            <ul class="nav">
-
-                <a class="brand" href="#">Vigraha</a>
-                <li class="active">
+        <jsp:include page="common/header.jsp"/>
 
-                    <a href="#">Home</a>
-                </li>
-                <li><a href="company-registration">Register</a></li>
-                <li><a href="home">Sign In</a></li>
-            </ul>
+ <div id="container">
 
-            <form:form class="navbar-search pull-right">
-                <input type="text" class="search-query" placeholder="Search">
-            </form:form>
+     <div id="subContainer">
 
-            <ul class="nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrator <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">User Privilages</a></li>
-                        <li><a href="#">Authuntication</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
-                </li>
+         <div id="header-bar">
 
-            </ul>
+             <img src="resources/images/header_bar.png" />
+         </div>
 
-        </div>
+         <br />
 
-    </div>
+         <ul class="breadcrumb">
+             <li>
+                 <a href="welcome"><fmt:message key="admin.registration.home.path"/> </a> <span class="divider">/</span>
+             </li>
+             <li class="active"><fmt:message key="admin.registration.admin.path"/> </li><span class="divider">/</span>
+             <li class="active"><fmt:message key="admin.registration.admin.reg.form.path"/> </li>
+         </ul>
 
-</div>
+         <div class="row">
+             <div class="span22 offset1">
 
-<div id="header-bar">					<!------------------------- Header Bar ---------------------------------->
-    <img src="resources/Images/28.png" />
-</div>
+                 <div class="row">
+                     <div class="row">
 
-<br />
-<br />
-<br />
+                         <div class="span8">
 
+                             <h3 style="color:#858585" align="center"><fmt:message key="admin.registration.admin.reg.form.title"/> </h3>
+                             <hr />
 
-<div class="container">			<!------------------------- Container ---------------------------->
+                         </div>
 
-    <div class="content">
-
-        <br />
+                         <div class="span8" style="background-color:#FFF">
 
-        <div class="container-fluid">
-            <div class="row-fluid">
+                         <form class="form-horizontal">
+                             <fieldset>
 
-                <div class="span3">				<!------------------------------- accordian menu ----------------------------->
+                                 <div class="row-fluid">
+                                     <div class="span12">
 
-                    <div class="urbangreymenu">
+                                         <div class="row-fluid">
+                                             <div class="span6">
 
-                        <h3 class="headerbar"><a href="#">Administrator</a></h3>
-                        <ul class="submenu">
-                            <li><a href="promotion">Add Promotion</a></li>
-                            <li><a href="#">Search Programme</a></li>
-                            <li><a href="admin-registration">Create New Administrator</a></li>
-                            <li><a href="company-registration">Create New Company</a></li>
-                            <li><a href="forget-password">Change password</a></li>
-                            <li><a href="#">Modify/Delete admin account</a></li>
-                            <li><a href="home">Logout</a></li>
-                        </ul>
-
-                        <h3 class="headerbar"><a href="#">Promotion Program</a></h3>
-                        <ul class="submenu">
-                            <li><a href="#">Promotion Programe report - Yearly</a></li>
-                            <li><a href="#">Promotion Programe report - Monthly</a></li>
-                            <li><a href="#">Promotion Programe report - Daily</a></li>
-                        </ul>
-
-                        <h3 class="headerbar"><a href="#">Loyality Program</a></h3>
-                        <ul class="submenu">
-                            <li><a href="#" >Loyality Program report - Yearly</a></li>
-                            <li><a href="#">Loyality Program report - Monthly</a></li>
-                            <li><a href="#">Loyality Program report - Daily</a></li>
-                        </ul>
-
-                        <h3 class="headerbar"><a href="#">Tenure Program Reports</a></h3>
-                        <ul class="submenu">
-                            <li><a href="#" >Tenure Program report - Yearly</a></li>
-                            <li><a href="#">Tenure Program report - Monthly</a></li>
-                            <li><a href="#">Tenure Program report - Daily</a></li>
-                        </ul>
-
-                        <h3 class="headerbar"><a href="#">Subscriber Details User Management</a></h3>
-                        <ul class="submenu">
-                            <li><a href="#" >Tenure Program report - Yearly</a></li>
-                            <li><a href="#">Tenure Program report - Monthly</a></li>
-                            <li><a href="#">Tenure Program report - Daily</a></li>
-                        </ul>
-
-
-                    </div>
-
-                </div>
+                                                 <span style="margin-left:20px; color:#a9a9a9; font-size:18px"><fmt:message key="admin.registration.personal.infor.subheader"/> </span>
 
+                                             </div>
 
-
-                <div class="offset2">
-                    <div class="row">
-                        <div class="row">
-
-                            <div class="span8">
-
-                                <h2>Administrator Registration Form</h2>
-
-                                <hr />
-
-                            </div>
-
-                            <div class="span8" style="background-color:#F4F4F4">
-                            <div class="offset1">
-                                <br />
-
-                                <form:form class="form-horizontal">			<!------------------------ registration form ------------------------------------------->
-                    <fieldset>
-
-                        <h3>Personal Information</h3>
-
-                        <div class="control-group">
-                            <label for="fullname" class="control-label">Full Name *</label>
-                            <div class="controls docs-input-sizes">
-                                <input class="span3" id="fullname" name="fullname" type="text" placeholder="Enter First Name">
-                            </div>
-                        </div>
-                        <br />
-
-                        <div class="control-group">
-                            <label for="mobileno" class="control-label">Mobile Number *</label>
-                            <div class="controls docs-input-sizes">
-                                <input class="span3" id="mobileno" name="mobileno" type="text" placeholder="Enter Last Name">
-                            </div>
-                        </div>
-                        <br />
-
-                        <div class="control-group">
-                            <label for="id" class="control-label">ID *</label>
-                            <div class="controls docs-input-sizes">
-                                <input class="span3" id="id" name="id" type="text" placeholder="Enter Mobile No">
-                            </div>
-                        </div>
-                        <br />
-
-
-                        <h3>Sign In Information</h3>
-
-                        <div class="control-group">
-                            <label for="username" class="control-label">User Name *</label>
-                            <div class="controls docs-input-sizes">
-                                <input class="span3" id="username" name="username" type="text" placeholder="Enter User Name">
-                            </div>
-                        </div>
-                        <br />
-
-                        <div class="control-group">
-                            <label for="password" class="control-label">Password *</label>
-                            <div class="controls docs-input-sizes">
-                                <input class="span3" id="password" name="password" type="text" placeholder="Enter Password">
-                            </div>
-                        </div>
-                        <br />
-
-                        <div class="control-group">
-                            <label class="control-label">Confirm Password *</label>
-                            <div class="controls docs-input-sizes">
-                                <input class="span3" type="text" placeholder="Enter Confirm Password">
-                            </div>
-                        </div>
-
-
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-primary">Save changes</button>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button class="btn">Cancel</button>
-                        </div>
-                    </fieldset>
-                </form:form>
-            </div>
-        </div>
-    </div>
-    </div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-</div>
-<hr />						<!------------------------ footer ------------------------------------------->
-
-<footer class="container">
-
-
-    <p class="pull-right"><a href="#">Back to top</a></p>
-    <p>&copy; 2012 by <a href="#">Vigraha</a>
-        • Powered by <a href="#">SLIIT</a>
-        • <a href="#">Alright reserved</a> by <a href="#">Vigraha</a>
-    <p></p>
-
-</footer>
-</body>
+                                             <div class="span6" align="right">
+
+
+                                                 <span style="color: #a9a9a9; margin-left:20px; font-size:10px;"><fmt:message key="admin.registration.note.text"/> </span>
+                                                 <span style="color: red; font-size:12px;"> * </span>
+                                                 <span style="color: #a9a9a9; font-size:10px;"><fmt:message key="admin.registration.indicate.a.required.field.msg"/> </span>
+
+                                                 <br />
+
+                                             </div>
+                                         </div>
+
+                                         <hr />
+
+                                         <br />
+
+                                         <div class="row-fluid">
+                                             <div class="span6">
+
+
+                                                 <div class="control-group">
+                                                     <label class="control-label" style="font-size:14px"><fmt:message key="admin.registration.full.name.label"/> <span style="color: red;"> * </span> :</label>
+                                                     <div class="controls docs-input-sizes">
+                                                         <input class="large" size="25" type="text" placeholder="Enter Full Name" name="fullName">
+                                                     </div>
+                                                 </div>
+
+                                             </div>
+
+                                             <%--<div class="span6">--%>
+
+                                                 <%--<div class="control-group">--%>
+                                                     <%--<label class="control-label" style="font-size:14px">Year of Birth  <span style="color: red;"> * </span> :</label>--%>
+                                                     <%--<div class="controls docs-input-sizes">--%>
+                                                         <%--<div class="input-append date" id="dp1" data-date="12-02-2012" data-date-format="dd-mm-yyyy">--%>
+                                                             <%--<input class="span2" size="25" type="text" value="12-02-2012" readonly="">--%>
+                                                             <%--<span class="add-on"><i class="icon-th"></i><!--<img src="Images/calendar.png" width="16"; height="18";/>--></span>--%>
+
+                                                         <%--</div>--%>
+                                                     <%--</div>--%>
+                                                 <%--</div>--%>
+
+                                             <%--</div>--%>
+                                         </div>
+
+                                         <div class="row-fluid">
+
+                                             <div class="span6">
+
+                                                 <div class="control-group">
+                                                     <label class="control-label" style="font-size:14px"><fmt:message key="admin.registration.mobile.no.label"/> <span style="color: red;"> * </span> :</label>
+                                                     <div class="controls docs-input-sizes">
+                                                         <input class="large" size="25" type="text" placeholder="Enter Mobile No" name="mobileNo">
+                                                     </div>
+                                                 </div>
+
+                                             </div>
+
+                                             <div class="span6">
+
+                                                 <div class="control-group">
+                                                     <label class="control-label" style="font-size:14px"><fmt:message key="admin.registration.nic.no.label"/> <span style="color: red;"> * </span> :</label>
+                                                     <div class="controls docs-input-sizes">
+                                                         <input class="large" size="25" type="text" placeholder="Enter NIC No" name="id">
+                                                     </div>
+                                                 </div>
+
+                                             </div>
+
+
+                                         </div>
+
+
+                                         <hr />
+                                         <span style="margin-left:20px; color:#a9a9a9; font-size:18px"><fmt:message key="admin.registration.signin.infor.subheader"/> </span>
+                                         <hr />
+
+                                         <br />
+
+                                         <div class="row-fluid">
+                                             <div class="span6">
+
+                                                 <div class="control-group">
+                                                     <label class="control-label" style="font-size:14px"><fmt:message key="admin.registration.username.label"/> <span style="color: red;"> * </span> :</label>
+                                                     <div class="controls docs-input-sizes">
+                                                         <input class="large" size="25" type="text" placeholder="Enter User Name" name="username">
+                                                     </div>
+                                                 </div>
+
+                                             </div>
+                                         </div>
+
+                                         <div class="row-fluid">
+                                             <div class="span6">
+
+                                                 <div class="control-group">
+                                                     <label class="control-label" style="font-size:14px"><fmt:message key="admin.registration.password.label"/> <span style="color: red;"> * </span> :</label>
+                                                     <div class="controls docs-input-sizes">
+                                                         <input class="large" size="25" type="text" placeholder="Enter Password" name="password">
+                                                     </div>
+                                                 </div>
+
+                                             </div>
+
+                                             <div class="span6">
+
+                                                 <div class="control-group">
+                                                     <label class="control-label" style="font-size:14px"><fmt:message key="admin.registration.confirm.password.label"/> <span style="color: red;"> * </span> :</label>
+                                                     <div class="controls docs-input-sizes">
+                                                         <input class="large" size="25" type="text" placeholder="Enter Confirm Password">
+                                                     </div>
+                                                 </div>
+
+                                             </div>
+                                         </div>
+
+                                         <div class="well">
+
+                                             <button type="submit" class="btn btn-primary" rel="popover" title="Save Administrator"><fmt:message key="admin.registration.savechanges.button"/> </button>
+                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                             <button class="btn" rel="popover" title="Cancel Registration"><fmt:message key="admin.registration.cancel.button"/> </button>
+
+                                         </div>
+                                         </div>
+                                 </div>
+                             </fieldset>
+                         </form>
+
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+     </div>
+ </div>
+
+
+ </div>
+ </div>
+
+ <br />
+ <br />
+        <jsp:include page="common/footer.jsp"/>
+ </body>
 </html>

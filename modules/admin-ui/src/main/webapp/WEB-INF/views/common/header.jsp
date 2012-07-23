@@ -27,7 +27,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrator <b class="caret"></b></a>
                         <ul class="dropdown-menu">
 
-                            <li><a href="">Create New Admin</a></li>
+                            <li><a href="admin-registration">Create New Admin</a></li>
                             <li class="divider"></li>
                             <li><a href="#">Modify / Delete Admin</a></li>
                             <li class="divider"></li>

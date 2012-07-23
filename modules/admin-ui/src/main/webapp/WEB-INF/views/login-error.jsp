@@ -6,7 +6,7 @@
 <html>
 <head>
     <title>
-        <fmt:message key="login-error.title"/>
+        <fmt:message key="login.error.title"/>
     </title>
     <link href="resources/Style/common.css" media="all" rel="stylesheet" type="text/css"/>
     <link href="resources/Style/site.css" media="all" rel="stylesheet" type="text/css"/>
@@ -44,7 +44,7 @@
                 <div class='offset2 column-content grid-wrapper'>
                     <div class='span8 span-flush-right'>
                         <h1 class='ribbon'>
-                            <div class='ribbon-content'>Login Error</div>
+                            <div class='ribbon-content'><fmt:message key="login.error.vigraha.logo.header"/> </div>
                             <div class='ribbon-left'></div>
                         </h1>
 
@@ -55,7 +55,7 @@
                                 <input name='redirectUrl' type='hidden' value='/app/console'>
 
 
-                                <h4 style="color:#F00">Login Not Successful.......!</h4>
+                                <h4 style="color:#F00"><fmt:message key="login.error.login.not.successful.label"/> </h4>
 
                                 <a href="login">
                                     <fieldset class="form-actions"><input class="btn create" id="web_user_submit" name="commit" type="submit" value="Sign in" />

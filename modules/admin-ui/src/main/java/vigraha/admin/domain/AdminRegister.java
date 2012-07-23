@@ -1,59 +1,49 @@
 package vigraha.admin.domain;
 
 public class AdminRegister {
-    private String fullname;
-    private String mobileno;
+    private String fullName;
+    private String mobileNo;
     private String id;
     private String username;
     private String password;
 
-    public void setFullname(String fullname)
-    {
-        this.fullname = fullname;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setMobileno(String mobileno)
-    {
-        this.mobileno = mobileno;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public void setId(String id)
-    {
-        this.id = id;
+    public String getMobileNo() {
+        return mobileNo;
     }
 
-    public void setUsername(String username)
-    {
-        this.username = username;
+    public void setMobileNo(String mobileNo) {
+        this.mobileNo = mobileNo;
     }
 
-    public void setPassword(String password)
-    {
-        this.password = password;
-    }
-
-    public String getFullname()
-    {
-        return fullname;
-    }
-
-    public String getMobileno()
-    {
-        return mobileno;
-    }
-
-    public String getId()
-    {
+    public String getId() {
         return id;
     }
 
-    public String getUsername()
-    {
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
         return username;
     }
 
-    public String getPassword()
-    {
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
