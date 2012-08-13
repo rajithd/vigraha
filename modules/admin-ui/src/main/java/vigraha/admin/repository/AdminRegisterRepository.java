@@ -15,15 +15,15 @@ public class AdminRegisterRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-     public boolean isSuccessfulSave(String fullname,String mobileno,String id,String username,
-                                     String password)
-     {
-         //String md5 = MD5Encrypter.encryptPassword(password);
+     public boolean isSuccessfulSave(String id,String username,String password) {
+         String encryptPassword = MD5Encrypter.encryptPassword(password);
 
-         int row = jdbcTemplate.update("insert into `admin` values(?,?,?,?,?)" , fullname , mobileno ,
-                                        id , username , password);
+         int row = jdbcTemplate.update("insert into `login` values(?,?,?)" ,id , username , password);
+         jdbcTemplate.update("insert into `authority` values(?,?)" , id, "ROLE_ADMIN");
+         jdbcTemplate.update("insert into `authority` values(?,?)" , id, "ROLE_PROGRAMME");
+         jdbcTemplate.update("insert into `authority` values(?,?)" , id, "ROLE_COMPANY_REGISTER");
+         jdbcTemplate.update("insert into `authority` values(?,?)" , id, "ROLE_VIEW_REPORT");
 
-         System.out.println("************" + row);
          if(row < 1)
              return false;
          else

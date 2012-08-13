@@ -1,27 +1,9 @@
 package vigraha.admin.domain;
 
 public class AdminRegister {
-    private String fullName;
-    private String mobileNo;
     private String id;
     private String username;
     private String password;
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getMobileNo() {
-        return mobileNo;
-    }
-
-    public void setMobileNo(String mobileNo) {
-        this.mobileNo = mobileNo;
-    }
 
     public String getId() {
         return id;

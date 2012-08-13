@@ -70,28 +70,18 @@ PRIMARY key(record_id)
 )
 ENGINE= InnoDB;
 
-CREATE TABLE IF NOT EXISTS `admin` (
-`full_name` VARCHAR(50) NOT NULL ,
-`mobile_no` VARCHAR(11) NOT NULL ,
-`id` VARCHAR (20) NOT NULL ,
-`username` VARCHAR (20) NOT NULL ,
-`password` VARCHAR (20) NOT NULL ,
-PRIMARY KEY (id)
-)
-ENGINE= InnoDB;
-
 -- add admin and customer login details--
 CREATE TABLE IF NOT EXISTS `login` (
 `id` VARCHAR (20) NOT NULL ,
 `username` VARCHAR (20) NOT NULL ,
-`password` VARCHAR (20) NOT NULL ,
+`password` VARCHAR (50) NOT NULL ,
 PRIMARY KEY (id)
 )
 ENGINE= InnoDB;
 
 CREATE TABLE IF NOT EXISTS `authority` (
 `id` VARCHAR (20) NOT NULL ,
-`role` VARCHAR (20) NOT NULL
+`role` VARCHAR (50) NOT NULL
 )
 ENGINE= InnoDB;
 

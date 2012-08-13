@@ -62,7 +62,7 @@
 
                          <div class="span8" style="background-color:#FFF">
 
-                         <form class="form-horizontal">
+                         <form class="form-horizontal" method="post">
                              <fieldset>
 
                                  <div class="row-fluid">
@@ -92,46 +92,6 @@
                                          <br />
 
                                          <div class="row-fluid">
-                                             <div class="span6">
-
-
-                                                 <div class="control-group">
-                                                     <label class="control-label" style="font-size:14px"><fmt:message key="admin.registration.full.name.label"/> <span style="color: red;"> * </span> :</label>
-                                                     <div class="controls docs-input-sizes">
-                                                         <input class="large" size="25" type="text" placeholder="Enter Full Name" name="fullName">
-                                                     </div>
-                                                 </div>
-
-                                             </div>
-
-                                             <%--<div class="span6">--%>
-
-                                                 <%--<div class="control-group">--%>
-                                                     <%--<label class="control-label" style="font-size:14px">Year of Birth  <span style="color: red;"> * </span> :</label>--%>
-                                                     <%--<div class="controls docs-input-sizes">--%>
-                                                         <%--<div class="input-append date" id="dp1" data-date="12-02-2012" data-date-format="dd-mm-yyyy">--%>
-                                                             <%--<input class="span2" size="25" type="text" value="12-02-2012" readonly="">--%>
-                                                             <%--<span class="add-on"><i class="icon-th"></i><!--<img src="Images/calendar.png" width="16"; height="18";/>--></span>--%>
-
-                                                         <%--</div>--%>
-                                                     <%--</div>--%>
-                                                 <%--</div>--%>
-
-                                             <%--</div>--%>
-                                         </div>
-
-                                         <div class="row-fluid">
-
-                                             <div class="span6">
-
-                                                 <div class="control-group">
-                                                     <label class="control-label" style="font-size:14px"><fmt:message key="admin.registration.mobile.no.label"/> <span style="color: red;"> * </span> :</label>
-                                                     <div class="controls docs-input-sizes">
-                                                         <input class="large" size="25" type="text" placeholder="Enter Mobile No" name="mobileNo">
-                                                     </div>
-                                                 </div>
-
-                                             </div>
 
                                              <div class="span6">
 

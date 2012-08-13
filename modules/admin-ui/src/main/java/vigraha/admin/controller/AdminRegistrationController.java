@@ -14,7 +14,6 @@ import vigraha.admin.repository.AdminRegisterRepository;
 
 @Controller
 @RequestMapping("/admin-registration")
-
 public class AdminRegistrationController {
 
     private final static Logger logger = LoggerFactory.getLogger(AdminRegistrationController.class);
@@ -28,33 +27,26 @@ public class AdminRegistrationController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String admin_registration(Model model)
-    {
+    public String redirect(Model model) {
         AdminRegister admin = new AdminRegister();
         model.addAttribute("admin", admin);
         return "admin-registration";
     }
 
-     @RequestMapping(method = RequestMethod.POST)
-     public String submitForm(AdminRegister adminRegister)
-       {
-           String fullName = adminRegister.getFullName();
-           String mobileNo = adminRegister.getMobileNo();
-           String id = adminRegister.getId();
-           String userName = adminRegister.getUsername();
-           String passWord = adminRegister.getPassword();
+    @RequestMapping(method = RequestMethod.POST)
+    public String submitForm(AdminRegister adminRegister) {
+        String id = adminRegister.getId();
+        String userName = adminRegister.getUsername();
+        String passWord = adminRegister.getPassword();
 
-           if(adminRegisterRepository.isSuccessfulSave(fullName,mobileNo,id,userName,passWord))
-           {
-               logger.info("Successfully registered admin");
-               return "admin-registration";
-           }
-           else
-           {
-               logger.info("Admin register not success");
-               return "redirect:/login-error";
-           }
+        if (adminRegisterRepository.isSuccessfulSave(id, userName, passWord)) {
+            logger.info("Successfully registered admin");
+            return "admin-registration";
+        } else {
+            logger.info("Admin register not success");
+            return "redirect:/login-error";
+        }
 
-       }
+    }
 
 }
