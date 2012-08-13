@@ -17,26 +17,28 @@
             <a class="brand" href="welcome">Vigraha</a>
 
             <div class="nav-collapse">
+                <sec:authorize ifAnyGranted="ROLE_SUPER_ADMIN">
+                    <ul class="nav">
+                        <li class="divider-vertical"></li>
+                    </ul>
 
-                <ul class="nav">
-                    <li class="divider-vertical"></li>
-                </ul>
 
-                <ul class="nav">
-                    <li class="dropdown" style="text-align: left">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrator <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
+                    <ul class="nav">
+                        <li class="dropdown" style="text-align: left">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administrator <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
 
-                            <li><a href="admin-registration">Create New Admin</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Modify / Delete Admin</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Change Password</a></li>
-                            <li class="divider"></li>
+                                <li><a href="admin-registration">Create New Admin</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Modify / Delete Admin</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Change Password</a></li>
+                                <li class="divider"></li>
 
-                        </ul>
-                    </li>
-                </ul>
+                            </ul>
+                        </li>
+                    </ul>
+                </sec:authorize>
 
                 <ul class="nav">
                     <li class="divider-vertical"></li>

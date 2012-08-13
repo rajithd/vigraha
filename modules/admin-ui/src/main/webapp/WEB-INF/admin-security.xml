@@ -11,7 +11,7 @@ http://www.springframework.org/schema/security/spring-security-3.0.xsd">
     <http>
         <intercept-url pattern="/welcome" access="ROLE_ADMIN"/>
         <intercept-url pattern="/promotion" access="ROLE_ADMIN"/>
-        <form-login login-page="/login" default-target-url="/welcome" authentication-failure-url="/login-error" always-use-default-target="true"/>
+        <form-login login-page="/login" default-target-url="/main" authentication-failure-url="/login-error" always-use-default-target="true"/>
         <logout logout-success-url="/login"/>
 
     </http>
