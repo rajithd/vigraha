@@ -3,9 +3,7 @@ package vigraha.admin.domain;
 import java.util.Map;
 
 public class Promotion {
-    private String companyName;
     private String companyCode;
-    private String displayName;
     private String promotionName;
     private String startDate;
     private String startTime;
@@ -13,33 +11,14 @@ public class Promotion {
     private String endTime;
     private Map<String,String> basedOn; // sms , lbs , voice call , gprs , ussd
     private String promotionNumber;
+    private String cycleType; // execute every , promotion end , specific time
     private String cycleTime; // execute every , promotion end , specific time
     private String processingRestriction; // do not repeate subscribers , repeate subscribers
     private String selectMechanism; // random , 1st subscriber , all
-    private String age1;
-    private String age2;
     private int numberOfSubscribers;
     private String smsMessage;
     private String hours;  // take value for Execute Every
     private String specificTime; // take value for Execute at Specific Time
-    private String randomCount; // take value for Randomly Select
-    private String randomCount1; // take value for Number of First Subscribers
-
-    public String getCompanyName() {
-        return companyName;
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public String getDisplayName() {
-        return getCompanyName() + "(" + getCompanyCode() + ")";
-    }
-
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
 
     public String getCompanyCode() {
         return companyCode;
@@ -105,6 +84,14 @@ public class Promotion {
         this.promotionNumber = promotionNumber;
     }
 
+    public String getCycleType() {
+        return cycleType;
+    }
+
+    public void setCycleType(String cycleType) {
+        this.cycleType = cycleType;
+    }
+
     public String getCycleTime() {
         return cycleTime;
     }
@@ -127,22 +114,6 @@ public class Promotion {
 
     public void setSelectMechanism(String selectMechanism) {
         this.selectMechanism = selectMechanism;
-    }
-
-    public String getAge1() {
-        return age1;
-    }
-
-    public void setAge1(String age1) {
-        this.age1 = age1;
-    }
-
-    public String getAge2() {
-        return age2;
-    }
-
-    public void setAge2(String age2) {
-        this.age2 = age2;
     }
 
     public int getNumberOfSubscribers() {
@@ -175,21 +146,5 @@ public class Promotion {
 
     public void setSpecificTime(String specificTime) {
         this.specificTime = specificTime;
-    }
-
-    public String getRandomCount() {
-        return randomCount;
-    }
-
-    public void setRandomCount(String randomCount) {
-        this.randomCount = randomCount;
-    }
-
-    public String getRandomCount1() {
-        return randomCount1;
-    }
-
-    public void setRandomCount1(String randomCount1) {
-        this.randomCount1 = randomCount1;
     }
 }

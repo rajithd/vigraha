@@ -6,20 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/welcome")
+@RequestMapping("/main")
+public class MainController {
 
-public class WelcomeController {
-   @RequestMapping(method = RequestMethod.GET)
-    public String welcome(Model model)
-    {
+    @RequestMapping(method = RequestMethod.GET)
+    public String welcome(Model model) {
         System.out.println("================Welcome load============================");
-        return "welcome";
-    }
-
-    @RequestMapping(method = RequestMethod.POST)
-    public String goPromotion()
-    {
-        return "redirect:/promotion";
+        return "main";
     }
 
 }

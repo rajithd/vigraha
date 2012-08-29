@@ -9,11 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import vigraha.admin.domain.AdminRegister;
 import vigraha.admin.repository.AdminRegisterRepository;
 
 @Controller
 @RequestMapping("/admin-registration")
-
 public class AdminRegistrationController {
 
     private final static Logger logger = LoggerFactory.getLogger(AdminRegistrationController.class);
@@ -27,29 +27,26 @@ public class AdminRegistrationController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String admin_registration(Model model)
-    {
-        logger.info("=========Retrieving admin registration==================");
+    public String redirect(Model model) {
+        AdminRegister admin = new AdminRegister();
+        model.addAttribute("admin", admin);
         return "admin-registration";
     }
 
-     @RequestMapping(method = RequestMethod.POST)
-     public String submitForm(@RequestParam("fullname") String fullname , @RequestParam("mobileno") String mobileno,
-                              @RequestParam("id") String id , @RequestParam("username") String username ,
-                              @RequestParam("password") String password)
-       {
-           logger.info("=========================admin register===========================");
-           if(adminRegisterRepository.isSuccessfulSave(fullname,mobileno,id,username,password))
-           {
-               logger.info("Successfully registered admin");
-               return "admin-registration";
-           }
-           else
-           {
-               logger.info("Admin register not success");
-               return "redirect:/loginerror";
-           }
+    @RequestMapping(method = RequestMethod.POST)
+    public String submitForm(AdminRegister adminRegister) {
+        String id = adminRegister.getId();
+        String userName = adminRegister.getUsername();
+        String passWord = adminRegister.getPassword();
 
-       }
+        if (adminRegisterRepository.isSuccessfulSave(id, userName, passWord)) {
+            logger.info("Successfully registered admin");
+            return "admin-registration";
+        } else {
+            logger.info("Admin register not success");
+            return "redirect:/login-error";
+        }
+
+    }
 
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import vigraha.admin.domain.Company;
 import vigraha.admin.domain.CompanyPromotion;
 import vigraha.admin.repository.PromotionRepository;
 import vigraha.admin.domain.Promotion;
@@ -34,15 +35,14 @@ public class PromotionController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String promotions(Model model)
-    {
+    public String promotions(Model model) {
         Promotion promotion = new Promotion();
         model.addAttribute("promotion",promotion);
         return "promotion";
     }
 
     @ModelAttribute("companyTypes")
-    public List<Promotion> populateCompanyPromotion(){
+    public List<Company> populateCompanyPromotion(){
         return promotionRepository.getAllCompanyList();
     }
 
@@ -55,36 +55,30 @@ public class PromotionController {
         String startTime = promotion.getStartTime();
         String endDate = promotion.getEndDate();
         String endTime = promotion.getEndTime();
-
+//
         List<String> basedOnList = getBasedOnValues(promotion); // sms , lbs , voice call , gprs , ussd
         String basedOnMessage = formatMessage(basedOnList);
-
+//
         String promotionNumber = promotion.getPromotionNumber();
         String cycleTimeName = getCycleTimeName(promotion); // execute every , promotion end , specific time
         String cycleTimeValue = getCycleTimeValue(promotion); // take values for cycle time
         String processRestriction = getProcessRestriction(promotion); // do not repeate subscribers , repeate subscribers
-        String selectMechanismName = getSelectionMechanismName(promotion); // random , 1st subscriber , all
-        String selectMechanismValue = getSelectionMechanismValue(promotion); //take values for Selection Mechanism
-        String age1 = promotion.getAge1();
-        String age2 = promotion.getAge2();
-        String smsMessage = promotion.getSmsMessage();
 
-        if(promotionRepository.isSuccessfullSavePromotion(id,companyCode,promotionName,startDate,startTime,endDate,endTime,
+        String selectMechanismName = getSelectionMechanismName(promotion); // random , 1st subscriber , all
+        String smsMessage = promotion.getSmsMessage();
+//
+        if(promotionRepository.savePromotion(id,companyCode,promotionName,startDate,startTime,endDate,endTime,
                                 basedOnMessage,promotionNumber,cycleTimeName,cycleTimeValue,processRestriction,selectMechanismName,
-                                 selectMechanismValue,age1,age2,smsMessage))
-        {
+                                 "ALL","","",smsMessage)) {
             logger.info("Successfully registered promotion");
             return "promotion";
         }
-
-        else
-        {
+//
+        else {
             logger.info("Company register not success");
-            return "redirect:/loginerror";
+            return "redirect:/promotion";
         }
 
-
-        //return "promotion";
     }
 
     private String formatMessage(List<String> basedOnList) {   // use to check whether user select more options
@@ -146,18 +140,6 @@ public class PromotionController {
         }
 
         return message;
-    }
-
-    private String getSelectionMechanismValue(Promotion promotion) {
-        String selectMechanism = null;
-        if(promotion.getSelectMechanism().equals("random")){
-            selectMechanism = promotion.getRandomCount();
-        } else if(promotion.getSelectMechanism().equals("firstSubscribers")) {
-            selectMechanism = promotion.getRandomCount1();
-        } else {
-            selectMechanism = "none";
-        }
-        return selectMechanism;
     }
 
     private List<String> getBasedOnValues(Promotion promotion){
