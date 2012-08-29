@@ -19,6 +19,8 @@ CREATE TABLE IF NOT EXISTS `report_promotion_db_summery`(
 )
 ENGINE= InnoDB;
 
+DROP PROCEDURE IF EXISTS InsertToSummery;
+
 DELIMITER //
  CREATE PROCEDURE InsertToSummery()
     BEGIN
@@ -44,17 +46,17 @@ DELIMITER //
           r.`rule_id`,
           p.`company_code`,
           cm.`company_name`,
-          p.`program_owner`,
+          p.`sms_message`,
+          "pizza promotion",
           p.`promotion_name`,
           p.`start_date_time`,
-          p.`end_date_time`,
+          p.`based_on`,
+          p.`age_restriction`,
           p.`promotion_number`,
-          p.`sms_message`,
           p.`cycle_type`,
-          p.`cycle_time`,
           r.`status`,
           sm.`msisdn`,
-          p.`based_on`
+          p.`end_date_time`
         FROM `promotion` p, `PROMOTION_RULE_EXECUTOR` r, `company` cm, `PROMOTION_SEND_MSISDN` sm
         WHERE
             cm.`company_reg_no`=p.`company_code` AND
@@ -68,3 +70,54 @@ DELIMITER //
             FROM `report_promotion_db_summery`) IS NULL);
     END //
  DELIMITER ;
+
+
+--  DELIMITER //
+--  CREATE PROCEDURE InsertToSummery()
+--     BEGIN
+--         INSERT INTO `report_promotion_db_summery` (
+--         `promotion_rule_id`,
+--         `rule_id`,
+--         `company_code`,
+--         `company_name`,
+--         `programme_owner`,
+--         `promotion_name`,
+--         `start_date`,
+--         `end_date`,
+--         `promotion_number1`,
+--         `sms_message`,
+--         `execution_type`,
+--         `execution_time`,
+--         `status`,
+--         `msisdn`,
+--         `based_on`)
+--
+--         SELECT
+--           p.`promotion_id`,
+--           r.`rule_id`,
+--           p.`company_code`,
+--           cm.`company_name`,
+--           p.`program_owner`,
+--           p.`promotion_name`,
+--           p.`start_date_time`,
+--           p.`end_date_time`,
+--           p.`promotion_number`,
+--           p.`sms_message`,
+--           p.`cycle_type`,
+--           p.`cycle_time`,
+--           r.`status`,
+--           sm.`msisdn`,
+--           p.`based_on`
+--         FROM `promotion` p, `PROMOTION_RULE_EXECUTOR` r, `company` cm, `PROMOTION_SEND_MSISDN` sm
+--         WHERE
+--             cm.`company_reg_no`=p.`company_code` AND
+--             p.`promotion_id`=r.`promotion_rule_id` AND
+--             p.`promotion_id`=sm.`promotion_rule_id`AND
+--             (p.`promotion_id`>(
+--                 SELECT MAX(`promotion_rule_id`)
+--                 FROM `report_promotion_db_summery`
+--             ) OR
+--             (SELECT MAX(`promotion_rule_id`)
+--             FROM `report_promotion_db_summery`) IS NULL);
+--     END //
+--  DELIMITER ;
