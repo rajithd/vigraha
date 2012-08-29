@@ -40,6 +40,31 @@
                     </ul>
                 </sec:authorize>
 
+
+                <sec:authorize ifAnyGranted="ROLE_ADMIN">
+                <ul class="nav">
+                    <li class="divider-vertical"></li>
+                </ul>
+
+
+                <ul class="nav">
+                    <li class="dropdown" style="text-align: left">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Company <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+
+                            <li><a href="company-registration">Create New Company</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Modify / Delete Company</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Change Password</a></li>
+                            <li class="divider"></li>
+
+                        </ul>
+                    </li>
+                </ul>
+                </sec:authorize>
+
+                <sec:authorize ifAnyGranted="ROLE_ADMIN">
                 <ul class="nav">
                     <li class="divider-vertical"></li>
                 </ul>
@@ -58,7 +83,9 @@
                         </ul>
                     </li>
                 </ul>
+                </sec:authorize>
 
+                <sec:authorize ifAnyGranted="ROLE_ADMIN">
                 <ul class="nav">
                     <li class="divider-vertical"></li>
                 </ul>
@@ -67,7 +94,7 @@
                     <li class="dropdown" style="text-align: left">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Loyalty Programme <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Create new Loyalty</a></li>
+                            <li><a href="loyalty">Create new Loyalty</a></li>
                             <li class="divider"></li>
                             <li><a href="#">Edit / Search Loyalty</a></li>
                             <li class="divider"></li>
@@ -76,7 +103,9 @@
                         </ul>
                     </li>
                 </ul>
+                </sec:authorize>
 
+                <sec:authorize ifAnyGranted="ROLE_ADMIN">
                 <ul class="nav">
                     <li class="divider-vertical"></li> <!-- vertical line | -->
                 </ul>
@@ -86,7 +115,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tenure Programme<b class="caret"></b></a>
                         <ul class="dropdown-menu">
 
-                            <li><a href="#">Create new Tenure</a></li>
+                            <li><a href="tenure">Create new Tenure</a></li>
                             <li class="divider"></li>
                             <li><a href="#">Edit / Search Tenure</a></li>
                             <li class="divider"></li>
@@ -95,6 +124,7 @@
                         </ul>
                     </li>
                 </ul>
+                </sec:authorize>
 
                 <ul class="nav">
                     <li class="divider-vertical"></li> <!-- vertical line | -->

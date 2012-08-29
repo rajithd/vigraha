@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import vigraha.admin.domain.Company;
 import vigraha.admin.domain.CompanyPromotion;
+import vigraha.admin.domain.Tenure;
 import vigraha.admin.repository.PromotionRepository;
 import vigraha.admin.domain.Promotion;
 
@@ -75,7 +76,7 @@ public class PromotionController {
         }
 //
         else {
-            logger.info("Company register not success");
+            logger.info("Promotion register not success");
             return "redirect:/promotion";
         }
 

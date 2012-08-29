@@ -254,7 +254,7 @@
     </dependencies>
 
     <build>
-        <finalName>reporting-ui</finalName>
+        <finalName>reporting</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
