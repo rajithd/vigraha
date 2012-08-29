@@ -70,7 +70,8 @@ PRIMARY key(record_id)
 )
 ENGINE= InnoDB;
 
--- add admin and customer login details--
+-- add admin and customer login details
+-- admin registration
 CREATE TABLE IF NOT EXISTS `login` (
 `id` VARCHAR (20) NOT NULL ,
 `username` VARCHAR (20) NOT NULL ,
@@ -85,12 +86,13 @@ CREATE TABLE IF NOT EXISTS `authority` (
 )
 ENGINE= InnoDB;
 
+-- add promotion program
 CREATE TABLE IF NOT EXISTS `promotion` (
 `promotion_id` INT NOT NULL AUTO_INCREMENT ,
 `company_code` VARCHAR(50) NOT NULL ,
-`promotion_name` DATETIME NOT NULL ,
+`promotion_name` VARCHAR(50) NOT NULL ,
 `start_date_time` DATETIME NOT NULL ,
-`end_date_time` VARCHAR(30) NOT NULL ,
+`end_date_time` DATETIME NOT NULL ,
 `based_on` VARCHAR(50) NOT NULL ,
 `promotion_number` VARCHAR(10) NOT NULL ,
 `cycle_type` VARCHAR(50) NOT NULL ,
@@ -106,6 +108,52 @@ PRIMARY KEY (promotion_id)
 )
 ENGINE= InnoDB;
 
+-- add loyalty program
+CREATE TABLE IF NOT EXISTS `loyalty` (
+`loyalty_id` INT NOT NULL AUTO_INCREMENT ,
+`company_code` VARCHAR(50) NOT NULL ,
+`loyalty_name` VARCHAR(50) NOT NULL ,
+`start_date_time` DATETIME NOT NULL ,
+`end_date_time` DATETIME NOT NULL ,
+`based_on` VARCHAR(50) NOT NULL ,
+`loyalty_number` VARCHAR(10) NOT NULL ,
+`cycle_type` VARCHAR(50) NOT NULL ,
+`cycle_time` VARCHAR(50) NOT NULL ,
+`restriction` VARCHAR(50) NOT NULL ,
+`selection_type` VARCHAR (50) NOT NULL ,
+`selection_value` VARCHAR(50) NOT NULL ,
+`age_restriction` VARCHAR(20) ,
+`sms_message` VARCHAR (200) NOT NULL,
+`program_owner` VARCHAR (30) NOT NULL ,
+`loyalty_status` VARCHAR (30) NOT NULL ,
+PRIMARY KEY (loyalty_id)
+)
+ENGINE= InnoDB;
+
+-- add tenure program
+CREATE TABLE IF NOT EXISTS `tenure` (
+`tenure_id` INT NOT NULL AUTO_INCREMENT ,
+`company_code` VARCHAR(50) NOT NULL ,
+`tenure_name` VARCHAR(50) NOT NULL ,
+`start_date_time` DATETIME NOT NULL ,
+`end_date_time` DATETIME NOT NULL ,
+`based_on` VARCHAR(50) NOT NULL ,
+`tenure_number` VARCHAR(10) NOT NULL ,
+`cycle_type` VARCHAR(50) NOT NULL ,
+`cycle_time` VARCHAR(50) NOT NULL ,
+`restriction` VARCHAR(50) NOT NULL ,
+`selection_type` VARCHAR (50) NOT NULL ,
+`selection_value` VARCHAR(50) NOT NULL ,
+`age_restriction` VARCHAR(20) ,
+`sms_message` VARCHAR (200) NOT NULL,
+`program_owner` VARCHAR (30) NOT NULL ,
+`promotion_status` VARCHAR (30) NOT NULL ,
+PRIMARY KEY (tenure_id)
+)
+ENGINE= InnoDB;
+
+
+-- company registration
 CREATE TABLE IF NOT EXISTS `company` (
 `company_name` VARCHAR(50) NOT NULL ,
 `company_reg_no` VARCHAR(11) NOT NULL ,
