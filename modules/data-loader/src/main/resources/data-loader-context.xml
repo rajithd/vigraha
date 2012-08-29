@@ -99,6 +99,7 @@
                 <ref bean="ussdUploadManagerServiceTrigger"/>
                 <ref bean="custUploadManagerServiceTrigger"/>
                 <ref bean="summeryProcudureCallTrigger" />
+                <ref bean="dbbackupTrigger" />
             </list>
         </property>
     </bean>
@@ -137,6 +138,11 @@
     <bean id="summeryProcudureCallTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
         <property name="jobDetail" ref="summeryTransactionManager"/>
         <property name="cronExpression" value="${summery.upload.cron.expression}"/>
+    </bean>
+
+    <bean id="dbbackupTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="dbBackupManager"/>
+        <property name="cronExpression" value="${backup.upload.cron.expression}"/>
     </bean>
 
     <bean id="voiceCallTransactionManager"
@@ -206,6 +212,16 @@
         </property>
         <property name="targetMethod">
             <value>save</value>
+        </property>
+    </bean>
+
+    <bean id="dbBackupManager"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="dbBackupObjectTarget"/>
+        </property>
+        <property name="targetMethod">
+            <value>callBackup</value>
         </property>
     </bean>
 
@@ -353,6 +369,25 @@
         </property>
         <property name="transactionRepository" ref="customerTransactionRepository" />
         <property name="jsonDecoderService" ref="jsonDecoderService"/>
+
+    </bean>
+
+    <bean id="dbBackupObjectTarget" class="vigraha.dataloader.repository.impl.DBBackupImpl">
+        <property name="username">
+            <value>${vigraha.username}</value>
+        </property>
+        <property name="password">
+            <value>${vigraha.password}</value>
+        </property>
+        <property name="database">
+            <value>${backup.upload.database}</value>
+        </property>
+        <property name="backupPath">
+            <value>${backup.upload.directory}</value>
+        </property>
+        <property name="mysqlPath">
+            <value>${backup.upload.mysqlpath}</value>
+        </property>
 
     </bean>
 
