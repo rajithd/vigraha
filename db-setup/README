@@ -1,5 +1,4 @@
-#DB-Setup
-
 ##executing sequence
 1.create_database.sql
 2.create_table.sql
+3.summery_table.sql
