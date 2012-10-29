@@ -57,7 +57,7 @@ DELIMITER //
           r.`status`,
           sm.`msisdn`,
           p.`end_date_time`
-        FROM `promotion` p, `PROMOTION_RULE_EXECUTOR` r, `company` cm, `PROMOTION_SEND_MSISDN` sm
+        FROM `promotion` p, `promotion_rule_executor` r, `company` cm, `promotion_send_msisdn` sm
         WHERE
             cm.`company_reg_no`=p.`company_code` AND
             p.`promotion_id`=r.`promotion_rule_id` AND
