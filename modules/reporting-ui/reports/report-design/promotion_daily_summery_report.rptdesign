@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
-    <property name="createdBy">Eclipse BIRT Designer Version 3.7.2.v20120213 Build &lt;3.7.2.v20120214-1408></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.2.1.v201209101448 Build &lt;4.2.1.v20120912-1721></property>
     <property name="units">in</property>
     <property name="layoutPreference">auto layout</property>
     <property name="bidiLayoutOrientation">ltr</property>
@@ -437,10 +437,10 @@ from report_promotion_db_summery]]></xml-property>
                 <cell id="12">
                     <property name="textAlign">left</property>
                     <image id="316">
-                    	<property name="heigth">67px</property>
-                    	<property name="width">189px</property>
-                        <property name="source">url</property>
-                        <expression name="uri" type="constant">http://127.0.0.1:8080/reporting-ui/webcontent/birt/images/logo.png</expression>
+                        <property name="height">67px</property>
+                        <property name="width">189px</property>
+                        <property name="source">embed</property>
+                        <property name="imageName">logo.png</property>
                     </image>
                 </cell>
                 <cell id="13">
@@ -451,6 +451,7 @@ from report_promotion_db_summery]]></xml-property>
                     <property name="textOverline">none</property>
                     <property name="textAlign">center</property>
                     <text-data id="136">
+                        <property name="fontWeight">bold</property>
                         <expression name="valueExpr">"Promotion Daily Summery Report"</expression>
                         <property name="contentType">html</property>
                     </text-data>
