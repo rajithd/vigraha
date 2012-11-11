@@ -126,6 +126,10 @@
                 </ul>
                 </sec:authorize>
 
+                <ul class="nav">
+                    <li class="divider-vertical"></li> <!-- vertical line | -->
+                </ul>
+
                 <sec:authorize ifAnyGranted="ROLE_ADMIN">
                     <ul class="nav">
                         <li class="divider-vertical"></li> <!-- vertical line | -->
@@ -143,10 +147,6 @@
                         </li>
                     </ul>
                 </sec:authorize>
-
-                <ul class="nav">
-                    <li class="divider-vertical"></li> <!-- vertical line | -->
-                </ul>
 
 
                 <ul class="nav pull-right">
