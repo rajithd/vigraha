@@ -59,6 +59,14 @@
         </property>
     </bean>
 
+    <bean id="hiveDriver" class="org.apache.hadoop.hive.jdbc.HiveDriver"/>
+
+    <bean id="hiveDataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+        <property name="driver" ref="hiveDriver"/>
+        <property name="url" value="${hive.url}"/>
+
+    </bean>
+
     <bean id="jdbcTemplate"
           class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource">
@@ -80,6 +88,33 @@
     <bean id="promotionRuleExecutor" class="vigraha.rule.service.impl.PromotionRuleExecutorImpl">
         <property name="promotionRuleExecutorRepository" ref="promotionRuleExecutorRepository"/>
         <property name="poolSize" value="1"/>
+    </bean>
+
+    <bean id="hiveTableImportingExecutor" class="vigraha.rule.service.HiveTableImportingExecutor">
+        <property name="dataBaseMetaDataService" ref="dataBaseMetaDataService"/>
+        <property name="hiveDataSource" ref="hiveDataSource"/>
+        <property name="relationalDataSource" ref="dataSource"/>
+        <property name="executorService" ref="tableImporterThreadPool"/>
+    </bean>
+
+    <bean id="dataBaseMetaDataService" class="vigraha.rule.repository.metadata.impl.DataBaseMetaDataServiceImpl">
+        <property name="liquibase" ref="liquibase"/>
+    </bean>
+
+    <bean id="liquibase" class="vigraha.rule.repository.metadata.spring.SpringLiquibase">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="contexts" value="test, production"/>
+    </bean>
+
+    <bean id="tableImportExecutor" class="vigraha.rule.service.TableImportExecutor">
+    </bean>
+
+    <bean id="tableImporterThreadPool" class="java.util.concurrent.Executors" factory-method="newFixedThreadPool">
+        <constructor-arg value="10"/>
+    </bean>
+
+    <bean id="winnerSelectionProcess" class="vigraha.rule.service.WinnerSelectionProcess">
+        <property name="hiveDataSource" ref="hiveDataSource"/>
     </bean>
 
 </beans>

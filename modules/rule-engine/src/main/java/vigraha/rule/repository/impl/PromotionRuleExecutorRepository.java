@@ -9,6 +9,7 @@ import vigraha.rule.domain.Customer;
 import vigraha.rule.domain.Promotion;
 import vigraha.rule.domain.PromotionExecutor;
 import vigraha.rule.domain.VoiceCall;
+import vigraha.rule.service.WinnerSelectionProcess;
 import vigraha.rule.util.ExecutorStatus;
 import vigraha.rule.util.TableHandler;
 
@@ -21,6 +22,7 @@ public class PromotionRuleExecutorRepository implements TableHandler {
     private static final Logger logger = LoggerFactory.getLogger(PromotionRuleExecutorRepository.class);
 
     private JdbcTemplate jdbcTemplate;
+    private WinnerSelectionProcess winnerSelectionProcess;
 
     public PromotionExecutor getPendingRuleFromPromotionRuleExecutor() {
         String sql = "select rule_id,promotion_rule_id,start_date,end_date,execute_time,promotion_number,based_on from "
@@ -44,6 +46,7 @@ public class PromotionRuleExecutorRepository implements TableHandler {
 
     public boolean isPendingRuleExistsInPromotionExecutor() {
         String sql = "select count(*) from " + TABLE_PROMOTION_RULE_EXECUTOR + " where status=?";
+        winnerSelectionProcess.executeSQL("select count(*) from promotion_rule_executor");
         int count = jdbcTemplate.queryForInt(sql, ExecutorStatus.PENDING.toString());
         logger.info("Number of PENDING rule found in [{}] : [{}]", TABLE_PROMOTION_RULE_EXECUTOR, count);
         if (count > 0) return true;
@@ -53,6 +56,7 @@ public class PromotionRuleExecutorRepository implements TableHandler {
     public List<VoiceCall> getResultsBasedOnPromotionNumber(String promotionNumber){
         logger.info("Getting results in voice call. Promotion number is  : [{}] " , promotionNumber);
         String sql = "select number_make_call,call_result from voice_call where number_receive_call = ?;";
+        winnerSelectionProcess.executeSQL("select count(*) from voice_call");
         logger.info("getResultsBasedOnPromotionNumber SQL : [{}]" , sql);
         List<VoiceCall> voiceCallList = jdbcTemplate.query(sql, new RowMapper<VoiceCall>() {
             @Override
@@ -70,6 +74,7 @@ public class PromotionRuleExecutorRepository implements TableHandler {
     public Customer getCustomerBasedOnVoiceCall(String numberMakingCall){
         logger.info("Getting customers based on number that make call : [{}]" , numberMakingCall);
         String sql = "select id,msisdn,name,city from customer where msisdn = ? ;";
+        winnerSelectionProcess.executeSQL("select count(*) from customer");
         logger.info("getCustomerBasedOnVoiceCall SQL: [{}]", sql);
         return jdbcTemplate.queryForObject(sql, new RowMapper<Customer>() {
             @Override
@@ -109,5 +114,9 @@ public class PromotionRuleExecutorRepository implements TableHandler {
         String sql = "update " + TABLE_PROMOTION_RULE_EXECUTOR + " set status= ? where rule_id=?";
         jdbcTemplate.update(sql,success,id);
         logger.info("Rule status updated successfull");
+    }
+
+    public void setWinnerSelectionProcess(WinnerSelectionProcess winnerSelectionProcess) {
+        this.winnerSelectionProcess = winnerSelectionProcess;
     }
 }
