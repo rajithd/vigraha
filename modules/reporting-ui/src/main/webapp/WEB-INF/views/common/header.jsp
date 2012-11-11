@@ -17,7 +17,6 @@
             <a class="brand" href="welcome">Vigraha</a>
 
             <div class="nav-collapse">
-                <sec:authorize ifAnyGranted="ROLE_SUPER_ADMIN">
                     <ul class="nav">
                         <li class="divider-vertical"></li>
                     </ul>
@@ -38,10 +37,8 @@
                             </ul>
                         </li>
                     </ul>
-                </sec:authorize>
 
 
-                <sec:authorize ifAnyGranted="ROLE_ADMIN">
                 <ul class="nav">
                     <li class="divider-vertical"></li>
                 </ul>
@@ -62,9 +59,7 @@
                         </ul>
                     </li>
                 </ul>
-                </sec:authorize>
 
-                <sec:authorize ifAnyGranted="ROLE_ADMIN">
                 <ul class="nav">
                     <li class="divider-vertical"></li>
                 </ul>
@@ -78,14 +73,12 @@
                             <li class="divider"></li>
                             <li><a href="#">Edit / Search Promotion</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Promotion Programme Report</a></li>
+                            <li><a href="http://127.0.0.1:4287/reporting/promotionDailyReport">Promotion Programme Report</a></li>
 
                         </ul>
                     </li>
                 </ul>
-                </sec:authorize>
 
-                <sec:authorize ifAnyGranted="ROLE_ADMIN">
                 <ul class="nav">
                     <li class="divider-vertical"></li>
                 </ul>
@@ -103,34 +96,8 @@
                         </ul>
                     </li>
                 </ul>
-                </sec:authorize>
 
-                <sec:authorize ifAnyGranted="ROLE_ADMIN">
-                <ul class="nav">
-                    <li class="divider-vertical"></li> <!-- vertical line | -->
-                </ul>
 
-                <ul class="nav">
-                    <li class="dropdown" style="text-align: left">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tenure Programme<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-
-                            <li><a href="tenure">Create new Tenure</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Edit / Search Tenure</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Tenure Programme Report</a></li>
-
-                        </ul>
-                    </li>
-                </ul>
-                </sec:authorize>
-
-                <ul class="nav">
-                    <li class="divider-vertical"></li> <!-- vertical line | -->
-                </ul>
-
-                <sec:authorize ifAnyGranted="ROLE_ADMIN">
                     <ul class="nav">
                         <li class="divider-vertical"></li> <!-- vertical line | -->
                     </ul>
@@ -146,7 +113,6 @@
                             </ul>
                         </li>
                     </ul>
-                </sec:authorize>
 
 
                 <ul class="nav pull-right">
